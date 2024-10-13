@@ -1,0 +1,99 @@
+[
+  {
+    "title": "Tiny Shooter",
+    "url": "./weapons/tiny-shooter.html",
+    "tags": [
+      "weapon",
+      "ap1",
+      "ap2",
+      "ap3",
+      "ap4",
+      "ap3/4",
+      "ap5",
+      "projectile"
+    ]
+  },
+  {
+    "title": "Double Shooter",
+    "url": "./weapons/double-shooter.html",
+    "tags": [
+      "weapon",
+      "ap1",
+      "ap2",
+      "ap3",
+      "ap4",
+      "ap3/4",
+      "ap5",
+      "multishot",
+      "inaccurate",
+      "projectile"
+    ]
+  },
+  {
+    "title": "Bomb Shooter",
+    "url": "./weapons/bomb-shooter.html",
+    "tags": [
+      "weapon",
+      "ap1",
+      "explosive",
+      "projectile"
+    ]
+  },
+  {
+    "title": "Heavy Shots",
+    "url": "./weapons/heavy-shots.html",
+    "tags": [
+      "weapon",
+      "ap2",
+      "knockback",
+      "projectile"
+    ]
+  },
+  {
+    "title": "Laser Blaster",
+    "url": "./weapons/laser-blaster.html",
+    "tags": [
+      "weapon",
+      "ap3",
+      "ap4",
+      "ap3/4",
+      "laser",
+      "projectile"
+    ]
+  },
+  {
+    "title": "Rifle",
+    "url": "./weapons/rifle.html",
+    "tags": [
+      "weapon",
+      "ap5",
+      "piercing",
+      "pierce",
+      "projectile"
+    ]
+  },
+  {
+    "title": "Wooden Boxes",
+    "url": "./boxes/wood-box.html",
+    "tags": [
+      "entity",
+      "box",
+      "sky high",
+      "enemy",
+      "dodgeable"
+    ]
+  },
+  {
+    "title": "Metal Boxes",
+    "url": "./boxes/metal-box.html",
+    "tags": [
+      "entity",
+      "box",
+      "sky high",
+      "enemy",
+      "dodgeable",
+      "resistant",
+      "resistance"
+    ]
+  }
+]

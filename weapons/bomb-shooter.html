@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../weapon-page.css">
+  <script src="../to-node.js"></script>
+  <script src="../search.js"></script>
+  <script src="../elements.js"></script>
+</head>
+
+<body>
+  <header><p><i>Weapon</i><p>Bomb Shooter</p></p><search-bar></search-bar></header>
+  <info-box>
+    | {{name}} : Bomb Shooter
+    | [[slots]] : AP1-any-3
+    | [[image]] : ../default-icon.ico
+    | Basic Info
+    | Fire Rate : 1/s
+    | Upgrade Cost : 540 Shards
+    | Total Cost : 790 Shards
+    | Attack Details
+    | Type : Projectile
+    | Speed : 180 px/s # 30 px/frame
+    | Size : 40 x 30 # Hitcircle of radius 30
+    | Lifetime : 0.67s # 40 frames
+    | Damage Topology
+    | Damage : 1 (Main), 2 (Explosion)
+    | Damage Type : Ballistic (Main), Explosion (Explosion)
+    | Shot Pattern
+    | Amount : 1
+    | Spread : 0
+    | Upgrade Path (AP1.1)
+    | [[navigator]] : Tiny Shooter@tiny-shooter.html + Double Shooter@double-shooter.html + Bomb Shooter@bomb-shooter.html
+    | Upgrade Path (AP1.2)
+    | [[navigator]] : Tiny Shooter@tiny-shooter.html + Double Shooter@double-shooter.html + Bomb Shooter@bomb-shooter.html
+  </info-box>
+</body>
+
+</html>
