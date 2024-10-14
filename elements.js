@@ -17,6 +17,9 @@ class InfoComponent extends HTMLElement {
         font-family: var(--main-font);
         text-align: center;
         vertical-align: middle;
+        max-height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
       }
       .info-container .header, .info-container .body{
         width: 95%;
@@ -80,7 +83,7 @@ class InfoComponent extends HTMLElement {
       }
       .info-container .extra{
         font-style: italic;
-        position: absolute;
+        position: relative;
       }
       .info-container .extra::before{
         content: "(...)";
