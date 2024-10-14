@@ -102,6 +102,7 @@ class InfoComponent extends HTMLElement {
         translate: -50% 90%;
         padding: 2px;
         z-index: 1;
+        max-width: calc(var(--box-width) / 2);
       }
       .info-container .navitem{
         background-color: var(--table-item-colour);

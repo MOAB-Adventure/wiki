@@ -95,5 +95,25 @@
       "resistant",
       "resistance"
     ]
+  },
+  {
+    "title": "Massive Ornary Air Blimp (MOAB)",
+    "url": "./blimps/moab.html",
+    "tags": [
+      "entity",
+      "blimp",
+      "free",
+      "player"
+    ]
+  },
+  {
+    "title": "Sky High",
+    "url": "./zones/sky-high.html",
+    "tags": [
+      "zone",
+      "world",
+      "wooden box",
+      "metal box"
+    ]
   }
 ]

@@ -1,6 +1,28 @@
-body{
+body {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--main-font);
 }
-info-box{
+info-box {
   float: right;
+}
+main {
+  margin: 10px;
+  border: 2px solid black;
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+main .desc{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+main .desc *{
+  margin: 10px;
+  background-color: var(--faded-sidebar-colour);
+  padding: 10px
 }
