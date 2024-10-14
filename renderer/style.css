@@ -1,0 +1,68 @@
+::selection{
+  background-color: inherit;
+}
+*{
+  font-family: "Consolas", monospace;
+}
+html, body{
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+#controls{
+  scale: 0.8;
+  translate: -10% -10%
+}
+fieldset{
+  border: 2px solid black;
+  background-color: #fafafa;
+}
+.full {
+  width: 8000px;
+  height: 8000px;
+  translate: -50% -50%;
+  position: absolute;
+}
+draggable-part{
+  background-image: url(https://cdn.jsdelivr.net/gh/LightningLaser8/MOAB-Adventure@main/assets/textures/ui/background.png); 
+  filter: brightness(2);
+  border: 2px solid black
+}
+#anchor{
+  opacity: 0;
+}
+#ref{
+  background-image: url(../images/entity/moab.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  opacity: 0.3;
+  filter: none;
+}
+.grid {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  background:
+      linear-gradient(-90deg, rgba(0,0,0,.05) 1px, transparent 1px),
+      linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px), 
+      linear-gradient(-90deg, rgba(0, 0, 0, .04) 1px, transparent 1px),
+      linear-gradient(rgba(0,0,0,.04) 1px, transparent 1px),
+      linear-gradient(transparent 3px, #f2f2f2 3px, #f2f2f2 78px, transparent 78px),
+      linear-gradient(-90deg, #aaa 1px, transparent 1px),
+      linear-gradient(-90deg, transparent 3px, #f2f2f2 3px, #f2f2f2 78px, transparent 78px),
+      linear-gradient(#aaa 1px, transparent 1px),
+      #f2f2f2;
+  background-size:
+      8px 8px,
+      8px 8px,
+      80px 80px,
+      80px 80px,
+      80px 80px,
+      80px 80px,
+      80px 80px,
+      80px 80px;
+}
+.offset{
+  background-position: 2px 2px
+}

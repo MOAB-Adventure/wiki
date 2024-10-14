@@ -147,12 +147,12 @@ class InfoComponent extends HTMLElement {
     this.createDefault();
   }
   createDefault() {
-    this.shadowRoot.appendChild(htmlToNode(InfoComponent.styleLink));
+    this.shadowRoot.appendChild(htmlToNode(this.constructor.styleLink));
     let style = document.createElement("style");
-    style.textContent = InfoComponent.styles;
+    style.textContent = this.constructor.styles;
     this.shadowRoot.appendChild(style);
     this.shadowRoot.appendChild(
-      htmlToNode(InfoComponent.mainContent)
+      htmlToNode(this.constructor.mainContent)
     );
   }
   setName(name = "[[Name]]") {
@@ -332,7 +332,33 @@ class GeneratedInfoComponent extends InfoComponent {
   }
 }
 
-class WeaponInfoComponent extends GeneratedInfoComponent {}
+class WeaponInfoComponent extends GeneratedInfoComponent {
+  static mainContent = `<div class="info-container">
+      <div class="header"><span id="head"></span><button id="open-renderer" style="margin-left: 20px; padding: 5px; background-color: cyan;" title="View weapon as it appears in-game.">Open in Renderer</button></div>
+      <div class="body" id="body"></div>
+    </div>`
+  static openInRenderer(weapon){
+    let newrl = new URL("../renderer/weapon.html", window.location) + "?weapon="+encodeURIComponent(weapon) + (window.location.href.includes("renderer/weapon.html")?("&source=" + encodeURIComponent(document.getElementById("return").href)):("&source=" + encodeURIComponent(window.location.href)))
+    window.location.href = newrl
+  }
+  #json = "[]"
+  constructor(){
+    super()
+    let btn = this.shadowRoot.getElementById("open-renderer")
+    btn.addEventListener("click", () => {this.constructor.openInRenderer(this.#json)})
+  }
+  parseInfo(para) {
+    let lines = para.split("|");
+    for (let line of lines) {
+      if(line.trimStart().startsWith(">")){
+        this.#json = line.split(">")[1]
+        console.log("Set json to "+this.#json)
+        continue
+      }
+      this.parseLine(line.trim());
+    }
+  }
+}
 
 customElements.define("info-box", GeneratedInfoComponent);
 customElements.define("weapon-info", WeaponInfoComponent);
@@ -376,7 +402,6 @@ class SearchBarElement extends HTMLElement{
     this.shadowRoot.appendChild(searchButton)
   }
   static searched(term){
-    console.log("searched for "+term)
     getPageData().then(
       value => {
         this.showResults(searchFor(term, value), term)
@@ -385,7 +410,6 @@ class SearchBarElement extends HTMLElement{
   }
   static showResults(results, term){
     let newrl = new URL("../search-results.html", window.location) + "?result="+encodeURIComponent(JSON.stringify(results)) + "&query=" + encodeURIComponent(term) + (window.location.href.includes("search-results.html")?("&source=" + encodeURIComponent(document.getElementById("return").href)):("&source=" + encodeURIComponent(window.location.href)))
-    console.log(results)
     window.location.href = newrl
   }
 }

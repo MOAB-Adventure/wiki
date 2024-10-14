@@ -254,3 +254,6 @@ iframe {
 .no-results:hover::after{
   content: " > Return home";
 }
+.external-editor{
+  zoom: 1.5;
+}

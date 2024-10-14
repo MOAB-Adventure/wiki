@@ -115,5 +115,13 @@
       "wooden box",
       "metal box"
     ]
+  },
+  {
+    "title": "Home",
+    "url": "./misc/no-info.html",
+    "tags": [
+      "wiki",
+      "moab adventure"
+    ]
   }
 ]

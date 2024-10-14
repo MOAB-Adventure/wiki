@@ -24,5 +24,20 @@ main .desc{
 main .desc *{
   margin: 10px;
   background-color: var(--faded-sidebar-colour);
-  padding: 10px
+  padding: 10px;
+  font-size: 125%;
+}
+main .desc h1{
+  font-size: 175%;
+}
+main .desc i,main .desc b, main .desc a{
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  display: inline;
+}
+main .desc img{
+  align-self: center;
+  height: auto;
+  width: 60%;
 }
