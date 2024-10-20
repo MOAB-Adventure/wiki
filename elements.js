@@ -20,6 +20,8 @@ class InfoComponent extends HTMLElement {
         max-height: 100%;
         overflow-y: auto;
         overflow-x: hidden;
+        height: 100%;
+        background-color: var(--table-bg-colour);
       }
       .info-container .header, .info-container .body{
         width: 95%;
