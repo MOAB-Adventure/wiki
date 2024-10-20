@@ -9,12 +9,14 @@
   --box-width: 500px;
   --header-size: 40px;
 
-  --sidebar-group-colour: #006aff;
+  --sidebar-group-colour: #0065f3;
   --sidebar-colour: #0053c7;
   --faded-sidebar-colour: #a5bee3;
+  --less-faded-sidebar-colour: #91b1e1;
+  --faded-border-colour: #7587a2;
   --faded-sidebar-hover-colour: #cbd5e4;
   --sidebar-top-colour: #00429f;
-  --sidebar-item-colour: #0c71ff;
+  --sidebar-item-colour: #0b67e8;
   --sidebar-item-hover-colour: #3589ff;
 }
 html,
@@ -52,6 +54,9 @@ header {
   font-weight: bolder;
   position: sticky;
   top: 0;
+}
+header h1{
+  font-size: 100%;
 }
 header * {
   flex-grow: 1;

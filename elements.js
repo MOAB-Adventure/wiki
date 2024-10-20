@@ -22,6 +22,7 @@ class InfoComponent extends HTMLElement {
         overflow-x: hidden;
         height: 100%;
         background-color: var(--table-bg-colour);
+        scrollbar-width: thin;
       }
       .info-container .header, .info-container .body{
         width: 95%;
@@ -36,6 +37,9 @@ class InfoComponent extends HTMLElement {
         border: 2px double black;
         font-weight: bolder;
         font-size: calc(var(--header-size) * 0.625);
+        position: sticky;
+        top: 0;
+        z-index: 1;
       }
       .info-container .body{
         background-color: var(--table-bg-colour);
@@ -357,7 +361,6 @@ class WeaponInfoComponent extends GeneratedInfoComponent {
     for (let line of lines) {
       if(line.trimStart().startsWith(">")){
         this.#json = line.split(">")[1]
-        console.log("Set json to "+this.#json)
         continue
       }
       this.parseLine(line.trim());
