@@ -81,6 +81,8 @@ header * i {
   flex-direction: column;
 }
 .vscroll {
+  scrollbar-color: var(--sidebar-item-colour) var(--sidebar-top-colour);
+  scrollbar-width: thin;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
@@ -140,6 +142,7 @@ iframe {
   font-size: 100%;
 }
 .nav.item {
+  width: 100%;
   flex-grow: 1;
   text-decoration: none;
   color: white;

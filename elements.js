@@ -421,5 +421,26 @@ class SearchBarElement extends HTMLElement{
     window.location.href = newrl
   }
 }
+class IconElement extends HTMLElement{
+  static observedAttributes = ["icon"]
+  static icons = {
+    shard: "../images/icon/shard.svg",
+    bloonstone: "../images/icon/bloonstone.svg"
+  }
+  constructor(){
+    super()
+  }
+  connectedCallback(){
+    this.attachShadow({ mode: "open" })
+    // this.shadowRoot.appendChild(htmlToNode(InfoComponent.styleLink));
+    this.shadowRoot.appendChild(htmlToNode(`<style>.icon{height: 1em;}</style>`));
+    let image = document.createElement("img")
+    image.src = IconElement.icons[this.getAttribute("icon")]??"../images/icon/error.png"
+    image.height = 50
+    image.classList.add("icon")
+    this.shadowRoot.appendChild(image)
+  }
+}
 
 customElements.define("search-bar", SearchBarElement)
+customElements.define("i-n", IconElement)

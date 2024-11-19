@@ -40,8 +40,31 @@
     ]
   },
   {
+    "title": "Incendiary",
+    "url": "./weapons/incendiary.html",
+    "tags": [
+      "weapon",
+      "ap1",
+      "explosive",
+      "projectile",
+      "dot",
+      "fire",
+      "burning"
+    ]
+  },
+  {
     "title": "Heavy Shots",
     "url": "./weapons/heavy-shots.html",
+    "tags": [
+      "weapon",
+      "ap2",
+      "knockback",
+      "projectile"
+    ]
+  },
+  {
+    "title": "Kinetic Impactor",
+    "url": "./weapons/kinetic-impactor.html",
     "tags": [
       "weapon",
       "ap2",
@@ -62,6 +85,19 @@
     ]
   },
   {
+    "title": "Accelerator",
+    "url": "./weapons/accelerator.html",
+    "tags": [
+      "weapon",
+      "ap3",
+      "ap4",
+      "ap3/4",
+      "laser",
+      "projectile",
+      "accelerating"
+    ]
+  },
+  {
     "title": "Rifle",
     "url": "./weapons/rifle.html",
     "tags": [
@@ -70,6 +106,17 @@
       "piercing",
       "pierce",
       "projectile"
+    ]
+  },
+  {
+    "title": "Sniper",
+    "url": "./weapons/sniper.html",
+    "tags": [
+      "weapon",
+      "ap5",
+      "point",
+      "sniper",
+      "instant"
     ]
   },
   {

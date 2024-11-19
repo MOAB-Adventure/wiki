@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../weapon-page.css">
+  <script src="../to-node.js"></script>
+  <script src="../search.js"></script>
+  <script src="../elements.js"></script>
+</head>
+
+<body>
+  <header>
+    <p><i>Weapon</i>
+    <p>Kinetic Impactor</p>
+    </p><search-bar></search-bar>
+  </header>
+  <main>
+    <div class="desc">
+      <div class="bq">
+        <blockquote>
+          <p>Hit entities collide with others.</p>
+        </blockquote>
+        <br>
+        <cite>In-Game Description</cite>
+      </div>
+      <h2>Overview</h2>
+      <p><b>Kinetic Impactor</b> is the fourth weapon in the AP2.1 upgrade tree, coming after <a
+          href="./heavy-shots.html">Heavy Shots</a>. It is one of the 8 weapons in the <i>second specialisation
+          tier</i>. It expands directly on the knockback utility of its predecessor, having almost identical use cases.
+      </p>
+      <h2>Appearance</h2>
+      <p>Kinetic Impactor's appearance changes significantly from Heavy Shots, with 4 of the supports extending and
+        ending with square 'feet'.<br>The central part gains a three-pronged design, and an extra support holds the
+        barrel.</p>
+      <h2>Attack Description</h2>
+      <p>Kinetic Impactor adds a unique ability to knock boxes into each other, with knockback propagating with 75%
+        efficiency. This does not depend on knockback left, but instead resets to 75% of the <i>full amount</i>,
+        allowing a spaced chain of boxes to transfer knockback extreme distances.<br>THe base knockback is also doubled,
+        increasing the defensive capability of this weapon.</p>
+      <h2>Use Cases</h2>
+      <p>Kinetic Impactor, as a weapon, is fairly useless, with the lowest damage of any T4, but has the ability to
+        knock any box out of the player's hitbox with a single shot, unless blocked. This makes it effective defense
+        against strong, spaced boxes, but the decreasing knockback makes it perform poorly against large groups.</p>
+      <br><br>
+      <h2>Version History</h2>
+      <div class="container">
+        <div class="history">
+          <ul>
+            <li>
+              <b><i>Release</i></b>
+              <ul>
+                <li><i>Added</i></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <weapon-info>
+      >[{"type":"part","x":31.25,"y":0,"width":5,"height":20,"rotation":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":10,"xOffset":-25}]},{"type":"part","x":35,"y":0,"width":30,"height":10,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":7,"xOffset":-17.5}]},{"type":"part","x":2.5,"y":0,"width":45,"height":10,"rotation":45,"slide":0,"image":false},{"type":"part","x":2.5,"y":-15,"width":10,"height":5,"rotation":1,"slide":0,"image":false},{"type":"part","x":2.5,"y":15,"width":10,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-15,"y":0,"width":5,"height":15,"rotation":0,"slide":0,"image":false},{"type":"part","x":2.5,"y":0,"width":45,"height":10,"rotation":-45,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":16.25,"y":0,"width":7.5,"height":20,"rotation":0,"slide":0,"image":false},{"type":"part","x":42.5,"y":0,"width":5,"height":20,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":15,"xOffset":-35}]},{"type":"part","x":-5,"y":-5,"width":20,"height":5,"rotation":45,"slide":0,"image":false},{"type":"part","x":-5,"y":5,"width":20,"height":5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":8.75,"y":0,"width":7.5,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":23.75,"y":0,"width":15,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":10,"height":10,"rotation":0,"slide":0,"image":false},{"type":"part","x":22.5,"y":20,"width":7.5,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":22.5,"y":-20,"width":7.5,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":-17.5,"y":-20,"width":7.5,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":-17.5,"y":20,"width":7.5,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":20,"y":17.5,"width":2.5,"height":5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":-15,"y":-17.5,"width":2.5,"height":5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":20,"y":-17.5,"width":5,"height":2.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":-15,"y":17.5,"width":5,"height":2.5,"rotation":-45,"slide":0,"image":false}]
+      | {{name}} : Kinetic Impactor
+      | [[slots]] : AP2-1-4
+      | [[image]] : ../images/weapon/kinetic-impactor.png
+      | Basic Info
+      | Fire Rate : 2/s
+      | Upgrade Cost : 850 Shards
+      | Total Cost : 1500 Shards
+      | Attack Details
+      | Type : Projectile
+      | Speed : 1800 px/s # 30 px/frame
+      | Size : 30 x 22.5 # Hitcircle of radius 25
+      | Lifetime : 0.67s # 40 frames
+      | Knockback : 100px Propagating # Entities transfer knockback on collision
+      | Damage Topology
+      | Main : 2 Ballistic
+      | Shot Pattern
+      | Amount : 1
+      | Spread : 0
+      | Estimated Potential DPS
+      | Single Target : 4 # With no resistances
+      | Multi Target : 4 # A group of 5 densely packed entities
+      | Upgrade Path (AP2.1)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots.html~../images/weapon/heavy-shots.png + Kinetic
+      Impactor@kinetic-impactor.html~../images/weapon/kinetic-impactor.png
+    </weapon-info>
+  </main>
+</body>
+
+</html>

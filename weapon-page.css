@@ -16,13 +16,13 @@ main {
   flex-direction: row;
   max-height: calc(100vh - 150px);
 }
-main .desc{
+main .desc {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
 }
-main .desc *{
+main .desc * {
   margin: 10px;
   background-color: var(--faded-sidebar-colour);
   padding: 10px;
@@ -31,10 +31,10 @@ main .desc *{
   font-size: 125%;
   text-align: left;
 }
-main .desc .c{
+main .desc .c {
   text-align: center;
 }
-main .desc h2{
+main .desc h2 {
   text-align: center;
   font-size: 175%;
   width: 95.5%;
@@ -42,32 +42,34 @@ main .desc h2{
   align-self: normal;
   background-color: var(--less-faded-sidebar-colour);
 }
-main .desc i,main .desc b, main .desc a{
+main .desc i,
+main .desc b,
+main .desc a {
   font-size: inherit;
   padding: 0;
   margin: 0;
   display: inline;
 }
-main .desc a{
+main .desc a {
   font-weight: bold;
   text-decoration: none;
 }
-main .desc img{
+main .desc img {
   align-self: center;
   height: auto;
   width: 60%;
 }
-main .desc blockquote *{
+main .desc blockquote * {
   margin: 0;
 }
-main .desc .bq{
+main .desc .bq {
   font-size: 100%;
   width: 80%;
   align-self: center;
   border: 20px double var(--faded-border-colour);
   padding: 0%;
 }
-main .desc .bq *{
+main .desc .bq * {
   font-size: 125%;
   margin: 0;
   padding: 6px;
@@ -76,33 +78,33 @@ main .desc .bq *{
   display: block;
   width: 90%;
 }
-main .desc .bq :first-child{
+main .desc .bq :first-child {
   padding-top: 6px;
   padding-bottom: 0px;
 }
-main .desc .bq cite::before{
+main .desc .bq cite::before {
   content: " -- ";
 }
-main .desc .bq blockquote{
+main .desc .bq blockquote {
   padding-left: 6%;
   font-size: 125%;
   font-style: italic;
   text-align: left;
 }
-main .desc .bq blockquote *{
+main .desc .bq blockquote * {
   text-align: left;
 }
-blockquote *::before{
+blockquote *::before {
   content: "“";
 }
-blockquote *::after{
+blockquote *::after {
   content: "”";
 }
-main .desc .container{
+main .desc .container {
   text-align: center;
   width: 70%;
 }
-main .desc .history{
+main .desc .history {
   margin: 0;
   font-size: 75%;
   display: block;
@@ -113,31 +115,36 @@ main .desc .history{
   max-height: 600px;
   overflow: auto;
 }
-main .desc .history *{
+main .desc .history * {
   width: calc(100% - 40px);
   background-color: var(--table-bg-colour);
 }
-main .desc .history ul{
+main .desc .history ul {
   list-style: none;
 }
-main .desc .history>ul>li{
+main .desc .history > ul > li {
   border-bottom: 2px solid black;
 }
-main .desc .history>ul>li ul li::before{
+main .desc .history > ul > li ul li::before {
   content: " - ";
 }
-main .desc .history>ul>li .nerf::before{
+main .desc .history > ul > li .nerf::before {
   content: "[-] ";
   color: red;
 }
-main .desc .history>ul>li .neutral::before{
+main .desc .history > ul > li .neutral::before {
   content: "[*] ";
   color: yellow;
 }
-main .desc .history>ul>li .buff::before{
+main .desc .history > ul > li .buff::before {
   content: "[+] ";
   color: green;
 }
-main .desc .history>ul>li ul{
+main .desc .history > ul > li ul {
   font-size: 75%;
+}
+i-n {
+  margin: 0 !important;
+  padding: 2px !important;
+  background-color: transparent !important;
 }
