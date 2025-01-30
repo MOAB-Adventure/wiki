@@ -8,6 +8,7 @@
   <script src="to-node.js"></script>
   <script src="search.js"></script>
   <script src="elements.js"></script>
+  <script src="creator.js"></script>
 </head>
 
 <body>
@@ -23,61 +24,64 @@
         </div>
         <details class="nav category" name="category">
           <summary>AP1</summary>
-          <a href="./weapons/tiny-shooter.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("tiny-shooter")'>
             <span>Tiny Shooter</span>
           </a>
-          <a href="./weapons/double-shooter.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("double-shooter")'>
             <span>Double Shooter</span>
           </a>
-          <a href="./weapons/bomb-shooter.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("bomb-shooter")'>
             <span>Bomb Shooter</span>
           </a>
-          <a href="./weapons/incendiary.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("incendiary")'>
             <span>Incendiary</span>
           </a>
+          <!-- <a class="nav item" onclick='loadIntoMainIframe("missile-launcher")'>
+            <span>Missile Launcher</span>
+          </a> -->
         </details>
         <details class="nav category" name="category">
           <summary>AP2</summary>
-          <a href="./weapons/tiny-shooter.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("tiny-shooter")'>
             <span>Tiny Shooter</span>
           </a>
-          <a href="./weapons/double-shooter.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("double-shooter")'>
             <span>Double Shooter</span>
           </a>
-          <a href="./weapons/heavy-shots.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("heavy-shots")'>
             <span>Heavy Shots</span>
           </a>
-          <a href="./weapons/kinetic-impactor.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("kinetic-impactor")'>
             <span>Kinetic Impactor</span>
           </a>
         </details>
         <details class="nav category" name="category">
           <summary>AP3/4</summary>
-          <a href="./weapons/tiny-shooter.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("tiny-shooter")'>
             <span>Tiny Shooter</span>
           </a>
-          <a href="./weapons/double-shooter.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("double-shooter")'>
             <span>Double Shooter</span>
           </a>
-          <a href="./weapons/laser-blaster.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("laser-blaster")'>
             <span>Laser Blaster</span>
           </a>
-          <a href="./weapons/accelerator.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("accelerator")'>
             <span>Accelerator</span>
           </a>
         </details>
         <details class="nav category" name="category">
           <summary>AP5</summary>
-          <a href="./weapons/tiny-shooter.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("tiny-shooter")'>
             <span>Tiny Shooter</span>
           </a>
-          <a href="./weapons/double-shooter.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("double-shooter")'>
             <span>Double Shooter</span>
           </a>
-          <a href="./weapons/rifle.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("rifle")'>
             <span>Rifle</span>
           </a>
-          <a href="./weapons/sniper.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("sniper")'>
             <span>Sniper</span>
           </a>
         </details>
@@ -86,7 +90,7 @@
         </div>
         <details class="nav category" name="category">
           <summary>Blimps</summary>
-          <a href="./blimps/moab.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("moab")'>
             <span>MOAB</span>
           </a>
         </details>
@@ -95,8 +99,8 @@
         </div>
         <details class="nav category" name="category">
           <summary>Zones</summary>
-          <a href="./zones/sky-high.html" class="nav item" target="main-viewer">
-            <span>Sky High</span>
+          <a class="nav item" onclick='loadIntoMainIframe("ocean-skies")'>
+            <span>Ocean Skies</span>
           </a>
         </details>
         <div class="nav header">
@@ -104,10 +108,10 @@
         </div>
         <details class="nav category" name="category">
           <summary>Boxes</summary>
-          <a href="./boxes/wood-box.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("wood-box")'>
             <span>Wooden Box</span>
           </a>
-          <a href="./boxes/metal-box.html" class="nav item" target="main-viewer">
+          <a class="nav item" onclick='loadIntoMainIframe("metal-box")'>
             <span>Metal Box</span>
           </a>
         </details>

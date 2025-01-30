@@ -1,7 +1,7 @@
 [
   {
     "title": "Tiny Shooter",
-    "url": "./weapons/tiny-shooter.html",
+    "name": "tiny-shooter",
     "tags": [
       "weapon",
       "ap1",
@@ -15,7 +15,7 @@
   },
   {
     "title": "Double Shooter",
-    "url": "./weapons/double-shooter.html",
+    "name": "double-shooter",
     "tags": [
       "weapon",
       "ap1",
@@ -31,7 +31,7 @@
   },
   {
     "title": "Bomb Shooter",
-    "url": "./weapons/bomb-shooter.html",
+    "name": "bomb-shooter",
     "tags": [
       "weapon",
       "ap1",
@@ -41,7 +41,7 @@
   },
   {
     "title": "Incendiary",
-    "url": "./weapons/incendiary.html",
+    "name": "incendiary",
     "tags": [
       "weapon",
       "ap1",
@@ -53,8 +53,20 @@
     ]
   },
   {
+    "title": "Missile Launcher",
+    "name": "missile-launcher",
+    "tags": [
+      "weapon",
+      "ap1",
+      "explosive",
+      "projectile",
+      "homing",
+      "hovered"
+    ]
+  },
+  {
     "title": "Heavy Shots",
-    "url": "./weapons/heavy-shots.html",
+    "name": "heavy-shots",
     "tags": [
       "weapon",
       "ap2",
@@ -64,7 +76,7 @@
   },
   {
     "title": "Kinetic Impactor",
-    "url": "./weapons/kinetic-impactor.html",
+    "name": "kinetic-impactor",
     "tags": [
       "weapon",
       "ap2",
@@ -74,7 +86,7 @@
   },
   {
     "title": "Laser Blaster",
-    "url": "./weapons/laser-blaster.html",
+    "name": "laser-blaster",
     "tags": [
       "weapon",
       "ap3",
@@ -86,7 +98,7 @@
   },
   {
     "title": "Accelerator",
-    "url": "./weapons/accelerator.html",
+    "name": "accelerator",
     "tags": [
       "weapon",
       "ap3",
@@ -99,7 +111,7 @@
   },
   {
     "title": "Rifle",
-    "url": "./weapons/rifle.html",
+    "name": "rifle",
     "tags": [
       "weapon",
       "ap5",
@@ -110,7 +122,7 @@
   },
   {
     "title": "Sniper",
-    "url": "./weapons/sniper.html",
+    "name": "sniper",
     "tags": [
       "weapon",
       "ap5",
@@ -121,7 +133,7 @@
   },
   {
     "title": "Wooden Boxes",
-    "url": "./boxes/wood-box.html",
+    "name": "wood-box",
     "tags": [
       "entity",
       "box",
@@ -132,7 +144,7 @@
   },
   {
     "title": "Metal Boxes",
-    "url": "./boxes/metal-box.html",
+    "name": "metal-box",
     "tags": [
       "entity",
       "box",
@@ -145,7 +157,7 @@
   },
   {
     "title": "Massive Ornary Air Blimp (MOAB)",
-    "url": "./blimps/moab.html",
+    "name": "moab",
     "tags": [
       "entity",
       "blimp",
@@ -154,18 +166,19 @@
     ]
   },
   {
-    "title": "Sky High",
-    "url": "./zones/sky-high.html",
+    "title": "Ocean Skies",
+    "name": "ocean-skies",
     "tags": [
       "zone",
       "world",
       "wooden box",
-      "metal box"
+      "metal box",
+      "sky-high"
     ]
   },
   {
     "title": "Home",
-    "url": "./misc/home.html",
+    "name": "home",
     "tags": [
       "wiki",
       "moab adventure"

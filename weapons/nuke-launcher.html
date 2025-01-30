@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../weapon-page.css">
+  <script src="../to-node.js"></script>
+  <script src="../search.js"></script>
+  <script src="../elements.js"></script>
+</head>
+
+<body>
+  <header>
+    <p><i>Weapon</i>
+    <p>Nuke Launcher</p>
+    </p><search-bar></search-bar>
+  </header>
+  <main>
+    <div class="desc">
+      <div class="bq">
+        <blockquote>
+          <p>Shoots nuclear explosives, dealing great damage in
+            a much larger area, leaving radioactive fallout.</p>
+        </blockquote>
+        <br>
+        <cite>In-Game Description</cite>
+      </div>
+      <h2 class="warn">Warning: Under Construction</h2>
+      <p class="warn">This page contains parts that may not be complete, or have fully correct information.</p>
+      <h2>Overview</h2>
+      <p><b>Nuke Launcher</b> is the fourth weapon in the AP1.1 upgrade tree, coming after <a
+          href="./incendiary.html">Incendiary</a>. It focuses further on area damage, dealing much greater damage in a
+        larger area.</p>
+      <h2>Appearance</h2>
+      <p></p>
+      <h2>Attack Description</h2>
+      <p></p>
+      <h2>Use Cases</h2>
+      <p></p>
+      <br><br>
+      <h2>Version History</h2>
+      <div class="container">
+        <div class="history">
+          <ul>
+            <li>
+              <b><i>Release</i></b>
+              <ul>
+                <li><i>Added</i></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <weapon-info>
+      >[{"type":"part","x":52.5,"y":0,"width":30,"height":15,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-25,"speedRatio":0.1}]},{"type":"part","x":17.5,"y":0,"width":7.5,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":-37.5,"y":0,"width":5,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":-33.75,"y":0,"width":2.5,"height":10,"rotation":0,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":15,"height":5,"rotation":-120,"slide":22.5,"image":false},{"type":"part","x":0,"y":0,"width":15,"height":5,"rotation":120,"slide":22.5,"image":false},{"type":"part","x":0,"y":0,"width":15,"height":5,"rotation":70,"slide":20,"image":false},{"type":"part","x":0,"y":0,"width":15,"height":5,"rotation":-70,"slide":20,"image":false},{"type":"part","x":-1.25,"y":27.5,"width":50,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-1.25,"y":-27.5,"width":50,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-30,"y":-30,"width":15,"height":7.5,"rotation":30,"slide":0,"image":false},{"type":"part","x":-30,"y":30,"width":15,"height":7.5,"rotation":-30,"slide":0,"image":false},{"type":"part","x":-45,"y":0,"width":5,"height":35,"rotation":0,"slide":0,"image":false},{"type":"part","x":-41.25,"y":-6.25,"width":2.5,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-41.25,"y":6.25,"width":2.5,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-48.75,"y":0,"width":2.5,"height":20,"rotation":0,"slide":0,"image":false},{"type":"part","x":35,"y":0,"width":7.5,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":26.25,"y":0,"width":10,"height":20,"rotation":0,"slide":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":7.5,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":-25,"y":0,"width":7.5,"height":20,"rotation":0,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":30,"height":30,"rotation":0,"slide":0,"image":false},{"type":"part","x":-30,"y":0,"width":5,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":-2.5,"y":-27.5,"width":15,"height":7.5,"rotation":30,"slide":0,"image":false},{"type":"part","x":-2.5,"y":27.5,"width":15,"height":7.5,"rotation":-30,"slide":0,"image":false},{"type":"part","x":27.5,"y":-25,"width":15,"height":7.5,"rotation":30,"slide":0,"image":false},{"type":"part","x":27.5,"y":25,"width":15,"height":7.5,"rotation":-30,"slide":0,"image":false}]
+      | {{name}} : Nuke Launcher
+      | [[slots]] : AP1-1-5
+      | [[image]] : ../images/weapon/nuke-launcher.png
+      | Basic Info
+      | Fire Rate : 0.67/s # 1 every 90 frames
+      | Upgrade Cost : 5200 Shards
+      | Total Cost : 7340 Shards
+      | Attack Details
+      | Type : Projectile
+      | Speed : 1800 px/s # 30 px/frame
+      | Size : 40 x 30 # Hitcircle of radius 30
+      | Lifetime : 0.67s # 40 frames
+      | Damage Topology
+      | Main : 1 Ballistic, Creates [Explosion], Creates [Fallout], Inflicts [DoT]
+      | Explosion : 8 Explosion ~ 250px, Inflicts [DoT]
+      | DoT : 600 x 0.09 Fire ~ 10s
+      | Fallout : Inflicts [Irradiated], 6/s Radiation
+      | Shot Pattern
+      | Amount : 1
+      | Spread : 0
+      | Estimated Potential DPS
+      | Single Target : 6 + 6 Fallout + 5.4 DoT -> 17.4 # With no resistances, and 1 stack of DoT
+      | Multi Target : 11.33 + 30 Fallout + 27 DoT -> 68.33 # A group of 5 densely packed entities
+      | Upgrade Path (AP1.1)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Bomb
+      Shooter@bomb-shooter.html~../images/weapon/bomb-shooter.png + 
+      Incendiary@incendiary.html~../images/weapon/incendiary.png + Nuke
+      Launcher@nuke-launcher.html~../images/weapon/nuke-launcher.png
+    </weapon-info>
+  </main>
+</body>
+
+</html>

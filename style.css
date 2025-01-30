@@ -13,11 +13,18 @@
   --sidebar-colour: #0053c7;
   --faded-sidebar-colour: #a5bee3;
   --less-faded-sidebar-colour: #91b1e1;
+  --warning-colour:  #5c0000;
+  --warning-background-colour:  #e19191;
   --faded-border-colour: #7587a2;
   --faded-sidebar-hover-colour: #cbd5e4;
   --sidebar-top-colour: #00429f;
   --sidebar-item-colour: #0b67e8;
   --sidebar-item-hover-colour: #3589ff;
+
+  --header-colour: blue;
+  --lighter-header-colour: rgb(75, 75, 255);
+
+  font-size: large;
 }
 html,
 body {
@@ -45,7 +52,7 @@ header {
   height: 10%;
   min-height: 80px;
   width: 100%;
-  background-color: blue;
+  background-color: var(--header-colour);
   display: flex;
   color: white;
   align-items: center;
@@ -151,6 +158,7 @@ iframe {
   font-size: 93%;
   padding: 5px 0px;
   font-weight: bold;
+  cursor: pointer;
 }
 .nav.top {
   text-align: center;
@@ -160,7 +168,7 @@ iframe {
   color: white;
   background-color: var(--sidebar-top-colour);
   max-height: 170px;
-  padding: 10px;
+  padding: 5px;
   display: inline-block;
 }
 .nav.top > img {

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../weapon-page.css">
+  <script src="../to-node.js"></script>
+  <script src="../search.js"></script>
+  <script src="../elements.js"></script>
+</head>
+
+<body>
+  <header>
+    <p><i>World</i>
+    <p>Ocean Skies</p>
+    </p><search-bar></search-bar>
+  </header>
+  <main>
+    <div class="desc">
+      <h2>Overview</h2>
+      <p><b>Ocean Skies</b> is the first zone in MOAB Adventure. The player will spawn in here once all options have been
+        chosen, and will begin playing the game.</p>
+      <h2>Appearance</h2>
+      <p>Ocean Skies is a zone that takes place above an ocean with dark blue water.</p>
+      <h2>Spawning</h2>
+      <p><a href="../boxes/wood-box.html">Wooden boxes</a>, as the basic enemy of MOAB Adventure, spawn frequently
+        here.<br>
+        <a href="../boxes/metal-box.html">Metal boxes</a> spawn here too, at about 1/4 of the rate.
+      </p>
+      <h2>Strategy</h2>
+      <p>The main enemy, <b>wooden boxes</b>, are quite weak, so most strategies will work
+        against them. They appear in large numbers, so it's mostly best to employ <b>multi-target weaponry</b>, such as
+        <a href="../weapons/bomb-shooter.html">Bomb Shooter</a> to clear the crowds.<br><br>As for the <b>metal
+          boxes</b>, single-target methods such as <a href="../weapons/laser-blaster.html">Laser Blaster</a> are more effective, as they are more spaced out.
+      </p>
+      <br><br>
+      <h2>Version History</h2>
+      <div class="container">
+        <div class="history">
+          <ul>
+            <li>
+              <b><i>Release</i></b>
+              <ul>
+                <li><i>Added</i></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <info-box>
+      | {{name}} : Ocean Skies
+      | [[image]] : ../images/ss/sky-high.png
+      | Adventure
+      | Zone Index : 0 # The number of zones preceding this one
+      | DV Requirement : None
+      | Spawning Groups
+      | [[navigator]] : 1/s/spd@../boxes/wood-box.html~../images/entity/box/wood.svg + 0.2/s/spd@../boxes/metal-box.html~../images/entity/box/metal.svg
+      | Bosses
+      | (none implemented)
+      | BGM
+      | Normal : Sky High
+    </info-box>
+  </main>
+</body>
+
+</html>

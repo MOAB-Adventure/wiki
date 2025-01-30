@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../weapon-page.css">
+  <script src="../to-node.js"></script>
+  <script src="../search.js"></script>
+  <script src="../elements.js"></script>
+</head>
+
+<body>
+  <header>
+    <p><i>Weapon</i>
+    <p>Heavy Shots</p>
+    </p><search-bar></search-bar>
+  </header>
+  <main>
+    <div class="desc">
+      <div class="bq">
+        <blockquote>
+          <p>Large bullets deal more damage, and knock boxes back.</p>
+        </blockquote>
+        <br>
+        <cite>In-Game Description</cite>
+      </div>
+      <h2>Overview</h2>
+      <p><b>Heavy Shots</b> is the third weapon in the AP2 upgrade tree, coming after <a
+          href="./double-shooter.html">Double Shooter</a>. It is one of the 4 weapons in the <i>first specialisation
+          tier</i>. It is a utility-oriented upgrade, with a more specific
+        use case than other tier 3 weapons.</p>
+      <h2>Appearance</h2>
+      <p>Heavy Shots has a similar appearance to <b>Tiny Shooter</b>, but with additional bars placed under the centre
+        in a star formation, and under the barrel as a support. This support also recoils with the barrel, travelling
+        further and taking longer to return.</p>
+      <h2>Attack Description</h2>
+      <p>Like all T3s, the function of <b>Double Shooter</b> is lost, being replaced with a +1 damage increase, and a
+        knockback effect. Hit boxes are moved 50px in the direction of the bullet, while a small visual explosion
+        appears ath the point of impact.</p>
+      <h2>Use Cases</h2>
+      <p>Heavy Shots has limited use in normal gameplay, as its single-target DPS is matched or overshadowed by the
+        other T3s, including <a href="./rifle.html">Rifle</a>, which does it for almost half the price. It also has no
+        special multi-target ability, unlike the aforementioned <b>Rifle</b>, and <a href="./bomb-shooter.html">Bomb
+          Shooter</a>.<br>However, this weapon does see some use in that it is the only one to have knockback, which
+        affects boxes without having to damage them: This weapon can move <a href="../boxes/metal-box.html">Metal
+          Boxes</a> without being able to destroy them, something unachievable with any other tier 3 weapon. This means
+        Heavy Shots can move difficult boxes out of the way, allowing users to get further into the game than their
+        loadout would otherwise allow.</p>
+      <br><br>
+      <h2>Version History</h2>
+      <div class="container">
+        <div class="history">
+          <ul>
+            <li>
+              <b><i>Release</i></b>
+              <ul>
+                <li><i>Added</i></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <weapon-info>
+      >[{"type":"part","x":0,"y":0,"width":40,"height":10,"rotation":45,"image":false},{"type":"part","x":0,"y":-15,"width":10,"height":5,"rotation":1,"image":false},{"type":"part","x":0,"y":15,"width":10,"height":5,"rotation":0,"image":false},{"type":"part","x":-15,"y":0,"width":5,"height":10,"rotation":0,"image":false},{"type":"part","x":31.25,"y":0,"width":5,"height":20,"rotation":0,"image":false},{"type":"part","x":32.5,"y":0,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":0,"y":0,"width":40,"height":10,"rotation":-45,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"image":false},{"type":"part","x":16.25,"y":0,"width":7.5,"height":20,"rotation":0,"image":false}]
+      | {{name}} : Heavy Shots
+      | [[slots]] : AP2-any-3
+      | [[image]] : ../images/weapon/heavy-shots.png
+      | Basic Info
+      | Fire Rate : 2/s
+      | Upgrade Cost : 400 Shards
+      | Total Cost : 650 Shards
+      | Attack Details
+      | Type : Projectile
+      | Speed : 1800 px/s # 30 px/frame
+      | Size : 30 x 22.5 # Hitcircle of radius 25
+      | Lifetime : 0.67s # 40 frames
+      | Knockback : 50px
+      | Damage Topology
+      | Main : 2 Ballistic
+      | Shot Pattern
+      | Amount : 1
+      | Spread : 0
+      | Estimated Potential DPS
+      | Single Target : 4 # With no resistances
+      | Multi Target : 4 # A group of 5 densely packed entities
+      | Upgrade Path (AP2.1)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots.html~../images/weapon/heavy-shots.png + Kinetic
+      Impactor@kinetic-impactor.html~../images/weapon/kinetic-impactor.png
+      | Upgrade Path (AP2.2)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots.html~../images/weapon/heavy-shots.png
+    </weapon-info>
+  </main>
+</body>
+
+</html>

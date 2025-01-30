@@ -1,0 +1,30 @@
+### BLIMP DEFINITION FILE ###
+==moab;
+  title = MOAB;
+  class = Blimp;
+  overview = The [b/MOAB] ([b/M]assive [b/O]rnary [b/A]ir [b/B]limp) is the player's first character, unlocked for free at the start of the game. It has mostly average
+        stats (falling short on health), and suffices for the very earliest levels in the game.;
+  appearance = The MOAB is a light blue blimp, with a pear-shaped body with thin stripes running down the full length of the
+        blimp, and perpendicular white stripes around the nose and tail ends. The back end of the blimp has 4 light blue
+        fins, but no visible means of propulsion.;
+  weapons = The MOAB has only one weapon slot: AP1, which can (as of v0.0.42 preview) be upgraded to tier 4.;
+  useCases = As this is the blimp you spawn with, it will be used throughout most of the early-game. It can carry the player
+        through the first few levels, but an upgrade is preferable for later levels as stronger boxes and harder
+        bosses appear.;
+  versionHistory = Release: [i/Added];
+  infobox = 
+      | {{name}} : Massive Ornary Air Blimp
+      | [[image]] : ../images/entity/moab.png
+      | Basic Info
+      | Base Health : 200
+      | Size : 230x150 # Hitcircle radius 75
+      | Speed : 6
+      | Cost : Free # Unlocked at start
+      | Weapons
+      | AP1 : Tier 1-4 # Tiny Shooter, Double Shooter, Bomb Shooter, Incendiary/Missile Launcher
+      | Upgrade: Primary
+      | [[navigator]] : MOAB@moab~../images/entity/moab.png
+      | Upgrade: Alternate
+      | [[navigator]] : MOAB@moab~../images/entity/moab.png
+      | Previous Blimp
+      | (none)

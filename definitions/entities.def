@@ -1,0 +1,65 @@
+### ENTITY DEFINITION FILE ###
+==wood-box;
+  title = Wooden Boxes;
+  class = Entity > Box;
+  overview = [b/Wooden Boxes] are the most basic enemy in the game. They spawn on the right of the screen, and slowly
+        move towards the left at a rate determined by the player's movement speed. They have no resistances, and have
+        the lowest base health of any enemy in the game.;
+  appearance = Wooden boxes take the appearance of a square wooden crate, featuring 4 planks framing a panel, with a fifth
+        placed diagonally across it.;
+  attacks = Wooden boxes, as a basic enemy, do not attack directly. Instead, a collision with the player is required. This
+        will deal the box's health equivalent in damage, destroying whichever entity had the least health.;
+  spawning = Wooden Boxes, as the basic enemy of MOAB Adventure, spawn in every zone, Ocean Skies spawning these most of all.;
+  strategy = Wooden boxes are quite weak, so most strategies (short of ramming them with the blimp) will work against them.
+        No specific strategy is the best, as it depends on circumstance, but they appear in such quantity that it's
+        mostly best to employ [b/multi-target weaponry], such as [->bomb-shooter] to clear them out.;
+  versionHistory = Release: [i/Added];
+  infobox = 
+      | {{name}} : Wooden Box
+      | [[image]] : ../images/entity/box/wood.svg
+      | Basic Info
+      | Base Health : 5
+      | Size : 50x50
+      | Rewards
+      | Dodge : 2 Shards
+      | Destroy : 5 Shards
+      | Resistances
+      | (none)
+      | Spawning Zones
+      | [[navigator]] : Ocean Skies@ocean-skies~../images/ss/sky-high.png
+      ;
+==metal-box;
+  title = Metal Boxes;
+  class = Entity > Box;
+  overview = [b/Metal Boxes] are the player's first introduction to resistances. They, like every other box, spawn on the
+        right of the screen, and
+        move towards the left. They have much more health than a standard [->wood-box], and
+        are resistant to 2 of the 3 damage types regularly used in their spawning zones.;
+  appearance = Metal boxes take the appearance of a square gray metal crate, with 2 metal cross beams, held on with visible
+        bolts.;
+  attacks = Metal boxes still don't directly attack, and damage on player collision.;
+  spawning = Metal boxes, due to their difficulty, spawn much more rarely in [->ocean-skies] than any other zone, but become more common later in the
+        game.
+  strategy = Metal boxes have a lot of health, and spawn more rarely, so, (in early-game) weapons that deal high
+        [b/single-target damage], including [->laser-blaster] will be
+        effective against them.[br]If destroying them is not desired, or not possible, 
+        [->heavy-shots] (and above) can be employed to move the boxes out of the
+        way.[br][->rifle] can pierce metal boxes without damaging them, and [->sniper]
+         can bypass them entirely, so the player can destroy
+        other boxes behind these.;
+  versionHistory = Release: [i/Added];
+  infobox = 
+      | {{name}} : Metal Box
+      | [[image]] : ../images/entity/box/metal.svg
+      | Basic Info
+      | Base Health : 20
+      | Size : 50x50
+      | Rewards
+      | Dodge : 2 Shards
+      | Destroy : 10 Shards
+      | Resistances
+      | Ballistic : 100%
+      | Laser : 30%
+      | Spawning Zones
+      | [[navigator]] : Ocean Skies@ocean-skies~../images/ss/sky-high.png
+      ;

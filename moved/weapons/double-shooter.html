@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../weapon-page.css">
+  <script src="../to-node.js"></script>
+  <script src="../search.js"></script>
+  <script src="../elements.js"></script>
+</head>
+
+<body>
+  <header>
+    <p><i>Weapon</i>
+    <p>Double Shooter</p>
+    </p><search-bar></search-bar>
+  </header>
+  <main>
+    <div class="desc">
+      <div class="bq">
+        <blockquote>
+          <p>Shoots 2 bullets at once.</p>
+        </blockquote>
+        <br>
+        <cite>In-Game Description</cite>
+      </div>
+      <h2>Overview</h2>
+      <p><b>Double Shooter</b> is the second weapon in any upgrade tree, coming after <a href="./tiny-shooter.html">Tiny
+          Shooter</a>. It is a relatively simple upgrade, adding another bullet per shot.<br>It is still a relatively
+        basic weapon, having only one 'special mechanic'. Costing only 200 Shards, this is the cheapest upgrade in the game.</p>
+      <h2>Appearance</h2>
+      <p>Double Shooter has a similar appearance to <b>Tiny Shooter</b>, also taking the form of a gun, but with an
+        additional barrel, placed alongside the first, which has been shifted sideways to accommodate this.<br>Both
+        barrels recoil at once when fired, as both bullets are fired simultaneously.</p>
+      <h2>Attack Description</h2>
+      <p>Double Shooter, as its name implies, shoots twice the bullets. However, it's not as simple as that, as these
+        bullets have a 2° spread between them, which may affect accuracy when aiming at small, distant targets.</p>
+      <h2>Use Cases</h2>
+      <p>Double Shooter has the ability to hit 2 separate targets with its bullets, and will frequently do so at longer
+        range, which can cause entities to be left intact for an undesirable length of time. This causes the weapon to
+        be better suited to short-range than long-range. That being said, its substantially higher DPS makes this a
+        viable option for saving up to but multiple upgrades at once, or, in extreme cases, a blimp upgrade.</p>
+      <br><br>
+      <h2>Version History</h2>
+      <div class="container">
+        <div class="history">
+          <ul>
+            <li>
+              <b><i>Release</i></b>
+              <ul>
+                <li><i>Added</i></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <weapon-info>
+      >[{"type":"part","x":0,"y":0,"width":25,"height":30,"rotation":0,"image":false},{"type":"part","x":17.5,"y":0,"width":10,"height":25,"rotation":0,"image":false},{"type":"part","x":32.5,"y":5,"width":20,"height":10,"rotation":0,"image":false},{"type":"part","x":-15,"y":0,"width":5,"height":25,"rotation":0,"image":false},{"type":"part","x":32.5,"y":-5,"width":20,"height":10,"rotation":0,"image":false},{"type":"part","x":-18.75,"y":0,"width":2.5,"height":10,"rotation":0,"image":false}]
+      | {{name}} : Double Shooter
+      | [[slots]] : Any-any-2
+      | [[image]] : ../images/weapon/double-shooter.png
+      | Basic Info
+      | Fire Rate : 6/s # 2 shots every 0.33 seconds
+      | Upgrade Cost : 200 Shards
+      | Total Cost : 250 Shards
+      | Attack Details
+      | Type : Projectile
+      | Speed : 1800 px/s # 30 px/frame
+      | Size : 20 x 15 # Hitcircle of radius 15
+      | Lifetime : 0.67s # 40 frames
+      | Damage Topology
+      | Main : 1 Ballistic
+      | Shot Pattern
+      | Amount : 2
+      | Spread : 2° Even
+      | Estimated Potential DPS
+      | Single Target : 6 # With no resistances
+      | Multi Target : 6 # A group of 5 densely packed entities
+      | Upgrade Path (AP1.1)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Bomb
+      Shooter@bomb-shooter.html~../images/weapon/bomb-shooter.png + 
+      Incendiary@incendiary.html~../images/weapon/incendiary.png + Nuke
+      Launcher@nuke-launcher.html~../images/weapon/nuke-launcher.png
+      | Upgrade Path (AP1.2)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Bomb
+      Shooter@bomb-shooter.html~../images/weapon/bomb-shooter.png + Missile
+      Launcher@missile-launcher.html~../images/weapon/missile-launcher.png
+      | Upgrade Path (AP2.1)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots.html~../images/weapon/heavy-shots.png + Kinetic
+      Impactor@kinetic-impactor.html~../images/weapon/kinetic-impactor.png
+      | Upgrade Path (AP2.2)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots.html~../images/weapon/heavy-shots.png
+      | Upgrade Path (AP3/4.1)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster.html~../images/weapon/laser-blaster.png + Accelerator@accelerator.html~../images/weapon/accelerator.png
+      | Upgrade Path (AP3/4.2)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster.html~../images/weapon/laser-blaster.png
+      | Upgrade Path (AP5.1)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Rifle@rifle.html~../images/weapon/rifle.png + 
+      Sniper@sniper.html~../images/weapon/sniper.png
+      | Upgrade Path (AP5.2)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Rifle@rifle.html~../images/weapon/rifle.png
+    </weapon-info>
+  </main>
+</body>
+
+</html>

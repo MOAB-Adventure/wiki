@@ -108,7 +108,7 @@ class InfoComponent extends HTMLElement {
         background-color:  var(--hover-bg-colour);
         border: 2px solid black;
         border-radius: 5px;
-        translate: -50% 90%;
+        translate: -75% 90%;
         padding: 2px;
         z-index: 1;
         max-width: calc(var(--box-width) / 2);
@@ -144,12 +144,19 @@ class InfoComponent extends HTMLElement {
         height: auto;
         image-rendering: pixelated;
       }
-  `
-  static styleLink = '<link rel="stylesheet" href="../style.css">'
+      .info-container a{
+        color: var(--header-colour);
+        text-decoration: underline;
+      }
+      .info-container a:hover{
+        color: var(--lighter-header-colour);
+      } 
+  `;
+  static styleLink = '<link rel="stylesheet" href="../style.css">';
   static mainContent = `<div class="info-container">
       <div class="header" id="head"></div>
       <div class="body" id="body"></div>
-    </div>`
+    </div>`;
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -160,9 +167,7 @@ class InfoComponent extends HTMLElement {
     let style = document.createElement("style");
     style.textContent = this.constructor.styles;
     this.shadowRoot.appendChild(style);
-    this.shadowRoot.appendChild(
-      htmlToNode(this.constructor.mainContent)
-    );
+    this.shadowRoot.appendChild(htmlToNode(this.constructor.mainContent));
   }
   setName(name = "[[Name]]") {
     this.head.textContent = name;
@@ -195,14 +200,14 @@ class InfoComponent extends HTMLElement {
     );
   }
   addGroupTag(text = "[[Group]]") {
-    this.body.appendChild(htmlToNode(`<div class="group-head">${text}</div>`));
+    this.body.appendChild(htmlToNode(`<div class="group-head">${process(text)}</div>`));
   }
   addPropertyValuePair(property = "[[Property]]", value = "[[Value]]", extras) {
     this.body.appendChild(
       htmlToNode(
         `<div class="row">
       <div class="property item">${property}</div>
-      <div class="value item">${value}${
+      <div class="value item">${process(value)}${
           extras ? `<span class="extra" info="${extras}"></span>` : ""
         }</div>
     </div>`
@@ -214,11 +219,11 @@ class InfoComponent extends HTMLElement {
     for (let item of items) {
       node.appendChild(
         htmlToNode(
-          `<a class="navitem${item.this ? " this" : ""}" href="${
-            item.url ?? "./"
-          }"><img src="${item.image ?? "../default-icon.ico"}" class="nav-img">${
-            item.text ?? item.url ?? "[[NO LINK]]"
-          }</a>`
+          `<a class="navitem${item.this ? " this" : ""}" onclick="load('${
+            item.url
+          }')"><img src="${
+            item.image ?? "../default-icon.ico"
+          }" class="nav-img">${process(item.text) ?? item.url ?? "[[NO LINK]]"}</a>`
         )
       );
     }
@@ -279,11 +284,7 @@ class GeneratedInfoComponent extends InfoComponent {
         for (let item of navitems) {
           let navparts = item.split("@");
           if (navparts.length === 1) {
-            if (URL.canParse(navparts[0])) {
-              parsed.push({ url: navparts[0] });
-            } else {
-              parsed.push({});
-            }
+            parsed.push({ url: navparts[0] });
             continue;
           }
           if (navparts.length === 2) {
@@ -291,16 +292,12 @@ class GeneratedInfoComponent extends InfoComponent {
             if (parts2.length === 1)
               parsed.push({
                 text: navparts[0],
-                url: URL.canParse(navparts[1], window.location.href)
-                  ? navparts[1]
-                  : undefined,
+                url: navparts[1],
               });
             if (parts2.length === 2)
               parsed.push({
                 text: navparts[0],
-                url: URL.canParse(parts2[0], window.location.href)
-                  ? parts2[0]
-                  : undefined,
+                url: parts2[0],
                 image: parts2[1],
               });
           }
@@ -308,8 +305,7 @@ class GeneratedInfoComponent extends InfoComponent {
         this.addNavigator(
           ...parsed.map((x) => {
             if (!x.url) return x;
-            let there = new URL(x.url, window.location.href);
-            if (window.location.href == there) {
+            if (window.location.href.includes(x.url)) {
               x.this = true;
             }
             return x;
@@ -345,23 +341,36 @@ class WeaponInfoComponent extends GeneratedInfoComponent {
   static mainContent = `<div class="info-container">
       <div class="header"><span id="head"></span><button id="open-renderer" style="margin-left: 20px; padding: 5px; background-color: cyan;" title="View weapon as it appears in-game.">Open in Renderer</button></div>
       <div class="body" id="body"></div>
-    </div>`
-  static openInRenderer(weapon){
-    let newrl = new URL("../renderer/weapon.html", window.location) + "?weapon="+encodeURIComponent(weapon) + (window.location.href.includes("renderer/weapon.html")?("&source=" + encodeURIComponent(document.getElementById("return").href)):("&source=" + encodeURIComponent(window.location.href)))
-    window.location.href = newrl
+    </div>`;
+  static openInRenderer(weapon) {
+    let newrl =
+      new URL("../renderer/weapon.html", window.location) +
+      "?weapon=" +
+      encodeURIComponent(weapon) +
+      (window.location.href.includes("renderer/weapon.html")
+        ? "&source=" +
+          encodeURIComponent(document.getElementById("return").href)
+        : "&source=" + encodeURIComponent(window.location.href));
+    window.location.href = newrl;
   }
-  #json = "[]"
-  constructor(){
-    super()
-    let btn = this.shadowRoot.getElementById("open-renderer")
-    btn.addEventListener("click", () => {this.constructor.openInRenderer(this.#json)})
+  #json = "[]";
+  constructor() {
+    super();
+    let btn = this.shadowRoot.getElementById("open-renderer");
+    btn.addEventListener("click", () => {
+      this.constructor.openInRenderer(this.#json);
+    });
   }
   parseInfo(para) {
     let lines = para.split("|");
     for (let line of lines) {
-      if(line.trimStart().startsWith(">")){
-        this.#json = line.split(">")[1]
-        continue
+      if (line.trimStart().startsWith(">")) {
+        this.#json = line.split(">")[1];
+        continue;
+      }
+      if (line.trimStart().startsWith("&gt;")) {
+        this.#json = line.split("&gt;")[1];
+        continue;
       }
       this.parseLine(line.trim());
     }
@@ -371,7 +380,7 @@ class WeaponInfoComponent extends GeneratedInfoComponent {
 customElements.define("info-box", GeneratedInfoComponent);
 customElements.define("weapon-info", WeaponInfoComponent);
 
-class SearchBarElement extends HTMLElement{
+class SearchBarElement extends HTMLElement {
   static style = `
   /* Search Bar */
   input[type="search"]::after{
@@ -390,57 +399,78 @@ class SearchBarElement extends HTMLElement{
     background-color: darkblue;
     color: white;
     font-size: 20px;
-  }`
-  constructor(){
-    super()
+  }`;
+  constructor() {
+    super();
   }
-  connectedCallback(){
-    this.attachShadow({ mode: "open" })
+  connectedCallback() {
+    this.attachShadow({ mode: "open" });
     this.shadowRoot.appendChild(htmlToNode(InfoComponent.styleLink));
-    this.shadowRoot.appendChild(htmlToNode("<style>"+SearchBarElement.style+"</style>"));
-    this.shadowRoot.appendChild(htmlToNode('<script src="search.js"></script>'))
-    let input = document.createElement("input")
-    input.type = "search"
-    input.title = "Search for a page"
-    let searchButton = document.createElement("button")
-    searchButton.type = "submit"
-    searchButton.innerText = "Search"
-    searchButton.onclick = () => SearchBarElement.searched(input.value)
-    this.shadowRoot.appendChild(input)
-    this.shadowRoot.appendChild(searchButton)
+    this.shadowRoot.appendChild(
+      htmlToNode("<style>" + SearchBarElement.style + "</style>")
+    );
+    this.shadowRoot.appendChild(
+      htmlToNode('<script src="search.js"></script>')
+    );
+    let input = document.createElement("input");
+    input.type = "search";
+    input.title = "Search for a page";
+    let searchButton = document.createElement("button");
+    searchButton.type = "submit";
+    searchButton.innerText = "Search";
+    searchButton.onclick = () => SearchBarElement.searched(input.value);
+    this.shadowRoot.appendChild(input);
+    this.shadowRoot.appendChild(searchButton);
   }
-  static searched(term){
-    getPageData().then(
-      value => {
-        this.showResults(searchFor(term, value), term)
-      }
-    )
+  static searched(term) {
+    getPageData().then((value) => {
+      this.showResults(searchFor(term, value), term);
+    });
   }
-  static showResults(results, term){
-    let newrl = new URL("../search-results.html", window.location) + "?result="+encodeURIComponent(JSON.stringify(results)) + "&query=" + encodeURIComponent(term) + (window.location.href.includes("search-results.html")?("&source=" + encodeURIComponent(document.getElementById("return").href)):("&source=" + encodeURIComponent(window.location.href)))
-    window.location.href = newrl
+  static showResults(results, term) {
+    let newrl =
+      new URL("../search-results.html", window.location) +
+      "?result=" +
+      encodeURIComponent(JSON.stringify(results)) +
+      "&query=" +
+      encodeURIComponent(term) +
+      (window.location.href.includes("search-results.html")
+        ? "&source=" +
+          encodeURIComponent(document.getElementById("return").href)
+        : "&source=" + encodeURIComponent(window.location.href));
+    window.location.href = newrl;
   }
 }
-class IconElement extends HTMLElement{
-  static observedAttributes = ["icon"]
+class IconElement extends HTMLElement {
+  static observedAttributes = ["icon"];
   static icons = {
-    shard: "../images/icon/shard.svg",
-    bloonstone: "../images/icon/bloonstone.svg"
+    shard: "../images/icon/shard.svg|Shards",
+    bloonstone: "../images/icon/bloonstone.svg|Bloonstones",
+  };
+  constructor() {
+    super();
   }
-  constructor(){
-    super()
-  }
-  connectedCallback(){
-    this.attachShadow({ mode: "open" })
+  connectedCallback() {
+    this.attachShadow({ mode: "open" });
     // this.shadowRoot.appendChild(htmlToNode(InfoComponent.styleLink));
-    this.shadowRoot.appendChild(htmlToNode(`<style>.icon{height: 1em;}</style>`));
-    let image = document.createElement("img")
-    image.src = IconElement.icons[this.getAttribute("icon")]??"../images/icon/error.png"
-    image.height = 50
-    image.classList.add("icon")
-    this.shadowRoot.appendChild(image)
+    this.shadowRoot.appendChild(
+      htmlToNode(`<style>.icon{height: 1em;}</style>`)
+    );
+    let image = document.createElement("img");
+    let toGrab = this.getAttribute("icon");
+    let icon = IconElement.icons[toGrab];
+    if (icon) {
+      let parts = icon.split("|")
+      image.src = parts[0];
+      image.alt = image.title = parts[1] ?? "No alt text provided";
+    } else {
+      image.src = "../images/icon/error.png";
+      image.alt = image.title = "Error loading icon '"+toGrab+"'";
+    }
+    image.classList.add("icon");
+    this.shadowRoot.appendChild(image);
   }
 }
 
-customElements.define("search-bar", SearchBarElement)
-customElements.define("i-n", IconElement)
+customElements.define("search-bar", SearchBarElement);
+customElements.define("i-n", IconElement);

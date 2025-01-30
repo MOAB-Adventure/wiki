@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../weapon-page.css">
+  <script src="../to-node.js"></script>
+  <script src="../search.js"></script>
+  <script src="../elements.js"></script>
+</head>
+
+<body>
+  <header>
+    <p><i>Weapon</i>
+    <p>Missile Launcher</p>
+    </p><search-bar></search-bar>
+  </header>
+  <main>
+    <div class="desc">
+      <div class="bq">
+        <blockquote>
+          <p>Shoots faster moving slightly homing missiles</p>
+        </blockquote>
+        <br>
+        <cite>In-Game Description</cite>
+      </div>
+      <h2>Overview</h2>
+      <p><b>Missile Launcher</b> is the fourth weapon in the AP1.2 upgrade tree, coming after <a
+          href="./double-shooter.html">Bomb Shooter</a>. It is one of the 8 weapons in the <i>second specialisation
+          tier</i>. It introduces homing mechanics to players.</p>
+      <h2>Appearance</h2>
+      <p>Missile Launcher does away with the long barrel entirely, and the side plates curve towards the back of the
+        weapon. The vertical plate on the back remains unchanged. The side plates are also further extended, on extra
+        connecting poles.</p>
+      <h2>Attack Description</h2>
+      <p>Missile Launcher's shots move slightly faster, and are the first instance of homing bullets encountered in the
+        game. The missiles home in on the closest box to the mouse pointer, helping the player aim. It also shoots
+        slightly faster, and deals greatly increased damage, but in a smaller area than its predecessor.</p>
+      <h2>Use Cases</h2>
+      <p>Missile Launcher's homing ability allows the player to target boxes that would otherwise be unreachable, such
+        as boxes behind others, and also helps in targeting faster boxes. This makes the weapon well-suited to use on
+        blimps such as the DDT, where speed often makes aiming at boxes difficult. However, for most other cases, <a
+          href="./incendiary.html"><b>Incendiary</b></a> is a more effective choice due to a larger area and DoT.</p>
+      <br><br>
+      <h2>Version History</h2>
+      <div class="container">
+        <div class="history">
+          <ul>
+            <li>
+              <b><i>Release</i></b>
+              <ul>
+                <li><i>Added</i></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <weapon-info>
+      >[{"type":"part","x":20,"y":0,"width":10,"height":15,"rotation":0,"slide":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":5,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":-26.25,"y":0,"width":7.5,"height":30,"rotation":0,"slide":0,"image":false},{"type":"part","x":0,"y":-20,"width":10,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":0,"y":20,"width":10,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-21.25,"y":0,"width":2.5,"height":10,"rotation":0,"slide":0,"image":false},{"type":"part","x":0,"y":-25,"width":35,"height":7.5,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-15,"speedRatio":0.1}]},{"type":"part","x":0,"y":25,"width":35,"height":7.5,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-15,"speedRatio":0.1}]},{"type":"part","x":20,"y":-22.5,"width":12.5,"height":7.5,"rotation":30,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-15,"speedRatio":0.1}]},{"type":"part","x":-20,"y":22.5,"width":12.5,"height":7.5,"rotation":30,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-15,"speedRatio":0.1}]},{"type":"part","x":20,"y":22.5,"width":12.5,"height":7.5,"rotation":-30,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-15,"speedRatio":0.1}]},{"type":"part","x":-20,"y":-22.5,"width":12.5,"height":7.5,"rotation":-30,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-15,"speedRatio":0.1}]},{"type":"part","x":0,"y":-17.5,"width":25,"height":2.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":0,"y":17.5,"width":25,"height":2.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-7.5,"y":12.5,"width":5,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":7.5,"y":12.5,"width":5,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":7.5,"y":-12.5,"width":5,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-7.5,"y":-12.5,"width":5,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":30,"height":20,"rotation":0,"slide":0,"image":false}]
+      | {{name}} : Missile Launcher
+      | [[slots]] : AP1-2-4
+      | [[image]] : ../images/weapon/missile-launcher.png
+      | Basic Info
+      | Fire Rate : 1.33/s
+      | Upgrade Cost : 800 Shards
+      | Total Cost : 1390 Shards
+      | Attack Details
+      | Type : Projectile
+      | Speed : 2400 px/s # 40 px/frame
+      | Size : 80 x 45 # Hitcircle of radius 18
+      | Lifetime : 0.67s # 40 frames
+      | Damage Topology
+      | Main : 1 Ballistic, Creates [Explosion]
+      | Explosion : 7.5 Explosion ~ 125px
+      | Shot Pattern
+      | Amount : 1
+      | Spread : 0
+      | Estimated Potential DPS
+      | Single Target : 11.305 # With no resistances
+      | Multi Target : 51.205 # A group of 5 densely packed entities
+      | Homing
+      | Turn Speed : 1°/s
+      | Target Type : Hovered # Closest enemy entity to the mouse pointer.
+      | Upgrade Path (AP1.2)
+      | [[navigator]] : Tiny Shooter@tiny-shooter.html~../images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter.html~../images/weapon/double-shooter.png + Bomb
+      Shooter@bomb-shooter.html~../images/weapon/bomb-shooter.png + Missile
+      Launcher@missile-launcher~../images/weapon/missile-launcher.png
+    </weapon-info>
+  </main>
+</body>
+
+</html>

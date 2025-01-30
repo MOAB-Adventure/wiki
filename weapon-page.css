@@ -42,17 +42,30 @@ main .desc h2 {
   align-self: normal;
   background-color: var(--less-faded-sidebar-colour);
 }
+main .desc .warn {
+  color: var(--warning-colour);
+  background-color: var(--warning-background-colour);
+}
 main .desc i,
 main .desc b,
-main .desc a {
+main .desc a,
+main .desc u,
+main .desc s,
+main .desc span {
   font-size: inherit;
   padding: 0;
   margin: 0;
   display: inline;
 }
 main .desc a {
-  font-weight: bold;
-  text-decoration: none;
+  /* font-weight: bold; */
+  text-decoration: underline;
+  color: var(--header-colour);
+}
+main .desc a:hover {
+  /* font-weight: bold; */
+  text-decoration: underline;
+  color: var(--lighter-header-colour);
 }
 main .desc img {
   align-self: center;
@@ -83,7 +96,7 @@ main .desc .bq :first-child {
   padding-bottom: 0px;
 }
 main .desc .bq cite::before {
-  content: " -- ";
+  content: " ⸺ ";
 }
 main .desc .bq blockquote {
   padding-left: 6%;
@@ -124,27 +137,40 @@ main .desc .history ul {
 }
 main .desc .history > ul > li {
   border-bottom: 2px solid black;
+  margin: 0;
+}
+main .desc .history > ul > li ul li {
+  margin: 0;
+  padding: 0;
 }
 main .desc .history > ul > li ul li::before {
   content: " - ";
 }
-main .desc .history > ul > li .nerf::before {
+
+main .desc .history > ul > li ul li:has(.nerf)::before {
   content: "[-] ";
   color: red;
 }
-main .desc .history > ul > li .neutral::before {
-  content: "[*] ";
-  color: yellow;
+main .desc .history > ul > li ul li:has(.neutral)::before,
+main .desc .history > ul > li ul li:has(.buff.nerf .buff ~ .nerf)::before {
+  content: "[×] ";
+  color: rgb(177, 144, 0);
 }
-main .desc .history > ul > li .buff::before {
+main .desc .history > ul > li ul li:has(.buff)::before {
   content: "[+] ";
   color: green;
+}
+main .desc .history > ul > li .undoc::before {
+  content: "[Undocumented] ";
+  font-weight: bold;
 }
 main .desc .history > ul > li ul {
   font-size: 75%;
 }
 i-n {
+  display: inline;
   margin: 0 !important;
   padding: 2px !important;
   background-color: transparent !important;
+  font-size: 1em !important;
 }
