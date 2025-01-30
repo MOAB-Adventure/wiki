@@ -1,0 +1,67 @@
+###  .def file syntax guide:  ###
+
+# (comment)
+==(name);
+  (property) = (value);
+  (property) = 
+    (multiline
+    value);
+  versionHistory = 
+    (Update 1): (change 1), (change 2) + (Update 2): (change 3) + (...);
+  infobox = 
+    (infobox);
+
+double equals (==) separates pages
+equals with spaces ( = ) separates property and value
+semicolon (;) separates property-value pairs
+
+###  infobox help:  ###
+
+only if weapon |
+               v
+    >(parts json)
+    | {{name}} : (name of thing)
+    | [[image]] : (imageurl)
+    | (group name)
+    | (property) : (value)
+    | [[navigator]] : (label)@(pagename)~(imageurl) + (...)
+
+vertical pipe (|) separates components
+[[image]] and [[navigator]] are special component types
+colon with spaces ( : ) separates property and value
+{{name}} is a special property: it changes the title bar of the box
+
+###  formatting syntax   ###
+Replacement for html tags in .def
+works in: 
+- normal property values
+- infobox group names
+- infobox property values
+- infobox navigator labels
+
+Valid codes:
+- [b/ ... ] = bold text
+- [i/ ... ] = italic text
+- [u/ ... ] = underlined text
+- [s/ ... ] = struck through text
+- [-> ... ] = link to page with specified name
+- [-> ... as ... ] = link to page with specified name showing specified text (second input)
+- [c:(colour)/ ... ] = coloured text
+- [br] = line break
+- [.(class)/ ... ] = <span> with (class) as a class.
+- [img/ ... ] = icon with specified name
+
+b, i, u and s codes are semantically neutral.
+img codes can only display these icons:
+- shard
+- bloonstone
+Codes can be nested up to 3 times. Anything after that will ignore outer tags.
+Invalid codes will display without the square brackets.
+To type square brackets, use [\ ... ]. This still takes up a nesting level.
+
+In others.def, no fields except 'title', 'class' and 'versionHistory' are defined, and even then only 'title' is required.
+Additionally, any property key-value pair creates a new section, unless the key is surrounded with ( ).
+There is an additional field, 'before', which places text outside of any section.
+There are additional codes here:
+- [q/ ... ] = Block quote with specified text.
+- [q/ ... -- ...] = Block quote with specified text, citing the specified source.

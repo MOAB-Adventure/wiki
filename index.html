@@ -14,7 +14,7 @@
 <body>
   <div class="horiz-align">
     <nav class="sidebar">
-      <a class="nav top" href="misc/home.html" target="main-viewer" title="Return home">
+      <a class="nav top" href="home.html" target="main-viewer" title="Return home">
         <img src="./images/moab.png" alt="MOAB Adventure logo">
         MOAB Adventure Wiki
       </a>
@@ -115,10 +115,19 @@
             <span>Metal Box</span>
           </a>
         </details>
+        <div class="nav header">
+          Mechanics
+        </div>
+        <details class="nav category" name="category">
+          <summary>Interaction</summary>
+          <a class="nav item" onclick='loadIntoMainIframe("damage-types")'>
+            <span>Damage Types</span>
+          </a>
+        </details>
       </div>
     </nav>
     <main id="infoviewer">
-      <iframe name="main-viewer" src="misc/home.html" width="100%" height="100%" id="preview"></iframe>
+      <iframe name="main-viewer" src="home.html" width="100%" height="100%" id="preview"></iframe>
     </main>
   </div>
 </body>

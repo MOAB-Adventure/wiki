@@ -1,0 +1,24 @@
+==damage-types;
+  title = Damage Types;
+#  before = [q/Ow, that hurt! Just kidding, it didn't hurt at all. -- Robo-Monkey];
+  overview = [b/Damage types] are a way of categorising [i/damage instances].
+          They specify how entities should react to this damage being taken.
+          While this does not have to be a unique value, every individual damage instance has a damage type.;
+  resistances = Any [b/Entity] can define a list if [i/resistances] - reduction
+          factors against a specific type of damage. A value of 0.4 would mean the [i/inflicted damage] is 
+          40% less than the [i/incoming damage].
+          [br]For example, [->metal-box as metal boxes] have a resistance of 1 against Ballistic damage, so are completely immune to it.
+          [br][br]Values over 1 cannot exist, and default to 1, or a 100% resistance.
+          [br]Values less than zero, i.e. negative values, actually [u/increase] the damage taken by the entity, with no limit.[br]
+          [b/Status effects] such as [i/Irradiated] and [i/Frozen] reduce this resistance factor, Irradiated by 2.5% pre stack, and Frozen by 40% per stack.
+          These status effects, therefore, allow [->metal-box as metal boxes] to take damage from [->double-shooter].;
+  listOfDamageTypes = 
+          [img/normal][b/Normal]: (Should be) resisted by nothing.[br]
+          [img/ballistic][b/Ballistic]: Damage dealt by most regular bullets.[br]
+          [img/fire][b/Fire]: Damage dealt by fire DoT effects.[br]
+          [img/laser][b/Laser]: Damage dealt by laser weapons, such as [->laser-blaster].[br]
+          [img/explosion][b/Explosion]: Damage dealt by explosive attacks, such as [->bomb-shooter]'s explosion.[br]
+          [img/collision][b/Collision]: Damage dealt by colliding with a box. Only ever dealt to the player normally.[br]
+          [br]
+          Theoretically, any string could be a damage type, but these are the main ones in a normal game.
+          ;

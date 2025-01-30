@@ -10,20 +10,20 @@
   useCases = Tiny Shooter, as the first weapon, must be bought before any further upgrades.[br]Due to its very low DPS, it is not a good option for enemy destruction, therefore should be upgraded as soon as possible.;
   versionHistory = Release: [i/Added];
   infobox = 
-    >[{type:part,x:0,y:0,width:25,height:25,rotation:0,image:false},{type:part,x:17.5,y:0,width:10,height:15,rotation:0,image:false},{type:part,x:32.5,y:0,width:20,height:10,rotation:0,image:false},{type:part,x:-16.25,y:0,width:7.5,height:15,rotation:0,image:false}]
+      >[{type:part,x:0,y:0,width:25,height:25,rotation:0,image:false},{type:part,x:17.5,y:0,width:10,height:15,rotation:0,image:false},{type:part,x:32.5,y:0,width:20,height:10,rotation:0,image:false},{type:part,x:-16.25,y:0,width:7.5,height:15,rotation:0,image:false}]
       | {{name}} : Tiny Shooter
       | [[slots]] : Any-any-1
       | [[image]] : ../images/weapon/tiny-shooter.png
       | Basic Info
       | Fire Rate : 3/s
-      | Cost : 50 Shards
+      | Cost : 50 [img/shard]
       | Attack Details
       | Type : Projectile
       | Speed : 1800 px/s # 30 px/frame
       | Size : 20 x 15 # Hitcircle of radius 15
       | Lifetime : 0.67s # 40 frames
       | Damage Topology
-      | Main : 1 Ballistic
+      | Main : 1 [img/ballistic]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -87,7 +87,7 @@
     | Size : 20 x 15 # Hitcircle of radius 15
     | Lifetime : 0.67s # 40 frames
     | Damage Topology
-    | Main : 1 Ballistic
+    | Main : 1 [img/ballistic]
     | Shot Pattern
     | Amount : 2
     | Spread : 2° Even
@@ -150,8 +150,8 @@
     | Speed : 1800 px/s # 30 px/frame
     | Size : 40 x 30 # Hitcircle of radius 30
     | Lifetime : 0.67s # 40 frames
-    | Main : 1 Ballistic, Creates [Explosion]
-    | Explosion : 3 Explosion ~ 150px
+    | Main : 1 [img/ballistic], Creates [\Explosion]
+    | Explosion : 3 [img/explosion] ~ 150px
     | Shot Pattern
     | Amount : 1
     | Spread : 0
@@ -194,9 +194,9 @@
       | Size : 40 x 30 # Hitcircle of radius 30
       | Lifetime : 0.67s # 40 frames
       | Damage Topology
-      | Main : 1 Ballistic, Creates [Explosion], Inflicts [DoT]
-      | Explosion : 3 Explosion ~ 150px, Inflicts [DoT]
-      | DoT : 180 x 0.09 Fire ~ 3s
+      | Main : 1 [img/ballistic], Creates [\Explosion], Inflicts [\DoT]
+      | Explosion : 3 [img/explosion] ~ 150px, Inflicts [\DoT]
+      | DoT : 180 x 0.09 [img/fire] ~ 3s
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -247,7 +247,7 @@
       | Lifetime : 0.67s # 40 frames
       | Knockback : 50px
       | Damage Topology
-      | Main : 2 Ballistic
+      | Main : 2 [img/ballistic]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -294,7 +294,7 @@
       | Lifetime : 0.67s # 40 frames
       | Knockback : 100px Propagating # Entities transfer knockback on collision
       | Damage Topology
-      | Main : 2 Ballistic
+      | Main : 2 [img/ballistic]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -395,7 +395,7 @@
       | Decay per Frame : 0.03
       | Maximum Multiplier : 2
       | Damage Topology
-      | Main : 3 Laser
+      | Main : 3 [img/laser]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -447,7 +447,7 @@
       | Lifetime : 0.67s # 40 frames
       | Pierce : 1
       | Damage Topology
-      | Main : 2 Ballistic
+      | Main : 2 [img/ballistic]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -491,7 +491,7 @@
       | Type : Point / Instant
       | Hitsize : 6px
       | Damage Topology
-      | Main : 10 Ballistic
+      | Main : 10 [img/ballistic]
       | Shot Pattern
       | Amount : 1
       | Spread : 0

@@ -4,11 +4,13 @@ let weapons = {};
 let blimps = {};
 let zones = {};
 let entities = {};
+let others = {};
 const creator = {
   weapon: createWeaponPage,
   blimp: createBlimpPage,
   entity: createEntityPage,
-  zone: createZonePage
+  zone: createZonePage,
+  other: createArbitraryPage,
 };
 const error404 = `
 <!DOCTYPE html>
@@ -55,15 +57,18 @@ const bracketRegex =
  * - [s/abc] -> ~~abc~~ (strikethrough)
  * - [->abc] -> ('hyperlink' to page abc)
  * @param {string} text Unformatted text, containing replacement codes.
+ * @param {boolean} [quotable=false] If true, blockquotes [q/ ... -- ...] can be used here.
  * @returns {string} Formatted text.
  */
-function process(text) {
-  if(!text) return;
+function process(text, quotable = false) {
+  if (!text) return "";
   text = makeSafe(text).replaceAll(bracketRegex, (code) => {
     code = code.substring(1, code.length - 1);
     if (code.startsWith("u/")) return `<u>${process(code.substring(2))}</u>`;
     if (code.startsWith("i/")) return `<i>${process(code.substring(2))}</i>`;
     if (code.startsWith("b/")) return `<b>${process(code.substring(2))}</b>`;
+    if (code.startsWith("u/")) return `<u>${process(code.substring(2))}</u>`;
+    if (code.startsWith("s/")) return `<s>${process(code.substring(2))}</s>`;
     if (code.startsWith("-&gt;")) {
       let linkParts = code.substring(5).split(" as ");
       return `<a onclick="load('${linkParts[0]}')">${
@@ -86,6 +91,13 @@ function process(text) {
     if (code.startsWith("img/")) {
       return `<i-n icon="${code.substring(4)}"></i-n>`;
     }
+    if (code.startsWith("\\")) {
+      return "[" + code.substring(1) + "]";
+    }
+    if (quotable && code.startsWith("q/")) {
+      let quotParts = code.substring(2).split(" -- ");
+      return blockquote(quotParts[0], quotParts[1]);
+    }
     return code;
   });
   return text;
@@ -94,9 +106,11 @@ function process(text) {
 function secondaryProcess(text) {
   return text.match(bracketRegex) ? process(text) : text;
 }
-
+/**
+ * @param {string} text
+ */
 function makeSafe(text) {
-  if (!text) return;
+  if (!text) return "";
   return text.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 }
 
@@ -117,19 +131,33 @@ function createHistoryList(string) {
   );
 }
 
-function changePageContentJSON(json, doc = document, creatorfn = creator.weapon) {
+function changePageContentJSON(
+  json,
+  doc = document,
+  creatorfn = creator.weapon
+) {
   changePageContent(...creatorfn(json), doc, creatorfn);
 }
 
-function changePageContent(page, infobox, doc = document, creatorfn = creator.weapon) {
+function changePageContent(
+  page,
+  infobox,
+  doc = document,
+  creatorfn = creator.weapon
+) {
   doc.body.innerHTML = page;
   if (!infobox) return;
-  let ib = doc.createElement(creatorfn === creator.weapon ? "weapon-info" : "info-box");
+  infobox = infobox.trim();
+  if (infobox.length === 0) return;
+  let ib = doc.createElement(
+    creatorfn === creator.weapon ? "weapon-info" : "info-box"
+  );
   doc.querySelector("main").appendChild(ib);
   ib.textContent = infobox;
 }
 /**
- * @param {string} name
+ * @param {string} name kebab-case text.
+ * @returns Title Case text.
  */
 function convertToPageTitle(name) {
   return name
@@ -137,12 +165,22 @@ function convertToPageTitle(name) {
     .map((x) => x.at(0).toUpperCase() + x.substring(1))
     .join(" ");
 }
+/**
+ * @param {string} camelCase camelCase or PascalCase text.
+ * @returns Title Case text.
+ */
+function convertToSectionHeader(camelCase){
+  return camelCase
+    .split(/(?=[A-Z])/)
+    .map((x) => x.at(0).toUpperCase() + x.substring(1))
+    .join(" ");
+}
 
 function load(name, doc = document) {
   if (loaded) {
     //what kind of page is this name?
-    let decision = decideWhatTypeThisIs(name);
-    console.log(decision)
+    let decision = decideWhatTheF_ckThisIs(name);
+    console.log(decision);
     //If the source isn't empty
     if (Object.keys(decision.source).length > 0)
       changePageContentJSON(decision.source[name], doc, decision.func);
@@ -189,6 +227,8 @@ async function importAll() {
   console.log("Entities loaded.");
   zones = await importer("/definitions/zones.def");
   console.log("Zones loaded.");
+  others = await importer("/definitions/others.def");
+  console.log("Others loaded.");
 }
 
 function createWeaponPage(weaponJSON = {}) {
@@ -348,7 +388,49 @@ function createEntityPage(entityJSON = {}) {
   ];
 }
 
-function blockquote(quote, cite = "In-Game Description"){
+let reservedProperties = ["class", "title", "versionHistory", "infobox", "before"];
+function createArbitraryPage(json = {}) {
+  console.log(json);
+  return [
+    `
+  <header>
+    <p>${json.class ? `<i>${process(json.class ?? "[[Class]]")}</i>` : ""}
+    <h1>${process(json.title ?? "[[Title]]")}</h1>
+    </p><search-bar></search-bar>
+  </header>
+  <main>
+    <div class="desc">
+      ${process(json.before, true)}
+      ${Object.entries(json)
+        .filter((x) => !reservedProperties.includes(x[0]))
+        .map(
+          (section) => (!(section[0].startsWith("(") && section[0].endsWith(")"))?`
+        <h2>${convertToSectionHeader(section[0])}</h2>`:"")+`
+      <p>${process(
+        section[1] ??
+          ("[[" + section[0][0].toUpperCase() + section[0].substring(1) + "]]")
+      )}</p>`
+        ).join("\n")}
+      <br><br>
+      <h2>Version History</h2>
+      <div class="container">
+        <div class="history">
+          <ul>
+            ${createHistoryList(
+              json.versionHistory ?? "Release: [i/Added]"
+            ).join("\n")}
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </main>`,
+    `
+      ${makeSafe(json.infobox ?? "")}`,
+  ];
+}
+
+function blockquote(quote, cite = "In-Game Description") {
   return `
       <div class="bq">
         <blockquote>
@@ -356,27 +438,31 @@ function blockquote(quote, cite = "In-Game Description"){
         </blockquote>
         <br>
         <cite>${cite}</cite>
-      </div>`
+      </div>`;
 }
 
-function decideWhatTypeThisIs(name) {
-  console.log("deciding what "+name+ " is")
+function decideWhatTheF_ckThisIs(name) {
+  console.log("deciding what the f_ck " + name + " is");
   if (Object.keys(weapons).includes(name)) {
-    console.log(name+ " is weapon")
+    console.log(name + " is weapon");
     return { source: weapons, func: creator.weapon };
   }
   if (Object.keys(blimps).includes(name)) {
-    console.log(name+ " is blimp")
+    console.log(name + " is blimp");
     return { source: blimps, func: creator.blimp };
   }
   if (Object.keys(entities).includes(name)) {
-    console.log(name+ " is entity")
+    console.log(name + " is entity");
     return { source: entities, func: creator.entity };
   }
   if (Object.keys(zones).includes(name)) {
-    console.log(name+ " is zone")
+    console.log(name + " is zone");
     return { source: zones, func: creator.zone };
   }
-  console.log(name+ " does not exist")
+  if (Object.keys(others).includes(name)) {
+    console.log(name + " is other");
+    return { source: others, func: creator.other };
+  }
+  console.log(name + " does not exist");
   return { source: [], func: () => error404 };
 }

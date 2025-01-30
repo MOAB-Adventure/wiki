@@ -446,6 +446,13 @@ class IconElement extends HTMLElement {
   static icons = {
     shard: "../images/icon/shard.svg|Shards",
     bloonstone: "../images/icon/bloonstone.svg|Bloonstones",
+    ballistic: "../images/icon/ballistic.svg|Ballistic Damage",
+    normal: "../images/icon/normal.svg|Normal Damage",
+    fire: "../images/icon/fire.svg|Fire Damage",
+    explosion: "../images/icon/explosion.svg|Explosion Damage",
+    radiation: "../images/icon/radiation.svg|Radiation Damage",
+    laser: "../images/icon/laser.svg|Laser Damage",
+    collision: "../images/icon/collision.svg|Collision Damage",
   };
   constructor() {
     super();
@@ -474,3 +481,4 @@ class IconElement extends HTMLElement {
 
 customElements.define("search-bar", SearchBarElement);
 customElements.define("i-n", IconElement);
+

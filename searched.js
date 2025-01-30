@@ -26,7 +26,7 @@ function start() {
     document.getElementById("results").appendChild(a);
   }
   if (json.length === 0) {
-    let result = { page: { title: "No Results", url: "../misc/no-info.html" } };
+    let result = { page: { title: "No Results", url: "./no-info.html" } };
     let div = createContainerForResult(result);
     let a = createLinkForResult(result);
     a.appendChild(div);
@@ -44,7 +44,7 @@ function start() {
 
 function createLinkForResult(result) {
   let a = document.createElement("a");
-  a.href = "./misc/home.html?goto="+encodeURIComponent(result.page.name); //result.page.url
+  a.href = "./home.html?goto="+encodeURIComponent(result.page.name); //result.page.url
   a.classList.add("nav", "item", "search");
   return a;
 }
