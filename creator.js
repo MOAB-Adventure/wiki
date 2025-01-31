@@ -5,6 +5,7 @@ let blimps = {};
 let zones = {};
 let entities = {};
 let others = {};
+let components = {};
 const creator = {
   weapon: createWeaponPage,
   blimp: createBlimpPage,
@@ -64,43 +65,93 @@ function process(text, quotable = false) {
   if (!text) return "";
   text = makeSafe(text).replaceAll(bracketRegex, (code) => {
     code = code.substring(1, code.length - 1);
+    //[u/ ... ] underlined text
     if (code.startsWith("u/")) return `<u>${process(code.substring(2))}</u>`;
+
+    //[i/ ... ] italic text
     if (code.startsWith("i/")) return `<i>${process(code.substring(2))}</i>`;
+
+    //[b/ ... ] bold text
     if (code.startsWith("b/")) return `<b>${process(code.substring(2))}</b>`;
-    if (code.startsWith("u/")) return `<u>${process(code.substring(2))}</u>`;
+
+    //[s/ ... ] struck through text
     if (code.startsWith("s/")) return `<s>${process(code.substring(2))}</s>`;
+
+    //[-> ... ] / [-> ... as ... ] link / aliased link
     if (code.startsWith("-&gt;")) {
       let linkParts = code.substring(5).split(" as ");
-      return `<a onclick="load('${linkParts[0]}')">${
-        linkParts[1] ?? convertToPageTitle(linkParts[0])
-      }</a>`;
+      let display = linkParts[1]
+        ? process(linkParts[1])
+        : convertToPageTitle(linkParts[0]);
+      return `<a onclick="load('${linkParts[0]}')" href="#${linkParts[0]}">${display}</a>`;
     }
+
+    //[br] line break
     if (code === "br") return "<br>";
+
+    //[c: ... / ... ] coloured text
     if (code.startsWith("c:")) {
       let colparts = code.substring(2).split("/");
       return `<span style="color:${colparts[0]}">${process(
         colparts.slice(1).join("/")
       )}</span>`;
     }
+
+    //[. ... / ... ] classed span
     if (code.startsWith(".")) {
       let classParts = code.substring(1).split("/");
       return `<span class="${classParts[0].replaceAll(".", " ")}">${process(
         classParts.slice(1).join("/")
       )}</span>`;
     }
+
+    //[img/ ... ] icon
     if (code.startsWith("img/")) {
-      return `<i-n icon="${code.substring(4)}"></i-n>`;
+      return `<i-n icon="${code.substring(4).toLowerCase()}"></i-n>`;
     }
+
+    //[\\ ... ] square brackets
     if (code.startsWith("\\")) {
       return "[" + code.substring(1) + "]";
     }
+
+    //[q/ ... ] blockquote
     if (quotable && code.startsWith("q/")) {
       let quotParts = code.substring(2).split(" -- ");
       return blockquote(quotParts[0], quotParts[1]);
     }
+
+    //[{ ... }] component
+    if (code.startsWith("{") && code.endsWith("}")) {
+      let comp = code.substring(1, code.length - 1);
+      let parts = comp.split(":");
+      let component = getComponent(...parts)
+      return process(component);
+    }
     return code;
   });
   return text;
+}
+
+/**
+ * Gets a component from a name, and replaces placeholders. **Does not process!**
+ * @param {string} componentName Name of the compoennt, as defined in `components.def`.
+ * @param  {...string} placeholders String values to replace placeholders with.
+ * @returns Unprocessed string representation of the component's replaced form. `<?>` if component did not exist.
+ */
+function getComponent(componentName, ...placeholders) {
+  if (Object.keys(components).includes(componentName)) {
+    /** @type {string} */
+    let component = components[componentName];
+    return component
+      .replaceAll(/(?<!\\)\{[0-9]+\}/gi, (match) => {
+        //get placeholder number
+        let num = match.substring(1, match.length - 1);
+        return placeholders[parseInt(num) - 1] ?? "<?>";
+      })
+      .replaceAll(/\\(?=\{[0-9]+\})/gi);
+  }
+  return "<?>";
 }
 
 function secondaryProcess(text) {
@@ -111,7 +162,9 @@ function secondaryProcess(text) {
  */
 function makeSafe(text) {
   if (!text) return "";
-  return text.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+  return text
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 }
 
 function createHistoryList(string) {
@@ -157,23 +210,27 @@ function changePageContent(
 }
 /**
  * @param {string} name kebab-case text.
- * @returns Title Case text.
+ * @returns Processed Title Case text.
  */
 function convertToPageTitle(name) {
-  return name
-    .split("-")
-    .map((x) => x.at(0).toUpperCase() + x.substring(1))
-    .join(" ");
+  return process(
+    name
+      .split("-")
+      .map((x) => x.at(0).toUpperCase() + x.substring(1))
+      .join(" ")
+  );
 }
 /**
  * @param {string} camelCase camelCase or PascalCase text.
- * @returns Title Case text.
+ * @returns Processed Title Case text.
  */
-function convertToSectionHeader(camelCase){
-  return camelCase
-    .split(/(?=[A-Z])/)
-    .map((x) => x.at(0).toUpperCase() + x.substring(1))
-    .join(" ");
+function convertToSectionHeader(camelCase) {
+  return process(
+    camelCase
+      .split(/(?=[A-Z])/)
+      .map((x) => x.at(0).toUpperCase() + x.substring(1))
+      .join(" ")
+  );
 }
 
 function load(name, doc = document) {
@@ -218,6 +275,27 @@ async function importer(url) {
   }
   return obj;
 }
+
+/**
+ * @param {URL | string} url
+ * @returns
+ */
+async function singleImporter(url) {
+  let result = await (await fetch(url)).text();
+  let weapondef = result.replaceAll("\r\n", "");
+  let weapon = {};
+  let lines = weapondef
+    .split(";")
+    .map((x) => x.trim())
+    .filter((x) => x.length > 0);
+  for (let line of lines) {
+    if (line[0] === "#") continue;
+    let kp = line.split(" = ");
+    if (kp.length > 1) weapon[kp[0]] = kp.slice(1).join(" = ");
+  }
+  return weapon;
+}
+
 async function importAll() {
   weapons = await importer("/definitions/weapons.def");
   console.log("Weapons loaded.");
@@ -229,6 +307,9 @@ async function importAll() {
   console.log("Zones loaded.");
   others = await importer("/definitions/others.def");
   console.log("Others loaded.");
+  components = await singleImporter("/definitions/components.def");
+  console.log(components);
+  console.log("Components loaded.");
 }
 
 function createWeaponPage(weaponJSON = {}) {
@@ -388,7 +469,13 @@ function createEntityPage(entityJSON = {}) {
   ];
 }
 
-let reservedProperties = ["class", "title", "versionHistory", "infobox", "before"];
+let reservedProperties = [
+  "class",
+  "title",
+  "versionHistory",
+  "infobox",
+  "before",
+];
 function createArbitraryPage(json = {}) {
   console.log(json);
   return [
@@ -404,13 +491,18 @@ function createArbitraryPage(json = {}) {
       ${Object.entries(json)
         .filter((x) => !reservedProperties.includes(x[0]))
         .map(
-          (section) => (!(section[0].startsWith("(") && section[0].endsWith(")"))?`
-        <h2>${convertToSectionHeader(section[0])}</h2>`:"")+`
+          (section) =>
+            (!(section[0].startsWith("(") && section[0].endsWith(")"))
+              ? `
+        <h2>${convertToSectionHeader(section[0])}</h2>`
+              : "") +
+            `
       <p>${process(
         section[1] ??
-          ("[[" + section[0][0].toUpperCase() + section[0].substring(1) + "]]")
+          "[[" + section[0][0].toUpperCase() + section[0].substring(1) + "]]"
       )}</p>`
-        ).join("\n")}
+        )
+        .join("\n")}
       <br><br>
       <h2>Version History</h2>
       <div class="container">

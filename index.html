@@ -4,7 +4,7 @@
 <head>
   <title>MOAB Adventure Wiki</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="./images/moab.png">
+  <link rel="icon" type="image/x-icon" href="./images/icon/moab-icon.svg">
   <script src="to-node.js"></script>
   <script src="search.js"></script>
   <script src="elements.js"></script>
@@ -15,7 +15,7 @@
   <div class="horiz-align">
     <nav class="sidebar">
       <a class="nav top" href="home.html" target="main-viewer" title="Return home">
-        <img src="./images/moab.png" alt="MOAB Adventure logo">
+        <img src="./images/icon/moab-icon.svg" alt="MOAB Adventure logo">
         MOAB Adventure Wiki
       </a>
       <div class="vscroll">
@@ -119,11 +119,23 @@
           Mechanics
         </div>
         <details class="nav category" name="category">
-          <summary>Interaction</summary>
+          <summary>Typing</summary>
           <a class="nav item" onclick='loadIntoMainIframe("damage-types")'>
             <span>Damage Types</span>
           </a>
+          <a class="nav item" onclick='loadIntoMainIframe("shot-types")'>
+            <span>Shot Types</span>
+          </a>
         </details>
+        <details class="nav category" name="category">
+          <summary>Upgrades</summary>
+          <a class="nav item" onclick='loadIntoMainIframe("currency")'>
+            <span>Currency</span>
+          </a>
+        </details>
+        <div class="nav header">
+          <br>
+        </div>
       </div>
     </nav>
     <main id="infoviewer">

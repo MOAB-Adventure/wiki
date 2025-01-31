@@ -206,7 +206,7 @@ class InfoComponent extends HTMLElement {
     this.body.appendChild(
       htmlToNode(
         `<div class="row">
-      <div class="property item">${property}</div>
+      <div class="property item">${process(property)}</div>
       <div class="value item">${process(value)}${
           extras ? `<span class="extra" info="${extras}"></span>` : ""
         }</div>
@@ -453,6 +453,16 @@ class IconElement extends HTMLElement {
     radiation: "../images/icon/radiation.svg|Radiation Damage",
     laser: "../images/icon/laser.svg|Laser Damage",
     collision: "../images/icon/collision.svg|Collision Damage",
+    electric: "../images/icon/electric.svg|Electric Damage",
+
+    projectile: "../images/icon/projectile.svg|Projectile Shot Type",
+    point: "../images/icon/point.svg|Point Shot Type",
+    beam: "../images/icon/beam.svg|Beam Shot Type",
+    contact: "../images/icon/contact.svg|Contact Shot Type",
+
+    independent: "../images/icon/auto-aim.svg|Independent Tracking",
+    assisted: "../images/icon/assisted-aim.svg|Assisted Tracking",
+    manual: "../images/icon/mouse-aim.svg|Manual Tracking",
   };
   constructor() {
     super();
@@ -461,7 +471,7 @@ class IconElement extends HTMLElement {
     this.attachShadow({ mode: "open" });
     // this.shadowRoot.appendChild(htmlToNode(InfoComponent.styleLink));
     this.shadowRoot.appendChild(
-      htmlToNode(`<style>.icon{height: 1em;}</style>`)
+      htmlToNode(`<style>.icon{height: 1em; translate: 0 0.15em;}</style>`)
     );
     let image = document.createElement("img");
     let toGrab = this.getAttribute("icon");

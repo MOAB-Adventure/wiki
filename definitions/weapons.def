@@ -18,12 +18,12 @@
       | Fire Rate : 3/s
       | Cost : 50 [img/shard]
       | Attack Details
-      | Type : Projectile
+      | Type : [{st:Projectile}]
       | Speed : 1800 px/s # 30 px/frame
       | Size : 20 x 15 # Hitcircle of radius 15
       | Lifetime : 0.67s # 40 frames
       | Damage Topology
-      | Main : 1 [img/ballistic]
+      | Main : 1 [{dt:ballistic}]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -67,7 +67,7 @@
   title = Double Shooter;
   class = Weapon;
   description = Shoots 2 bullets at once.;
-  overview = [b/Double Shooter] is the second weapon in any upgrade tree, coming after [->tiny-shooter]. It is a relatively simple upgrade, adding another bullet per shot.[br]It is still a relatively basic weapon, having only one 'special mechanic'. Costing only 200 Shards, this is the cheapest upgrade in the game.;
+  overview = [b/Double Shooter] is the second weapon in any upgrade tree, coming after [->tiny-shooter]. It is a relatively simple upgrade, adding another bullet per shot.[br]It is still a relatively basic weapon, having only one 'special mechanic'. Costing only 200[{shards}], this is the cheapest upgrade in the game.;
   appearance = Double Shooter has a similar appearance to [b/Tiny Shooter], also taking the form of a gun, but with an additional barrel, placed alongside the first, which has been shifted sideways to accommodate this.[br]Both barrels recoil at once when fired, as both bullets are fired simultaneously.;
   attackDescription = Double Shooter, as its name implies, shoots twice the bullets. However, it's not as simple as that, as these bullets have a 2° spread between them, which may affect accuracy when aiming at small, distant targets.;
   useCases = Double Shooter has the ability to hit 2 separate targets with its bullets, and will frequently do so at longer range, which can cause entities to be left intact for an undesirable length of time. This causes the weapon to be better suited to short-range than long-range. That being said, its substantially higher DPS makes this a viable option for saving up to buy multiple upgrades at once, or, in extreme cases, a blimp upgrade.;
@@ -79,15 +79,15 @@
     | [[image]] : ../images/weapon/double-shooter.png
     | Basic Info
     | Fire Rate : 6/s # 2 shots every 0.33 seconds
-    | Upgrade Cost : 200 Shards
-    | Total Cost : 250 Shards
+    | Upgrade Cost : 200[{shards}]
+    | Total Cost : 250[{shards}]
     | Attack Details
-    | Type : Projectile
+    | Type : [{st:Projectile}]
     | Speed : 1800 px/s # 30 px/frame
     | Size : 20 x 15 # Hitcircle of radius 15
     | Lifetime : 0.67s # 40 frames
     | Damage Topology
-    | Main : 1 [img/ballistic]
+    | Main : 1 [{dt:ballistic}]
     | Shot Pattern
     | Amount : 2
     | Spread : 2° Even
@@ -143,15 +143,16 @@
     | [[image]] : ../images/weapon/bomb-shooter.png
     | Basic Info
     | Fire Rate : 1/s
-    | Upgrade Cost : 540 Shards
-    | Total Cost : 790 Shards
+    | Upgrade Cost : 540[{shards}]
+    | Total Cost : 790[{shards}]
     | Attack Details
-    | Type : Projectile
+    | Type : [{st:Projectile}]
     | Speed : 1800 px/s # 30 px/frame
     | Size : 40 x 30 # Hitcircle of radius 30
     | Lifetime : 0.67s # 40 frames
-    | Main : 1 [img/ballistic], Creates [\Explosion]
-    | Explosion : 3 [img/explosion] ~ 150px
+    | Damage Topology
+    | Main : 1 [{dt:ballistic}], Creates [\Explosion]
+    | Explosion : 3 [{dt:explosion}] ~ 150px
     | Shot Pattern
     | Amount : 1
     | Spread : 0
@@ -186,17 +187,17 @@
       | [[image]] : ../images/weapon/incendiary.png
       | Basic Info
       | Fire Rate : 1/s
-      | Upgrade Cost : 1350 Shards
-      | Total Cost : 2140 Shards
+      | Upgrade Cost : 1350[{shards}]
+      | Total Cost : 2140[{shards}]
       | Attack Details
-      | Type : Projectile
+      | Type : [{st:Projectile}]
       | Speed : 1800 px/s # 30 px/frame
       | Size : 40 x 30 # Hitcircle of radius 30
       | Lifetime : 0.67s # 40 frames
       | Damage Topology
-      | Main : 1 [img/ballistic], Creates [\Explosion], Inflicts [\DoT]
-      | Explosion : 3 [img/explosion] ~ 150px, Inflicts [\DoT]
-      | DoT : 180 x 0.09 [img/fire] ~ 3s
+      | Main : 1 [{dt:ballistic}], Creates [\Explosion], Inflicts [\DoT]
+      | Explosion : 3 [{dt:explosion}] ~ 150px, Inflicts [\DoT]
+      | DoT : 180 x 0.09 [{dt:fire}] ~ 3s
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -238,16 +239,16 @@
       | [[image]] : ../images/weapon/heavy-shots.png
       | Basic Info
       | Fire Rate : 2/s
-      | Upgrade Cost : 400 Shards
-      | Total Cost : 650 Shards
+      | Upgrade Cost : 400[{shards}]
+      | Total Cost : 650[{shards}]
       | Attack Details
-      | Type : Projectile
+      | Type : [{st:Projectile}]
       | Speed : 1800 px/s # 30 px/frame
       | Size : 30 x 22.5 # Hitcircle of radius 25
       | Lifetime : 0.67s # 40 frames
       | Knockback : 50px
       | Damage Topology
-      | Main : 2 [img/ballistic]
+      | Main : 2 [{dt:ballistic}]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -285,16 +286,16 @@
       | [[image]] : ../images/weapon/kinetic-impactor.png
       | Basic Info
       | Fire Rate : 2/s
-      | Upgrade Cost : 850 Shards
-      | Total Cost : 1500 Shards
+      | Upgrade Cost : 850[{shards}]
+      | Total Cost : 1500[{shards}]
       | Attack Details
-      | Type : Projectile
+      | Type : [{st:Projectile}]
       | Speed : 1800 px/s # 30 px/frame
       | Size : 30 x 22.5 # Hitcircle of radius 25
       | Lifetime : 0.67s # 40 frames
       | Knockback : 100px Propagating # Entities transfer knockback on collision
       | Damage Topology
-      | Main : 2 [img/ballistic]
+      | Main : 2 [{dt:ballistic}]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -317,31 +318,21 @@
         by multiple plates, 2 of which are hinged at the back. These 2 plates swing backwards on weapon firing, allowing
         the 2 outermost plates on the sides to slide back, freeing space for the firing unit, which recoils as the
         accelerators move forwards, escaping the weapon entirely, before returning for the next shot.;
-  attackDescription = Laser Blaster has the simplest attack of any T3: Single 3 damage shot. This shot deals Laser damage, which can
-        damage [->metal-box as metal boxes] (at 70% efficiency), allowing the player to destroy
-        them. This ability is shared by [->bomb-shooter], which damages them with its
-        explosion, however Laser Blaster provides a more consistent damage output.;
-  useCases = Laser Blaster does not benefit from shooting at a group of entities, and its shots can be blocked by boxes,
-        causing it to get quickly overwhelmed by large numbers of them. This makes this weapon more suited to
-        single-target damage, dealing 9 DPS to unresisting boxes, and 6.3 DPS to metal boxes.;
-  versionHistory = Release: [i/Added];
-  infobox = 
-      >[{"type":"part","x":1.25,"y":-17.5,"width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":1.25,"y":17.5,"width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":5,"height":30,"rotation":0,"image":false},{"type":"part","x":20,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":30,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":35,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":-12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":25,"y":12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":37.5,"y":-12.5,"width":10,"height":7.5,"rotation":-45,"image":false},{"type":"part","x":37.5,"y":12.5,"width":7.5,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":-10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"image":false},{"type":"part","x":-22.5,"y":0,"width":5,"height":20,"rotation":0,"image":false},{"type":"part","x":12.5,"y":-22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":12.5,"y":22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":-12.5,"y":17.5,"width":30,"height":5,"rotation":27,"image":false},{"type":"part","x":-12.5,"y":-17.5,"width":30,"height":5,"rotation":-27,"image":false}]
-      | {{name}} : Laser Blaster
+     width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":1.25,"y":17.5,"width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":5,"height":30,"rotation":0,"image":false},{"type":"part","x":20,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":30,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":35,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":-12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":25,"y":12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":37.5,"y":-12.5,"width":10,"height":7.5,"rotation":-45,"image":false},{"type":"part","x":37.5,"y":12.5,"width":7.5,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":-10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"image":false},{"type":"part","x":-22.5,"y":0,"width":5,"height":20,"rotation":0,"image":false},{"type":"part","x":12.5,"y":-22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":12.5,"y":22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":-12.5,"y":17.5,"width":30,"height":5,"rotation":27,"image":false},{"type":"part","x":-12.5,"y":-17.5,"width":30,"height":5,"rotation":-27,"image":false}]
+      | {{name}} : Laser Blaster 
       | [[slots]] : AP3/4-any-3
       | [[image]] : ../images/weapon/laser-blaster.png
       | Basic Info
       | Fire Rate : 3/s
-      | Upgrade Cost : 350 Shards
-      | Total Cost : 600 Shards
+      | Upgrade Cost : 350[{shards}]
+      | Total Cost : 600[{shards}]
       | Attack Details
-      | Type : Projectile
+      | Type : [{st:Projectile}]
       | Speed : 2400 px/s # 40 px/frame
       | Size : 30 x 10 # Hitcircle of radius 15
       | Lifetime : 0.67s # 40 frames
-      | Trail Colour : Red # Hex #ff0000
       | Damage Topology
-      | Main : 3 [->laser-dt as Laser]
+      | Main : 3 [{dt:laser}]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -354,7 +345,7 @@
       Shooter@double-shooter~../images/weapon/double-shooter.png + Laser
       Blaster@laser-blaster~../images/weapon/laser-blaster.png
       ;
-==accelerator;
+==ac celerator;
   title = Accelerator;
   class = Weapon;
   description = Shoots faster the longer it fires for!;
@@ -372,7 +363,7 @@
   useCases = Accelerator still suffers from the same problem as Laser Blaster - Shot blocking from boxes. This is slightly
         mitigated by the high DPS of full acceleration, but still reduces the effectiveness of Accelerator against
         grouped boxes.[br]The fire rate increase unfortunately also comes with a base fire rate reduction, so the
-        overall effect on DPS is not great, at a maximum 3 DPS increase for 1250[img/shard], whilst having the same average DPS of 9, making this one of the
+        overall effect on DPS is not great, at a maximum 3 DPS increase for 1250[{shards}], whilst having the same average DPS of 9, making this one of the
         least effective T4 upgrades.;
   versionHistory = Release: [i/Added];
   infobox = 
@@ -382,20 +373,19 @@
       | [[image]] : ../images/weapon/accelerator.png
       | Basic Info
       | Fire Rate : 2/s ~ 4/s
-      | Upgrade Cost : 1250 Shards
-      | Total Cost : 1850 Shards
+      | Upgrade Cost : 1250[{shards}]
+      | Total Cost : 1850[{shards}]
       | Attack Details
-      | Type : Projectile
+      | Type : [{st:Projectile}]
       | Speed : 2400 px/s # 40 px/frame
       | Size : 30 x 10 # Hitcircle of radius 15
       | Lifetime : 0.67s # 40 frames
-      | Trail Colour : Red # Hex #ff0000
       | Acceleration
       | Speed Increase per Shot : 0.15
       | Decay per Frame : 0.03
       | Maximum Multiplier : 2
       | Damage Topology
-      | Main : 3 [img/laser]
+      | Main : 3 [{dt:laser}]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -438,16 +428,16 @@
       | [[image]] : ../images/weapon/rifle.png
       | Basic Info
       | Fire Rate : 2/s
-      | Upgrade Cost : 250 Shards
-      | Total Cost : 500 Shards
+      | Upgrade Cost : 250[{shards}]
+      | Total Cost : 500[{shards}]
       | Attack Details
-      | Type : Projectile
+      | Type : [{st:Projectile}]
       | Speed : 3300 px/s # 55 px/frame
       | Size : 25 x 12 # Hitcircle of radius 15
       | Lifetime : 0.67s # 40 frames
       | Pierce : 1
       | Damage Topology
-      | Main : 2 [img/ballistic]
+      | Main : 2 [{dt:ballistic}]
       | Shot Pattern
       | Amount : 1
       | Spread : 0
@@ -485,13 +475,13 @@
       | [[image]] : ../images/weapon/sniper.png
       | Basic Info
       | Fire Rate : 1/s
-      | Upgrade Cost : 1000 Shards
-      | Total Cost : 1500 Shards
+      | Upgrade Cost : 1000[{shards}]
+      | Total Cost : 1500[{shards}]
       | Attack Details
-      | Type : Point / Instant
+      | Type : [{st:Point}] / Instant
       | Hitsize : 6px
       | Damage Topology
-      | Main : 10 [img/ballistic]
+      | Main : 10 [{dt:ballistic}]
       | Shot Pattern
       | Amount : 1
       | Spread : 0

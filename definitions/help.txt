@@ -34,9 +34,9 @@ colon with spaces ( : ) separates property and value
 ###  formatting syntax   ###
 Replacement for html tags in .def
 works in: 
-- normal property values
+- normal property names and values
 - infobox group names
-- infobox property values
+- infobox property names and values
 - infobox navigator labels
 
 Valid codes:
@@ -49,7 +49,9 @@ Valid codes:
 - [c:(colour)/ ... ] = coloured text
 - [br] = line break
 - [.(class)/ ... ] = <span> with (class) as a class.
-- [img/ ... ] = icon with specified name
+- [img/ ... ] = icon with specified name (not case sensitive)
+- [{ ... }] = insert a reusable component from components.def.
+- [{ ... : a : b : ... }] = insert component, replacing placeholders with `a`, `b`, ...
 
 b, i, u and s codes are semantically neutral.
 img codes can only display these icons:
@@ -65,3 +67,11 @@ There is an additional field, 'before', which places text outside of any section
 There are additional codes here:
 - [q/ ... ] = Block quote with specified text.
 - [q/ ... -- ...] = Block quote with specified text, citing the specified source.
+
+### components ###
+Defines reusable parts to insert using the special syntax [{ ... }].
+Defined using `(name) = (value);`. You can add placeholders in the form {n}, where n ∈ ℕ.
+These will be replaced with values in the code:
+[{ ... : a : b : c : ... }]
+{1} will be replaced with a, {2} with b, and so forth.
+Any extra placeholders will be filled with `<?>`.

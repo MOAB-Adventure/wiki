@@ -1,0 +1,5 @@
+### COMPONENT DEFINITION FILE ###;
+  shards = [->currency as [img/shard]];
+  bloonstones = [->currency as [img/bloonstone]];
+  dt = [->damage-types as [img/{1}]];
+  st = [->shot-types as [img/{1}]]{1};

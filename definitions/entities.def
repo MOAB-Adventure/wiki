@@ -21,8 +21,8 @@
       | Base Health : 5
       | Size : 50x50
       | Rewards
-      | Dodge : 2 Shards
-      | Destroy : 5 Shards
+      | Dodge : 2[{shards}]
+      | Destroy : 5[{shards}]
       | Resistances
       | (none)
       | Spawning Zones
@@ -55,11 +55,11 @@
       | Base Health : 20
       | Size : 50x50
       | Rewards
-      | Dodge : 2 Shards
-      | Destroy : 10 Shards
+      | Dodge : 2[{shards}]
+      | Destroy : 10[{shards}]
       | Resistances
-      | Ballistic : 100%
-      | Laser : 30%
+      | [{dt:ballistic}]Ballistic : 100%
+      | [{dt:laser}]Laser : 30%
       | Spawning Zones
       | [[navigator]] : Ocean Skies@ocean-skies~../images/ss/sky-high.png
       ;

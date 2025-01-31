@@ -1,6 +1,7 @@
+### GENERIC DEFINITION FILE ###
 ==damage-types;
   title = Damage Types;
-#  before = [q/Ow, that hurt! Just kidding, it didn't hurt at all. -- Robo-Monkey];
+  #before = [q/Ow, that hurt! Just kidding, it didn't hurt at all. -- Robo-Monkey];
   overview = [b/Damage types] are a way of categorising [i/damage instances].
           They specify how entities should react to this damage being taken.
           While this does not have to be a unique value, every individual damage instance has a damage type.;
@@ -21,4 +22,61 @@
           [img/collision][b/Collision]: Damage dealt by colliding with a box. Only ever dealt to the player normally.[br]
           [br]
           Theoretically, any string could be a damage type, but these are the main ones in a normal game.
+          ;
+==shot-types;
+  title = Shot Types;
+  before = [q/Shots travel to the mouse pointer instantly, dealing high damage to a single target. -- AP5.1:5 - Sniper's In-Game Description];
+  overview = [b/Shot Types] define the behaviour of any shots fired from a weapon or entity. Different shot types have different properties, 
+          and may have additional behaviour.[br]
+          This page lists all shot types used in weapons present in this wiki.[br]
+          Some of these shots have other properties to define visuals, but they are irrelevant for this wiki.;
+  [img/projectile]Projectile = Attacks with the [b/Projectile] shot type, or its derivative [b/Missile], move in the direction they were fired in at a constant rate.[br]
+          They usually stop when colliding with something, or when too much time has passed. They deal damage on contact, so can be considered as a [b/ranged version of [img/contact]Contact.][br]
+          They can have the following properties:[br]
+          - [b/Lifetime], the maximum time the shot can exist for.[br]
+          - [b/Speed], the number of pixels the shot muves per unit time. The screen is 1960px wide, even when resized.[br]
+          - [b/Size], the visual size (and hitcircle size) of the shot.[br]
+          - [b/Pierce], the number of [u/additional] entities this shot can hit in its lifetime, before it stops existing.[br]
+          ;
+  (missile) = The derivative [b/Missile] shot type acts the same, but has the option of [b/Homing] (aka [b/Tracking]).[br]
+          There are 3 different homing types:[br]
+          - [img/independent][b/Independent], tracking the closest enemy entity to the [i/current position] of the shot. This is the only type used by enemies.[br]
+          - [img/assisted][b/Assisted], tracking the closest enemy entity to the [i/player's mouse cursor].[br]
+          - [img/manual][b/Manual], tracking the player's mouse cursor itself.[br]
+          Missile shots also have a [i/homing power], or [i/turn speed], which defines how fast they can turn in the right direction.
+          ;
+  [img/point]Point/Impact = Attacks with the [b/Point] shot type (also known as [b/Instant]), teleport instantly to the target position on the first frame of their existence.[br]
+          They can usually only hit one entity, even if multiple entities overlap at the hit position.[br]
+          They can have the following properties:[br]
+          - [b/Hitsize], the area in which the shot checks for damageable entities.[br]
+          - [b/Pierce], the number of [u/additional] entities this can hit at once. All entities must be within the damage radius.[br]
+          ;
+  [img/beam]Beam = Attacks with the [b/Beam] shot type do not move, but instead extend in the direction of firing, dealing damage to anything caught in the line, up to a maximum number of entities.[br]
+          They can have the following properties:[br]
+          - [b/Hitsize], the area in which the shot checks for damageable entities. The (maximum) width of the beam.[br]
+          - [b/Pierce], the number of [u/additional] entities this can hit at once (/per frame). The beam stops extending when this number is exceeded.[br]
+          - [b/Length], the maximum length of the beam.
+          ;
+  (continuousBeam) = The derivative [b/Continuous Beam] shot type damages anything in the beam constantly.[br]
+          If pierce is exceeded, the beam will stop extending, as normal, but will not extend again if pierce stops being exceeded.;
+  [img/contact]Contact = Attacks with the [b/Contact] shot type don't move, and instead damage any entity currently in contact with the source.[br]
+          They can hit any number of colliding entities, and inherit the hitsize of the source entity.[br]
+          They have no special properties, and exist only for the frame they were fired in.;
+==currency;
+  title = Currencies;
+  overview = MOAB Adventure has multiple [b/currencies] with which to buy your [i/upgrades]. Each currency is obtained in a different way, and is used for different things.[br]
+          This page will cover the 2 currencies used for upgrading weapons and your blimp.;
+  [img/shard]Shards = The main currency. These are used for most upgrades in a regular game. The amount required scales with the power or value of the upgrade.[br]
+          Obtained from:[br]
+          - [b/[->wood-box as Boxes] Leaving]: Give variable rewards based on box type. Will not be obtained from a collision.[br]
+          - [b/Destroying Boxes]: Give variable rewards based on box type.[br]
+          Used for:[br]
+          - [b/Weapon Upgrades][br]
+          - [b/Blimp Upgrades][br]
+          ;
+  [img/bloonstone]Bloonstones = The secondary currency. These are used for some special upgrades, such as the highest tiers of weapon. The amount required does not necessarily scale with the actual power, more with the point in progression.[br]
+          Obtained from:[br]
+          - [b/Defeating Bosses]: Each boss awards 100[img/bloonstone] on destruction.[br]
+          Used for:[br]
+          - [b/High-Tier Weapon Upgrades]: Tier 6 weapons require 200[img/bloonstone] each, tier 7s require 1000[img/bloonstone] each.[br]
           ;
