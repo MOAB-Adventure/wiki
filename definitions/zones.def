@@ -15,12 +15,12 @@
   versionHistory = Release: [i/Added];
   infobox = 
       | {{name}} : Ocean Skies
-      | [[image]] : ../images/ss/sky-high.png
+      | [[image]] : ./images/ss/sky-high.png
       | Adventure
       | Zone Index : 0 # The number of zones preceding this one
       | DV Requirement : None
       | Spawning Groups
-      | [[navigator]] : 1/s/spd@wood-box~../images/entity/box/wood.svg + 0.2/s/spd@metal-box~../images/entity/box/metal.svg
+      | [[navigator]] : 1/s/spd@wood-box~./images/entity/box/wood.svg + 0.2/s/spd@metal-box~./images/entity/box/metal.svg
       | Bosses
       | [i/(none implemented)]
       | BGM

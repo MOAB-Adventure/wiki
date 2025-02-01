@@ -23,8 +23,8 @@
       | Weapons
       | AP1 : Tier 1-4 # Tiny Shooter, Double Shooter, Bomb Shooter, Incendiary/Missile Launcher
       | Upgrade: Primary
-      | [[navigator]] : MOAB@moab~../images/entity/moab.png
+      | [[navigator]] : MOAB@moab~./images/entity/moab.png
       | Upgrade: Alternate
-      | [[navigator]] : MOAB@moab~../images/entity/moab.png
+      | [[navigator]] : MOAB@moab~./images/entity/moab.png
       | Previous Blimp
       | (none)

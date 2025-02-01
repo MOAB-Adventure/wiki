@@ -16,7 +16,7 @@
   versionHistory = Release: [i/Added];
   infobox = 
       | {{name}} : Wooden Box
-      | [[image]] : ../images/entity/box/wood.svg
+      | [[image]] : ./images/entity/box/wood.svg
       | Basic Info
       | Base Health : 5
       | Size : 50x50
@@ -26,7 +26,7 @@
       | Resistances
       | (none)
       | Spawning Zones
-      | [[navigator]] : Ocean Skies@ocean-skies~../images/ss/sky-high.png
+      | [[navigator]] : Ocean Skies@ocean-skies~./images/ss/sky-high.png
       ;
 ==metal-box;
   title = Metal Boxes;
@@ -50,7 +50,7 @@
   versionHistory = Release: [i/Added];
   infobox = 
       | {{name}} : Metal Box
-      | [[image]] : ../images/entity/box/metal.svg
+      | [[image]] : ./images/entity/box/metal.svg
       | Basic Info
       | Base Health : 20
       | Size : 50x50
@@ -61,5 +61,5 @@
       | [{dt:ballistic}]Ballistic : 100%
       | [{dt:laser}]Laser : 30%
       | Spawning Zones
-      | [[navigator]] : Ocean Skies@ocean-skies~../images/ss/sky-high.png
+      | [[navigator]] : Ocean Skies@ocean-skies~./images/ss/sky-high.png
       ;

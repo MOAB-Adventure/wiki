@@ -181,7 +181,7 @@ class InfoComponent extends HTMLElement {
       )
     );
   }
-  addImage(url = "../default-icon.ico") {
+  addImage(url = "./default-icon.ico") {
     this.body.appendChild(
       htmlToNode(
         `<div class="image">
@@ -190,7 +190,7 @@ class InfoComponent extends HTMLElement {
       )
     );
   }
-  addSmallImage(url = "../default-icon.ico") {
+  addSmallImage(url = "./default-icon.ico") {
     this.body.appendChild(
       htmlToNode(
         `<div class="image">
@@ -222,7 +222,7 @@ class InfoComponent extends HTMLElement {
           `<a class="navitem${item.this ? " this" : ""}" onclick="load('${
             item.url
           }')"><img src="${
-            item.image ?? "../default-icon.ico"
+            item.image ?? "./default-icon.ico"
           }" class="nav-img">${process(item.text) ?? item.url ?? "[[NO LINK]]"}</a>`
         )
       );
@@ -344,7 +344,7 @@ class WeaponInfoComponent extends GeneratedInfoComponent {
     </div>`;
   static openInRenderer(weapon) {
     let newrl =
-      new URL("../renderer/weapon.html", window.location) +
+      new URL("./renderer/weapon.html", window.location) +
       "?weapon=" +
       encodeURIComponent(weapon) +
       (window.location.href.includes("renderer/weapon.html")
@@ -429,7 +429,7 @@ class SearchBarElement extends HTMLElement {
   }
   static showResults(results, term) {
     let newrl =
-      new URL("../search-results.html", window.location) +
+      new URL("./search-results.html", window.location) +
       "?result=" +
       encodeURIComponent(JSON.stringify(results)) +
       "&query=" +
@@ -444,25 +444,25 @@ class SearchBarElement extends HTMLElement {
 class IconElement extends HTMLElement {
   static observedAttributes = ["icon"];
   static icons = {
-    shard: "../images/icon/shard.svg|Shards",
-    bloonstone: "../images/icon/bloonstone.svg|Bloonstones",
-    ballistic: "../images/icon/ballistic.svg|Ballistic Damage",
-    normal: "../images/icon/normal.svg|Normal Damage",
-    fire: "../images/icon/fire.svg|Fire Damage",
-    explosion: "../images/icon/explosion.svg|Explosion Damage",
-    radiation: "../images/icon/radiation.svg|Radiation Damage",
-    laser: "../images/icon/laser.svg|Laser Damage",
-    collision: "../images/icon/collision.svg|Collision Damage",
-    electric: "../images/icon/electric.svg|Electric Damage",
+    shard: "./images/icon/shard.svg|Shards",
+    bloonstone: "./images/icon/bloonstone.svg|Bloonstones",
+    ballistic: "./images/icon/ballistic.svg|Ballistic Damage",
+    normal: "./images/icon/normal.svg|Normal Damage",
+    fire: "./images/icon/fire.svg|Fire Damage",
+    explosion: "./images/icon/explosion.svg|Explosion Damage",
+    radiation: "./images/icon/radiation.svg|Radiation Damage",
+    laser: "./images/icon/laser.svg|Laser Damage",
+    collision: "./images/icon/collision.svg|Collision Damage",
+    electric: "./images/icon/electric.svg|Electric Damage",
 
-    projectile: "../images/icon/projectile.svg|Projectile Shot Type",
-    point: "../images/icon/point.svg|Point Shot Type",
-    beam: "../images/icon/beam.svg|Beam Shot Type",
-    contact: "../images/icon/contact.svg|Contact Shot Type",
+    projectile: "./images/icon/projectile.svg|Projectile Shot Type",
+    point: "./images/icon/point.svg|Point Shot Type",
+    beam: "./images/icon/beam.svg|Beam Shot Type",
+    contact: "./images/icon/contact.svg|Contact Shot Type",
 
-    independent: "../images/icon/auto-aim.svg|Independent Tracking",
-    assisted: "../images/icon/assisted-aim.svg|Assisted Tracking",
-    manual: "../images/icon/mouse-aim.svg|Manual Tracking",
+    independent: "./images/icon/auto-aim.svg|Independent Tracking",
+    assisted: "./images/icon/assisted-aim.svg|Assisted Tracking",
+    manual: "./images/icon/mouse-aim.svg|Manual Tracking",
   };
   constructor() {
     super();
@@ -481,7 +481,7 @@ class IconElement extends HTMLElement {
       image.src = parts[0];
       image.alt = image.title = parts[1] ?? "No alt text provided";
     } else {
-      image.src = "../images/icon/error.png";
+      image.src = "./images/icon/error.png";
       image.alt = image.title = "Error loading icon '"+toGrab+"'";
     }
     image.classList.add("icon");

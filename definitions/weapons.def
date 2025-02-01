@@ -13,7 +13,7 @@
       >[{type:part,x:0,y:0,width:25,height:25,rotation:0,image:false},{type:part,x:17.5,y:0,width:10,height:15,rotation:0,image:false},{type:part,x:32.5,y:0,width:20,height:10,rotation:0,image:false},{type:part,x:-16.25,y:0,width:7.5,height:15,rotation:0,image:false}]
       | {{name}} : Tiny Shooter
       | [[slots]] : Any-any-1
-      | [[image]] : ../images/weapon/tiny-shooter.png
+      | [[image]] : ./images/weapon/tiny-shooter.png
       | Basic Info
       | Fire Rate : 3/s
       | Cost : 50 [img/shard]
@@ -28,40 +28,40 @@
       | Amount : 1
       | Spread : 0
       | Upgrade Path (AP1.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Bomb
-      Shooter@bomb-shooter~../images/weapon/bomb-shooter.png + 
-      Incendiary@incendiary~../images/weapon/incendiary.png + Nuke
-      Launcher@nuke-launcher~../images/weapon/nuke-launcher.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Bomb
+      Shooter@bomb-shooter~./images/weapon/bomb-shooter.png + 
+      Incendiary@incendiary~./images/weapon/incendiary.png + Nuke
+      Launcher@nuke-launcher~./images/weapon/nuke-launcher.png
       | Upgrade Path (AP1.2)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Bomb
-      Shooter@bomb-shooter~../images/weapon/bomb-shooter.png + Missile
-      Launcher@missile-launcher~../images/weapon/missile-launcher.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Bomb
+      Shooter@bomb-shooter~./images/weapon/bomb-shooter.png + Missile
+      Launcher@missile-launcher~./images/weapon/missile-launcher.png
       | Upgrade Path (AP2.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Heavy
-      Shots@heavy-shots~../images/weapon/heavy-shots.png + Kinetic
-      Impactor@kinetic-impactor~../images/weapon/kinetic-impactor.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots~./images/weapon/heavy-shots.png + Kinetic
+      Impactor@kinetic-impactor~./images/weapon/kinetic-impactor.png
       | Upgrade Path (AP2.2)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Heavy
-      Shots@heavy-shots~../images/weapon/heavy-shots.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots~./images/weapon/heavy-shots.png
       | Upgrade Path (AP3/4.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Laser
-      Blaster@laser-blaster~../images/weapon/laser-blaster.png + Accelerator@accelerator~../images/weapon/accelerator.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster~./images/weapon/laser-blaster.png + Accelerator@accelerator~./images/weapon/accelerator.png
       | Upgrade Path (AP3/4.2)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Laser
-      Blaster@laser-blaster~../images/weapon/laser-blaster.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster~./images/weapon/laser-blaster.png
       | Upgrade Path (AP5.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Rifle@rifle~../images/weapon/rifle.png + 
-      Sniper@sniper~../images/weapon/sniper.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png + 
+      Sniper@sniper~./images/weapon/sniper.png
       | Upgrade Path (AP5.2)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Rifle@rifle~../images/weapon/rifle.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png
       ;
 ==double-shooter;
   title = Double Shooter;
@@ -76,7 +76,7 @@
     >[{"type":"part","x":0,"y":0,"width":25,"height":30,"rotation":0,"image":false},{"type":"part","x":17.5,"y":0,"width":10,"height":25,"rotation":0,"image":false},{"type":"part","x":32.5,"y":5,"width":20,"height":10,"rotation":0,"image":false},{"type":"part","x":-15,"y":0,"width":5,"height":25,"rotation":0,"image":false},{"type":"part","x":32.5,"y":-5,"width":20,"height":10,"rotation":0,"image":false},{"type":"part","x":-18.75,"y":0,"width":2.5,"height":10,"rotation":0,"image":false}]
     | {{name}} : Double Shooter
     | [[slots]] : Any-any-2
-    | [[image]] : ../images/weapon/double-shooter.png
+    | [[image]] : ./images/weapon/double-shooter.png
     | Basic Info
     | Fire Rate : 6/s # 2 shots every 0.33 seconds
     | Upgrade Cost : 200[{shards}]
@@ -92,40 +92,40 @@
     | Amount : 2
     | Spread : 2° Even
     | Upgrade Path (AP1.1)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-    Shooter@double-shooter~../images/weapon/double-shooter.png + Bomb
-    Shooter@bomb-shooter~../images/weapon/bomb-shooter.png + 
-    Incendiary@incendiary~../images/weapon/incendiary.png + Nuke
-    Launcher@nuke-launcher~../images/weapon/nuke-launcher.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+    Shooter@double-shooter~./images/weapon/double-shooter.png + Bomb
+    Shooter@bomb-shooter~./images/weapon/bomb-shooter.png + 
+    Incendiary@incendiary~./images/weapon/incendiary.png + Nuke
+    Launcher@nuke-launcher~./images/weapon/nuke-launcher.png
     | Upgrade Path (AP1.2)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-    Shooter@double-shooter~../images/weapon/double-shooter.png + Bomb
-    Shooter@bomb-shooter~../images/weapon/bomb-shooter.png + Missile
-    Launcher@missile-launcher~../images/weapon/missile-launcher.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+    Shooter@double-shooter~./images/weapon/double-shooter.png + Bomb
+    Shooter@bomb-shooter~./images/weapon/bomb-shooter.png + Missile
+    Launcher@missile-launcher~./images/weapon/missile-launcher.png
     | Upgrade Path (AP2.1)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-    Shooter@double-shooter~../images/weapon/double-shooter.png + Heavy
-    Shots@heavy-shots~../images/weapon/heavy-shots.png + Kinetic
-    Impactor@kinetic-impactor~../images/weapon/kinetic-impactor.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+    Shooter@double-shooter~./images/weapon/double-shooter.png + Heavy
+    Shots@heavy-shots~./images/weapon/heavy-shots.png + Kinetic
+    Impactor@kinetic-impactor~./images/weapon/kinetic-impactor.png
     | Upgrade Path (AP2.2)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-    Shooter@double-shooter~../images/weapon/double-shooter.png + Heavy
-    Shots@heavy-shots~../images/weapon/heavy-shots.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+    Shooter@double-shooter~./images/weapon/double-shooter.png + Heavy
+    Shots@heavy-shots~./images/weapon/heavy-shots.png
     | Upgrade Path (AP3/4.1)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-    Shooter@double-shooter~../images/weapon/double-shooter.png + Laser
-    Blaster@laser-blaster~../images/weapon/laser-blaster.png + Accelerator@accelerator~../images/weapon/accelerator.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+    Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+    Blaster@laser-blaster~./images/weapon/laser-blaster.png + Accelerator@accelerator~./images/weapon/accelerator.png
     | Upgrade Path (AP3/4.2)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-    Shooter@double-shooter~../images/weapon/double-shooter.png + Laser
-    Blaster@laser-blaster~../images/weapon/laser-blaster.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+    Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+    Blaster@laser-blaster~./images/weapon/laser-blaster.png
     | Upgrade Path (AP5.1)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-    Shooter@double-shooter~../images/weapon/double-shooter.png + Rifle@rifle~../images/weapon/rifle.png + 
-    Sniper@sniper~../images/weapon/sniper.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+    Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png + 
+    Sniper@sniper~./images/weapon/sniper.png
     | Upgrade Path (AP5.2)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-    Shooter@double-shooter~../images/weapon/double-shooter.png + Rifle@rifle~../images/weapon/rifle.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+    Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png
     ;
 # AP1
 ==bomb-shooter;
@@ -140,7 +140,7 @@
   infobox = 
     | {{name}} : Bomb Shooter
     | [[slots]] : AP1-any-3
-    | [[image]] : ../images/weapon/bomb-shooter.png
+    | [[image]] : ./images/weapon/bomb-shooter.png
     | Basic Info
     | Fire Rate : 1/s
     | Upgrade Cost : 540[{shards}]
@@ -157,9 +157,9 @@
     | Amount : 1
     | Spread : 0
     | Upgrade Path (AP1.1)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double Shooter@double-shooter~../images/weapon/double-shooter.png + Bomb Shooter@bomb-shooter~../images/weapon/bomb-shooter.png + Incendiary@incendiary~../images/weapon/incendiary.png + Nuke Launcher@nuke-launcher~../images/weapon/nuke-launcher.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double Shooter@double-shooter~./images/weapon/double-shooter.png + Bomb Shooter@bomb-shooter~./images/weapon/bomb-shooter.png + Incendiary@incendiary~./images/weapon/incendiary.png + Nuke Launcher@nuke-launcher~./images/weapon/nuke-launcher.png
     | Upgrade Path (AP1.2)
-    | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double Shooter@double-shooter~../images/weapon/double-shooter.png + Bomb Shooter@bomb-shooter~../images/weapon/bomb-shooter.png + Missile Launcher@missile-launcher~../images/weapon/missile-launcher.png
+    | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double Shooter@double-shooter~./images/weapon/double-shooter.png + Bomb Shooter@bomb-shooter~./images/weapon/bomb-shooter.png + Missile Launcher@missile-launcher~./images/weapon/missile-launcher.png
     ;
 ==incendiary;
   title = Incendiary;
@@ -184,7 +184,7 @@
       >[{"type":"part","x":37.5,"y":0,"width":30,"height":15,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-25,"speedRatio":0.1}]},{"type":"part","x":18.75,"y":0,"width":7.5,"height":20,"rotation":0,"slide":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":5,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":-25,"y":0,"width":5,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":-21.25,"y":0,"width":2.5,"height":10,"rotation":0,"slide":0,"image":false},{"type":"part","x":22.5,"y":-25,"width":15,"height":7.5,"rotation":30,"slide":0,"image":false},{"type":"part","x":22.5,"y":25,"width":15,"height":7.5,"rotation":-30,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":15,"height":5,"rotation":-120,"slide":22.5,"image":false},{"type":"part","x":0,"y":0,"width":15,"height":5,"rotation":120,"slide":22.5,"image":false},{"type":"part","x":0,"y":0,"width":15,"height":5,"rotation":70,"slide":20,"image":false},{"type":"part","x":1.25,"y":0,"width":15,"height":5,"rotation":-70,"slide":20,"image":false},{"type":"part","x":0,"y":0,"width":30,"height":30,"rotation":0,"slide":0,"image":false},{"type":"part","x":1.25,"y":27.5,"width":35,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":1.25,"y":-27.5,"width":35,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-20,"y":-30,"width":15,"height":7.5,"rotation":30,"slide":0,"image":false},{"type":"part","x":-20,"y":30,"width":15,"height":7.5,"rotation":-30,"slide":0,"image":false},{"type":"part","x":-32.5,"y":0,"width":5,"height":35,"rotation":0,"slide":0,"image":false},{"type":"part","x":-28.75,"y":-6.25,"width":2.5,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-28.75,"y":6.25,"width":2.5,"height":7.5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-36.25,"y":0,"width":2.5,"height":20,"rotation":0,"slide":0,"image":false}]
       | {{name}} : Incendiary
       | [[slots]] : AP1-1-4
-      | [[image]] : ../images/weapon/incendiary.png
+      | [[image]] : ./images/weapon/incendiary.png
       | Basic Info
       | Fire Rate : 1/s
       | Upgrade Cost : 1350[{shards}]
@@ -202,11 +202,11 @@
       | Amount : 1
       | Spread : 0
       | Upgrade Path (AP1.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Bomb
-      Shooter@bomb-shooter~../images/weapon/bomb-shooter.png
-      + Incendiary@incendiary~../images/weapon/incendiary.png + Nuke
-      Launcher@nuke-launcher~../images/weapon/nuke-launcher.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Bomb
+      Shooter@bomb-shooter~./images/weapon/bomb-shooter.png
+      + Incendiary@incendiary~./images/weapon/incendiary.png + Nuke
+      Launcher@nuke-launcher~./images/weapon/nuke-launcher.png
       ;
 # AP2
 ==heavy-shots;
@@ -236,7 +236,7 @@
       >[{"type":"part","x":0,"y":0,"width":40,"height":10,"rotation":45,"image":false},{"type":"part","x":0,"y":-15,"width":10,"height":5,"rotation":1,"image":false},{"type":"part","x":0,"y":15,"width":10,"height":5,"rotation":0,"image":false},{"type":"part","x":-15,"y":0,"width":5,"height":10,"rotation":0,"image":false},{"type":"part","x":31.25,"y":0,"width":5,"height":20,"rotation":0,"image":false},{"type":"part","x":32.5,"y":0,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":0,"y":0,"width":40,"height":10,"rotation":-45,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"image":false},{"type":"part","x":16.25,"y":0,"width":7.5,"height":20,"rotation":0,"image":false}]
       | {{name}} : Heavy Shots
       | [[slots]] : AP2-any-3
-      | [[image]] : ../images/weapon/heavy-shots.png
+      | [[image]] : ./images/weapon/heavy-shots.png
       | Basic Info
       | Fire Rate : 2/s
       | Upgrade Cost : 400[{shards}]
@@ -253,14 +253,14 @@
       | Amount : 1
       | Spread : 0
       | Upgrade Path (AP2.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Heavy
-      Shots@heavy-shots~../images/weapon/heavy-shots.png + Kinetic
-      Impactor@kinetic-impactor~../images/weapon/kinetic-impactor.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots~./images/weapon/heavy-shots.png + Kinetic
+      Impactor@kinetic-impactor~./images/weapon/kinetic-impactor.png
       | Upgrade Path (AP2.2)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Heavy
-      Shots@heavy-shots~../images/weapon/heavy-shots.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots~./images/weapon/heavy-shots.png
       ;
 ==kinetic-impactor;
   title = Kinetic Impactor;
@@ -283,7 +283,7 @@
       >[{"type":"part","x":31.25,"y":0,"width":5,"height":20,"rotation":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":10,"xOffset":-25}]},{"type":"part","x":35,"y":0,"width":30,"height":10,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":7,"xOffset":-17.5}]},{"type":"part","x":2.5,"y":0,"width":45,"height":10,"rotation":45,"slide":0,"image":false},{"type":"part","x":2.5,"y":-15,"width":10,"height":5,"rotation":1,"slide":0,"image":false},{"type":"part","x":2.5,"y":15,"width":10,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-15,"y":0,"width":5,"height":15,"rotation":0,"slide":0,"image":false},{"type":"part","x":2.5,"y":0,"width":45,"height":10,"rotation":-45,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":16.25,"y":0,"width":7.5,"height":20,"rotation":0,"slide":0,"image":false},{"type":"part","x":42.5,"y":0,"width":5,"height":20,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":15,"xOffset":-35}]},{"type":"part","x":-5,"y":-5,"width":20,"height":5,"rotation":45,"slide":0,"image":false},{"type":"part","x":-5,"y":5,"width":20,"height":5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":8.75,"y":0,"width":7.5,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":23.75,"y":0,"width":15,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":10,"height":10,"rotation":0,"slide":0,"image":false},{"type":"part","x":22.5,"y":20,"width":7.5,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":22.5,"y":-20,"width":7.5,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":-17.5,"y":-20,"width":7.5,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":-17.5,"y":20,"width":7.5,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":20,"y":17.5,"width":2.5,"height":5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":-15,"y":-17.5,"width":2.5,"height":5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":20,"y":-17.5,"width":5,"height":2.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":-15,"y":17.5,"width":5,"height":2.5,"rotation":-45,"slide":0,"image":false}]
       | {{name}} : Kinetic Impactor
       | [[slots]] : AP2-1-4
-      | [[image]] : ../images/weapon/kinetic-impactor.png
+      | [[image]] : ./images/weapon/kinetic-impactor.png
       | Basic Info
       | Fire Rate : 2/s
       | Upgrade Cost : 850[{shards}]
@@ -300,10 +300,10 @@
       | Amount : 1
       | Spread : 0
       | Upgrade Path (AP2.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Heavy
-      Shots@heavy-shots~../images/weapon/heavy-shots.png + Kinetic
-      Impactor@kinetic-impactor~../images/weapon/kinetic-impactor.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots~./images/weapon/heavy-shots.png + Kinetic
+      Impactor@kinetic-impactor~./images/weapon/kinetic-impactor.png
       ;
 # AP3/4
 ==laser-blaster;
@@ -321,7 +321,7 @@
      width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":1.25,"y":17.5,"width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":5,"height":30,"rotation":0,"image":false},{"type":"part","x":20,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":30,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":35,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":-12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":25,"y":12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":37.5,"y":-12.5,"width":10,"height":7.5,"rotation":-45,"image":false},{"type":"part","x":37.5,"y":12.5,"width":7.5,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":-10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"image":false},{"type":"part","x":-22.5,"y":0,"width":5,"height":20,"rotation":0,"image":false},{"type":"part","x":12.5,"y":-22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":12.5,"y":22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":-12.5,"y":17.5,"width":30,"height":5,"rotation":27,"image":false},{"type":"part","x":-12.5,"y":-17.5,"width":30,"height":5,"rotation":-27,"image":false}]
       | {{name}} : Laser Blaster 
       | [[slots]] : AP3/4-any-3
-      | [[image]] : ../images/weapon/laser-blaster.png
+      | [[image]] : ./images/weapon/laser-blaster.png
       | Basic Info
       | Fire Rate : 3/s
       | Upgrade Cost : 350[{shards}]
@@ -337,13 +337,13 @@
       | Amount : 1
       | Spread : 0
       | Upgrade Path (AP3/4.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Laser
-      Blaster@laser-blaster~../images/weapon/laser-blaster.png + Accelerator@accelerator~../images/weapon/accelerator.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster~./images/weapon/laser-blaster.png + Accelerator@accelerator~./images/weapon/accelerator.png
       | Upgrade Path (AP3/4.2)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Laser
-      Blaster@laser-blaster~../images/weapon/laser-blaster.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster~./images/weapon/laser-blaster.png
       ;
 ==ac celerator;
   title = Accelerator;
@@ -370,7 +370,7 @@
       >[{"type":"part","x":-1.25,"y":-17.5,"width":32.5,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-1.25,"y":17.5,"width":32.5,"height":5,"rotation":0,"slide":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":5,"height":30,"rotation":0,"slide":0,"image":false},{"type":"part","x":20,"y":0,"width":0,"height":25,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":10}]},{"type":"part","x":30,"y":0,"width":0,"height":25,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":50}]},{"type":"part","x":25,"y":0,"width":0,"height":25,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":30}]},{"type":"part","x":35,"y":0,"width":0,"height":25,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":70}]},{"type":"part","x":25,"y":-12.5,"width":25,"height":10,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-7}]},{"type":"part","x":25,"y":12.5,"width":25,"height":10,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-7}]},{"type":"part","x":37.5,"y":-12.5,"width":10,"height":7.5,"rotation":-45,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-7}]},{"type":"part","x":37.5,"y":12.5,"width":7.5,"height":10,"rotation":-45,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-7}]},{"type":"part","x":12.5,"y":-10,"width":10,"height":10,"rotation":-45,"slide":0,"image":false},{"type":"part","x":12.5,"y":10,"width":10,"height":10,"rotation":-45,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":10,"height":30,"rotation":0,"slide":0,"image":false},{"type":"part","x":-22.5,"y":0,"width":5,"height":20,"rotation":0,"slide":0,"image":false},{"type":"part","x":5,"y":-22.5,"width":30,"height":5,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-15}]},{"type":"part","x":5,"y":22.5,"width":30,"height":5,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"xOffset":-15}]},{"type":"part","x":-27.5,"y":10,"width":30,"height":5,"rotation":40,"slide":15,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"rotOffset":30}]},{"type":"part","x":-27.5,"y":-10,"width":30,"height":5,"rotation":-40,"slide":15,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":5,"rotOffset":-30}]},{"type":"part","x":20,"y":-20,"width":10,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":20,"y":20,"width":7.5,"height":10,"rotation":-45,"slide":0,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":-10,"y":-10,"width":30,"height":5,"rotation":-40,"slide":15,"image":false},{"type":"part","x":-10,"y":10,"width":30,"height":5,"rotation":40,"slide":15,"image":false}]
       | {{name}} : Accelerator
       | [[slots]] : AP3/4-1-4
-      | [[image]] : ../images/weapon/accelerator.png
+      | [[image]] : ./images/weapon/accelerator.png
       | Basic Info
       | Fire Rate : 2/s ~ 4/s
       | Upgrade Cost : 1250[{shards}]
@@ -390,14 +390,14 @@
       | Amount : 1
       | Spread : 0
       | Upgrade Path (AP3/4.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Laser
-      Blaster@laser-blaster~../images/weapon/laser-blaster.png + 
-      Accelerator@accelerator~../images/weapon/accelerator.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster~./images/weapon/laser-blaster.png + 
+      Accelerator@accelerator~./images/weapon/accelerator.png
       | Upgrade Path (AP3/4.2)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Laser
-      Blaster@laser-blaster~../images/weapon/laser-blaster.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster~./images/weapon/laser-blaster.png
       ;
 # AP5
 ==rifle;
@@ -425,7 +425,7 @@
       >[{"type":"part","x":18.75,"y":0,"width":12.5,"height":20,"rotation":0,"image":false},{"type":"part","x":47.5,"y":0,"width":45,"height":10,"rotation":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":10,"height":20,"rotation":0,"image":false},{"type":"part","x":0,"y":0,"width":10,"height":30,"rotation":0,"image":false},{"type":"part","x":0,"y":17.5,"width":25,"height":5,"rotation":0,"image":false},{"type":"part","x":0,"y":-17.5,"width":25,"height":5,"rotation":0,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"image":false}]
       | {{name}} : Rifle
       | [[slots]] : AP5-any-3
-      | [[image]] : ../images/weapon/rifle.png
+      | [[image]] : ./images/weapon/rifle.png
       | Basic Info
       | Fire Rate : 2/s
       | Upgrade Cost : 250[{shards}]
@@ -442,12 +442,12 @@
       | Amount : 1
       | Spread : 0
       | Upgrade Path (AP5.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Rifle@rifle~../images/weapon/rifle.png + 
-      Sniper@sniper~../images/weapon/sniper.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png + 
+      Sniper@sniper~./images/weapon/sniper.png
       | Upgrade Path (AP5.2)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Rifle@rifle~../images/weapon/rifle.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png
       ;  
 ==sniper;
   title = Sniper;
@@ -472,7 +472,7 @@
       >[{"type":"part","x":50,"y":0,"width":40,"height":10,"rotation":0,"slide":0,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":2,"xOffset":-20,"speedRatio":0.04}]},{"type":"part","x":-10,"y":-2.5,"width":25,"height":7.5,"rotation":45,"slide":0,"image":false},{"type":"part","x":-10,"y":2.5,"width":25,"height":7.5,"rotation":-45,"slide":0,"image":false},{"type":"part","x":-12.5,"y":0,"width":10,"height":20,"rotation":0,"slide":0,"image":false},{"type":"part","x":26.25,"y":0,"width":7.5,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":-22.5,"y":0,"width":10,"height":25,"rotation":0,"slide":0,"image":false},{"type":"part","x":17.5,"y":0,"width":10,"height":20,"rotation":0,"slide":0,"image":false},{"type":"part","x":2.5,"y":0,"width":20,"height":15,"rotation":0,"slide":0,"image":false},{"type":"part","x":15,"y":-10,"width":25,"height":7.5,"rotation":-180,"slide":12.5,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":2,"rotOffset":30,"speedRatio":0.04}]},{"type":"part","x":12.5,"y":10,"width":25,"height":7.5,"rotation":180,"slide":10,"image":false,"recoilAnimations":[{"type":"recoil-animation","duration":2,"rotOffset":-30,"speedRatio":0.04}]},{"type":"part","x":2.5,"y":0,"width":30,"height":15,"rotation":0,"slide":0,"image":false},{"type":"part","x":37.5,"y":0,"width":7.5,"height":15,"rotation":0,"slide":0,"image":false},{"type":"part","x":-30,"y":0,"width":5,"height":15,"rotation":0,"slide":0,"image":false}]
       | {{name}} : Sniper
       | [[slots]] : AP5-1-4
-      | [[image]] : ../images/weapon/sniper.png
+      | [[image]] : ./images/weapon/sniper.png
       | Basic Info
       | Fire Rate : 1/s
       | Upgrade Cost : 1000[{shards}]
@@ -486,10 +486,10 @@
       | Amount : 1
       | Spread : 0
       | Upgrade Path (AP5.1)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Rifle@rifle~../images/weapon/rifle.png + 
-      Sniper@sniper~../images/weapon/sniper.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png + 
+      Sniper@sniper~./images/weapon/sniper.png
       | Upgrade Path (AP5.2)
-      | [[navigator]] : Tiny Shooter@tiny-shooter~../images/weapon/tiny-shooter.png + Double
-      Shooter@double-shooter~../images/weapon/double-shooter.png + Rifle@rifle~../images/weapon/rifle.png
+      | [[navigator]] : Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png
       ;
