@@ -152,7 +152,7 @@ class InfoComponent extends HTMLElement {
         color: var(--lighter-header-colour);
       } 
   `;
-  static styleLink = '<link rel="stylesheet" href="../style.css">';
+  static styleLink = '<link rel="stylesheet" href="./style.css">';
   static mainContent = `<div class="info-container">
       <div class="header" id="head"></div>
       <div class="body" id="body"></div>

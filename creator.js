@@ -14,18 +14,6 @@ const creator = {
   other: createArbitraryPage,
 };
 const error404 = `
-<!DOCTYPE html>
-<html>
-
-<head>
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../weapon-page.css">
-  <script src="../to-node.js"></script>
-  <script src="../search.js"></script>
-  <script src="../elements.js"></script>
-</head>
-
-<body>
   <header><p><i></i><p>Error 404</p></p><search-bar></search-bar></header>
   <main>
     <div class="desc">
@@ -33,10 +21,7 @@ const error404 = `
       <p><b>Something's gone wrong.</b></p>
       <p>The page you are looking for <b>does not exist</b>. If you think this is an error, notify the creator on the <a target="_blank" href="https://github.com/MOAB-Adventure/wiki/issues/new?template=Blank+issue">GitHub Issues page</a>.</p>
     </div>
-  </main>
-</body>
-
-</html>`;
+  </main>`;
 
 importAll().then((x) => start(x));
 
@@ -297,17 +282,17 @@ async function singleImporter(url) {
 }
 
 async function importAll() {
-  weapons = await importer("/definitions/weapons.def");
+  weapons = await importer("definitions/weapons.def");
   console.log("Weapons loaded.");
-  blimps = await importer("/definitions/blimps.def");
+  blimps = await importer("definitions/blimps.def");
   console.log("Blimps loaded.");
-  entities = await importer("/definitions/entities.def");
+  entities = await importer("definitions/entities.def");
   console.log("Entities loaded.");
-  zones = await importer("/definitions/zones.def");
+  zones = await importer("definitions/zones.def");
   console.log("Zones loaded.");
-  others = await importer("/definitions/others.def");
+  others = await importer("definitions/others.def");
   console.log("Others loaded.");
-  components = await singleImporter("/definitions/components.def");
+  components = await singleImporter("definitions/components.def");
   console.log(components);
   console.log("Components loaded.");
 }
