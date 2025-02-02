@@ -318,7 +318,16 @@
         by multiple plates, 2 of which are hinged at the back. These 2 plates swing backwards on weapon firing, allowing
         the 2 outermost plates on the sides to slide back, freeing space for the firing unit, which recoils as the
         accelerators move forwards, escaping the weapon entirely, before returning for the next shot.;
-     width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":1.25,"y":17.5,"width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":5,"height":30,"rotation":0,"image":false},{"type":"part","x":20,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":30,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":35,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":-12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":25,"y":12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":37.5,"y":-12.5,"width":10,"height":7.5,"rotation":-45,"image":false},{"type":"part","x":37.5,"y":12.5,"width":7.5,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":-10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"image":false},{"type":"part","x":-22.5,"y":0,"width":5,"height":20,"rotation":0,"image":false},{"type":"part","x":12.5,"y":-22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":12.5,"y":22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":-12.5,"y":17.5,"width":30,"height":5,"rotation":27,"image":false},{"type":"part","x":-12.5,"y":-17.5,"width":30,"height":5,"rotation":-27,"image":false}]
+  attackDescription = Laser Blaster has the simplest attack of any T3: Single 3 damage shot. This shot deals Laser damage, which can
+        damage [->metal-box as metal boxes] (at 70% efficiency), allowing the player to destroy
+        them. This ability is shared by [->bomb-shooter], which damages them with its
+        explosion, however Laser Blaster provides a more consistent damage output.;
+  useCases = Laser Blaster does not benefit from shooting at a group of entities, and its shots can be blocked by boxes,
+        causing it to get quickly overwhelmed by large numbers of them. This makes this weapon more suited to
+        single-target damage, dealing 9 DPS to unresisting boxes, and 6.3 DPS to metal boxes.;
+  versionHistory = Release: [i/Added];
+  infobox = 
+      >[{"type":"part","x":1.25,"y":-17.5,"width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":1.25,"y":17.5,"width":27.5,"height":5,"rotation":0,"image":false},{"type":"part","x":-17.5,"y":0,"width":5,"height":30,"rotation":0,"image":false},{"type":"part","x":20,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":30,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":35,"y":0,"width":0,"height":25,"rotation":0,"image":false},{"type":"part","x":25,"y":-12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":25,"y":12.5,"width":25,"height":10,"rotation":0,"image":false},{"type":"part","x":37.5,"y":-12.5,"width":10,"height":7.5,"rotation":-45,"image":false},{"type":"part","x":37.5,"y":12.5,"width":7.5,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":-10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":12.5,"y":10,"width":10,"height":10,"rotation":-45,"image":false},{"type":"part","x":0,"y":0,"width":25,"height":25,"rotation":0,"image":false},{"type":"part","x":-22.5,"y":0,"width":5,"height":20,"rotation":0,"image":false},{"type":"part","x":12.5,"y":-22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":12.5,"y":22.5,"width":30,"height":5,"rotation":0,"image":false},{"type":"part","x":-12.5,"y":17.5,"width":30,"height":5,"rotation":27,"image":false},{"type":"part","x":-12.5,"y":-17.5,"width":30,"height":5,"rotation":-27,"image":false}]
       | {{name}} : Laser Blaster 
       | [[slots]] : AP3/4-any-3
       | [[image]] : ./images/weapon/laser-blaster.png
@@ -345,7 +354,7 @@
       Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
       Blaster@laser-blaster~./images/weapon/laser-blaster.png
       ;
-==ac celerator;
+==accelerator;
   title = Accelerator;
   class = Weapon;
   description = Shoots faster the longer it fires for!;
