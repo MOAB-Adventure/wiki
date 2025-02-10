@@ -1,19 +1,20 @@
-addEventListener("DOMContentLoaded", loadingMsg);
+//Search version of navigator.js
+//Used in the search page
 function onWeaponLoad(){
-  loadSearch()
+  msg("Iframe ready.")
+  loadSelectedPage()
 }
-function loadSearch() {
+function loadSelectedPage() {
   if (location.search.length > 0) {
     let destination =
       new URLSearchParams(location.search).get("goto") ?? "error404";
-    console.log("going to " + destination);
-    load(destination, document);
+    msg("going to " + destination);
+    moveTo(destination);
   }
 }
-function loadingMsg(){
-  if (location.search.length > 0) {
-    document.body.innerHTML = `
-    <header><p><i></i><p>Loading...</p></p><search-bar></search-bar></header>
-  <main></main>`
+function moveTo(page){
+  try{window.top.goto(page)}
+  catch(e){
+    console.error("Could not change pages.")
   }
 }

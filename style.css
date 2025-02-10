@@ -146,16 +146,16 @@ iframe {
   width: 100%;
   vertical-align: middle;
   display: inline-block;
-  font-size: 100%;
+  font-size: 90%;
 }
 .nav.item {
-  width: 100%;
+  width: 90px;
   flex-grow: 1;
   text-decoration: none;
   color: white;
   background-color: var(--sidebar-item-colour);
   display: inline-block;
-  font-size: 93%;
+  font-size: 83%;
   padding: 5px 0px;
   font-weight: bold;
   cursor: pointer;
@@ -209,6 +209,9 @@ iframe {
   align-items: center;
   overflow-y: auto;
   height: 80%;
+}
+.nav.item.search{
+  width: 95%;
 }
 .search {
   max-height: 100px;

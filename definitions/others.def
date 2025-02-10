@@ -1,4 +1,22 @@
 ### GENERIC DEFINITION FILE ###
+==home;
+  title = MOAB Adventure Wiki;
+  :welcome\! = [b/This wiki is designed to give up-to-date information on the online game MOAB Adventure.];
+  (!:warn) = [h:lightred/[i/Wiki is under construction, please be patient][br]Accurate to version: 0.0.42 (preview)];
+  (:vhwarning) = [i/Version History will not show pre-release information.];
+  (img) = [html/<img src="title.png" alt="MOAB Adventure title screen">];
+  (desc) = MOAB Adventure is a side-scrolling aerial shooter game, written in JavaScript.  
+        It takes the same concept as games like Rovio's [i/Bad Piggies]: What if you played as the original game's enemy?  
+        [br]You, as the Bloons, must maneuver a blimp through an onslaught of boxes, dodging them until you can afford a weapon. Then, it's your job to survive, shooting boxes to gain extra money with which to buy upgrades, which allow you to keep up with the ever-increasing health pools of the boxes, strategising with damage types to destroy different kinds of boxes, until eventually reaching a boss. After that, all bets are off, as you can no longer simply dodge the boss - various attacks force you to move around, evading the attacks and gunning the boss down.  
+        [br]This eventually allows you to progress to the next zone, where you do it all again, but with a twist: each zone has different boxes, bosses and even natural hazards to look out for, ending with an extremely powerful final boss for the zone.  
+        [br]A selection of difficulties, gamemodes and weapon options allow for many runs through the game, each with differing strategies.;
+  (:playhere) = It is available to play here: [-^https://lightninglaser8.github.io/MOAB-Adventure/" as MOAB Adventure];
+  Tools / Resources = [b/There are multiple tools and resources available for players to simplify and enhance their experience:][br]
+      [br] - The [-^https://moab-adventure.github.io/weapon-maker/" as Weapon Maker] offers a straightforward way to create weapon designs out of simple blocks, and is the basis of this wiki's built-in weapon renderer.
+      [br] - The [-^https://github.com/LightningLaser8/MOAB-Adventure/issues as GitHub Issues Page] provides a place to report bugs found in the game, and suggest possible new features.
+      [br] - This wiki aims to give up-to-date information about game content, along with written overviews not found in-game.;
+  versionHistory = null;
+# Typing
 ==damage-types;
   title = Damage Types;
   #before = [q/Ow, that hurt! Just kidding, it didn't hurt at all. -- Robo-Monkey];
@@ -11,18 +29,22 @@
           [br]For example, [->metal-box as metal boxes] have a resistance of 1 against Ballistic damage, so are completely immune to it.
           [br][br]Values over 1 cannot exist, and default to 1, or a 100% resistance.
           [br]Values less than zero, i.e. negative values, actually [u/increase] the damage taken by the entity, with no limit.[br]
-          [b/Status effects] such as [i/Irradiated] and [i/Frozen] reduce this resistance factor, Irradiated by 2.5% pre stack, and Frozen by 40% per stack.
+          [b/Status effects] such as [i/Irradiated] and [i/Frozen] reduce this resistance factor, Irradiated by 2.5% per stack, and Frozen by 40% per stack.
           These status effects, therefore, allow [->metal-box as metal boxes] to take damage from [->double-shooter].;
   listOfDamageTypes = 
           [img/normal][b/Normal]: (Should be) resisted by nothing.[br]
           [img/ballistic][b/Ballistic]: Damage dealt by most regular bullets.[br]
           [img/fire][b/Fire]: Damage dealt by fire DoT effects.[br]
+          [img/ice][b/Ice]: Damage dealt by freezing weapons, usually alongside inflicting [i/Freezing].[br]
           [img/laser][b/Laser]: Damage dealt by laser weapons, such as [->laser-blaster].[br]
           [img/explosion][b/Explosion]: Damage dealt by explosive attacks, such as [->bomb-shooter]'s explosion.[br]
           [img/collision][b/Collision]: Damage dealt by colliding with a box. Only ever dealt to the player normally.[br]
+          [img/radiation][b/Radiation]: Damage dealt by nuclear weapons and fallout.[br][br]
+          [img/electric][b/Electric]: Unreleased.[br]
           [br]
           Theoretically, any string could be a damage type, but these are the main ones in a normal game.
           ;
+  versionHistory = Release: [i/Introduced];
 ==shot-types;
   title = Shot Types;
   before = [q/Shots travel to the mouse pointer instantly, dealing high damage to a single target. -- AP5.1:5 - Sniper's In-Game Description];
@@ -31,7 +53,7 @@
           This page lists all shot types used in weapons present in this wiki.[br]
           Some of these shots have other properties to define visuals, but they are irrelevant for this wiki.;
   [img/projectile]Projectile = Attacks with the [b/Projectile] shot type, or its derivative [b/Missile], move in the direction they were fired in at a constant rate.[br]
-          They usually stop when colliding with something, or when too much time has passed. They deal damage on contact, so can be considered as a [b/ranged version of [img/contact]Contact.][br]
+          They usually stop when colliding with something, or when too much time has passed. They deal damage on contact, so can be considered as a ranged version of [img/contact]Contact.[br]
           They can have the following properties:[br]
           - [b/Lifetime], the maximum time the shot can exist for.[br]
           - [b/Speed], the number of pixels the shot muves per unit time. The screen is 1960px wide, even when resized.[br]
@@ -62,6 +84,8 @@
   [img/contact]Contact = Attacks with the [b/Contact] shot type don't move, and instead damage any entity currently in contact with the source.[br]
           They can hit any number of colliding entities, and inherit the hitsize of the source entity.[br]
           They have no special properties, and exist only for the frame they were fired in.;
+  versionHistory = Release: [i/Introduced];
+# Upgrades
 ==currency;
   title = Currencies;
   overview = MOAB Adventure has multiple [b/currencies] with which to buy your [i/upgrades]. Each currency is obtained in a different way, and is used for different things.[br]
@@ -80,3 +104,199 @@
           Used for:[br]
           - [b/High-Tier Weapon Upgrades]: Tier 6 weapons require 200[img/bloonstone] each, tier 7s require 1000[img/bloonstone] each.[br]
           ;
+  versionHistory = Release: [i/Introduced], Added [{shards}][i/shards] and [{bloonstones}][i/bloonstones];
+# The Technical Part
+==technical-language;
+  title = Technical Language;
+  before = [{technical}];
+  overview = This wiki uses many terms and abbreviations that many readers will not have encountered before. This page is designed to clarify the meanings of these terms, and to help those seeking to expand the wiki use correct terminology.[br]Each section of this page will refer to a group in the navigator to the left of the screen.[br]These terms will be styled [i/in italics] when used, and either the first occurrence of each or a section header will link to this page.[br]This page assumes the reader has basic knowledge of programming constructs and data types, and is amiliar with basic notation, e.g. [//Object[\]] = [//Array] of [//Object]s.;
+  weapons = 
+          - [b/[i/First Specialisation Tier]]: The tier in which weapons differ based on weapon slot (i.e. when AP1 ≠ AP2). For the base game, this is usually tier 3.[br]
+          - [b/[i/Second Specialisation Tier]]: The tier in which weapons differ based on slot choice (i.e. when AP1.1 ≠ AP1.2). For the base game, this is usually tier 4.[br];
+  theTechnicalPart = 
+          [b/[u/Attributes]][br]
+          - [b/rloc] or [b/[i/Registry Location]]: Used when referring to registry names, e.g. [i/[//weapons] rloc] refers to any registry name defined in the [//weapons] registry.[br]
+          - [b/initonly] or [b/[i/Initialisation Only]]: Refers to an attribute which can only be set on initial creation, or changes its value during initialisation.[br]
+          - [b/conobj] or [b/[i/Constructible Object]]: Refers to an object which is not actually an instance of the given type, but instead contains key-value pairs giving initial values for its properties. Should have a [//type] property to define what the object is, which should be of type [//(genericType [i/rloc]) string].;
+==class-weapon;
+  before = [{technical}];
+  title = Weapon (Class);
+  purpose = The [//Weapon] class is a generic class used for most ordinary weapons, and from which every other Weapon class derives.
+          It provides functionality for most types of weapons, and is sufficient for most use cases.;
+  infobox = 
+    | {{name}} : class Weapon
+    | ([{tlang:What does this mean?}])
+    | Type [i/rloc] : [//weapon]
+    | Attributes
+    | [//name] : string # The display name of the weapon.
+    | [//description] : string # Longer description of what this weapon does. Maximum line length of 50 characters, and max 4 lines. Use \n for a new line.
+    | [//reload] : int # The number of frames [u/between] each shot of the weapon.
+    | [//parts] : ([i/initonly conobj])[br][->class-part as Part][\] # The visual definition for this weapon.
+    | [//shoot] : Object # Defines what this weapon does when it fires.
+    | [//cost] : Object # How much of each currency this weapon costs.
+    | [//accel] : float # Acceleration factor per shot of this weapon.
+    | [//accelDecay] : float # Acceleration factor lost per frame while not firing or reloading.
+    | [//maxAccel] : float # Maximum acceleration factor of the weapon.
+    | [//storesDV] : bool # If true, this weapon will change damage output linearly besed on destroyed enemies.
+    | [//dvRatio] : float # Amount of damage added per DV accumulated. Boxes give 1, regular entities give 25, Bosses give 250, Finals give 2500.
+    | [//fireSound] : (sounds [i/rloc]) string # The sound that this weapon makes when firing.
+    | [//recoil] : float # Number of pixels the shooter gets knocked back by when firing this.
+    | [//rotate] : bool # Does this weapon turn?
+    | [//maxRotation] : float # Maximum magnitude of rotation in degrees. Does not work properly for bosses.
+    | Attributes > [i/[//shoot]]
+    | [//shoot.bullet] : ([i/conobj]) [->class-bullet as Bullet] # Definition of the bullet to fire.
+    | [//shoot.pattern] : Object # Defines how the bullet should be shot.
+    | Attributes > [i/[//shoot]] > [i/[//pattern]]
+    | [//.pattern.amount] : int # How many bullets should be fired at once.
+    | [//.pattern.spread] : float # Maximum rotational offset of each bullet in degrees. Known as 'Random Spread' on the wiki.
+    | [//.pattern.spacing] : float # Angle in degrees between each bullet fired. Known as 'Even Spread' on the wiki.
+    | Attributes > [i/[//cost]]
+    | [//cost.shards] : int # The number of shards required to buy this weapon.
+    | [//cost.bloonstones] : int # The number of bloonstones required to buy this weapon.
+    | Superclass
+    | (none, this is a base class)
+    | Subclasses
+    | (none)
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/classes/weapon.js as [i/View Source (external)]]
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/registries/weapon.js as [i/Examples (external)]]
+    ;
+==class-part;
+  before = [{technical}];
+  title = Part (Class);
+  purpose = The [//Part] class is a generic class used for defining [->class-weapon as [//Weapon]] displays, through their [//parts] properties. A single [//Part] instance is displayed as a rectangle, transformed as defined in its attributes.;
+  infobox = 
+    | {{name}} : class Part
+    | ([{tlang:What does this mean?}])
+    | Type [i/rloc] : [//part]
+    | Attributes
+    | [//image] : (images [i/rloc])[br]string # What image this part has. If omitted, a solid coloured rectangle will be used instead.
+    | [//x] : float # Offset of this part parallel to the direction of the weapon.
+    | [//y] : float # Offset of this part perpendicular to the direction of the weapon.
+    | [//rotation] : float # Rotational offset from the weapon's rotation.
+    | [//slide] : float # Offset of this part in the direction of its final rotation.
+    | [//colour] : int[\3] # Colour of this part. Only effective if 'image' is empty.
+    | [//width] : float # Size parallel to this part's direction.
+    | [//height] : float # Size perpendicular to this part's direction.
+    | [//chargeAnimations] : ([i/initonly])[br][->class-partanimation as PartAnimation][\] # Animations to play before the weapon fires.
+    | [//passiveAnimations] : ([i/initonly])[br]PartAnimation[\] # Animations to play constantly.
+    | [//recoilAnimations] : ([i/initonly])[br]PartAnimation[\] # Animations to play after the weapon fires.
+    | Superclass
+    | (none, this is a base class)
+    | Subclasses
+    | (none)
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/classes/part.js as [i/View Source (external)]]
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/registries/weapon.js as [i/Examples (external)]]
+    ;
+==class-partanimation;
+  before = [{technical}];
+  title = PartAnimation (Class);
+  purpose = The [//PartAnimation] class is a generic class for defining animated transformations of [->class-part as weapon parts]. Multiple [//PartAnimations] can work in parallel, each transforming the part additively.[br]Setting any [//__Offset] property will set the [i/target] offset, but getting them will return the [i/current] offset.;
+  infobox = 
+    | {{name}} : class PartAnimation
+    | ([{tlang:What does this mean?}])
+    | Type [i/rloc] : [//animation]
+    | Attributes
+    | [//x] : float # Offset of the target part parallel to the direction of the weapon.
+    | [//y] : float # Offset of the target part perpendicular to the direction of the weapon.
+    | [//rotation] : float # Rotational offset of the target from the weapon's rotation.
+    | [//slide] : float # Offset of the target part in the direction of its final rotation.
+    | [//duration] : int # The number of frames that this animation will take to complete.
+    | [//delay] : int # The number of frames to wait for before actually starting this animation.
+    | Superclass
+    | (none, this is a base class)
+    | Subclasses
+    | [[navigator]] : Recoil- Animation@class-recoilanimation + Bounce- Animation@class-bounceanimation + Infinite- Animation@class-infiniteanimation + Loop- Animation@class-loopanimation
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/classes/animation.js as [i/View Source (external)]]
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/registries/weapon.js as [i/Examples (external)]]
+    ;
+==class-recoilanimation;
+  before = [{technical}];
+  title = RecoilAnimation (Class);
+  purpose = The [//RecoilAnimation] class is a subclass of [//[->class-partanimation as PartAnimation]] specialised for weapon recoil animations. The animation plays once normally, then plays again in reverse, with a different speed. This reversing is not calculated within the [//duration] attribute, so calculation of this number falls on the user of the class.;
+  infobox = 
+    | {{name}} : class RecoilAnimation
+    | ([{tlang:What does this mean?}])
+    | Type [i/rloc] : [//recoil-animation]
+    | Attributes
+    | [//speedRatio] : float # Multiplier for the speed of the return animation. For example, speedRatio = 0.5 means the returning animation is played at half the speed of the normal one.
+    | Inherited Attributes
+    | [//x] : float # Offset of the target part parallel to the direction of the weapon.
+    | [//y] : float # Offset of the target part perpendicular to the direction of the weapon.
+    | [//rotation] : float # Rotational offset of the target from the weapon's rotation.
+    | [//slide] : float # Offset of the target part in the direction of its final rotation.
+    | [//duration] : int # The number of frames that this animation will take to complete.
+    | [//delay] : int # The number of frames to wait for before actually starting this animation.
+    | Superclass
+    | [[navigator]] : PartAnimation@class-partanimation
+    | Subclasses
+    | (none)
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/classes/animation.js as [i/View Source (external)]]
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/registries/weapon.js as [i/Examples (external)]]
+    ;
+==class-bounceanimation;
+  before = [{technical}];
+  title = BounceAnimation (Class);
+  purpose = The [//BounceAnimation] class is a subclass of [//[->class-partanimation as PartAnimation]] specialised for passive animations. An animation instantiated from this class will play normally, then in reverse. It is equivalent to a [//[->class-recoilanimation as RecoilAnimation]] with a [//speedRatio] of 1, so is usually ignored in favour of [//RecoilAnimation].;
+  infobox = 
+    | {{name}} : class BounceAnimation
+    | ([{tlang:What does this mean?}])
+    | Type [i/rloc] : [//bounce-animation]
+    | Inherited Attributes
+    | [//x] : float # Offset of the target part parallel to the direction of the weapon.
+    | [//y] : float # Offset of the target part perpendicular to the direction of the weapon.
+    | [//rotation] : float # Rotational offset of the target from the weapon's rotation.
+    | [//slide] : float # Offset of the target part in the direction of its final rotation.
+    | [//duration] : int # The number of frames that this animation will take to complete.
+    | [//delay] : int # The number of frames to wait for before actually starting this animation.
+    | Superclass
+    | [[navigator]] : PartAnimation@class-partanimation
+    | Subclasses
+    | (none)
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/classes/animation.js as [i/View Source (external)]]
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/registries/weapon.js as [i/Examples (external)]]
+    ;
+==class-infiniteanimation;
+  before = [{technical}];
+  title = InfiniteAnimation (Class);
+  purpose = The [//InfiniteAnimation] class is a subclass of [//[->class-partanimation as PartAnimation]] specialised for passive animations. An animation instantiated from this class will play forever. It differs from [//[->class-loopanimation as LoopAnimation]] in animation loop mode. [//InfiniteAnimation]s continuously play, never resetting, whereas [//LoopAnimation]s reset every [//duration].;
+  infobox = 
+    | {{name}} : class InfiniteAnimation
+    | ([{tlang:What does this mean?}])
+    | Type [i/rloc] : [//infinite-animation]
+    | Inherited Attributes
+    | [//x] : float # Offset of the target part parallel to the direction of the weapon.
+    | [//y] : float # Offset of the target part perpendicular to the direction of the weapon.
+    | [//rotation] : float # Rotational offset of the target from the weapon's rotation.
+    | [//slide] : float # Offset of the target part in the direction of its final rotation.
+    | [//duration] : int # The number of frames that this animation will take to complete.
+    | [//delay] : int # The number of frames to wait for before actually starting this animation.
+    | Superclass
+    | [[navigator]] : PartAnimation@class-partanimation
+    | Subclasses
+    | (none)
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/classes/animation.js as [i/View Source (external)]]
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/registries/weapon.js as [i/Examples (external)]]
+    ;
+==class-loopanimation;
+  before = [{technical}];
+  title = LoopAnimation (Class);
+  purpose = The [//LoopAnimation] class is a subclass of [//[->class-partanimation as PartAnimation]] specialised for passive animations. An animation instantiated from this class will play normally, then reset once the [//duration] has elapsed.;
+  infobox = 
+    | {{name}} : class LoopAnimation
+    | ([{tlang:What does this mean?}])
+    | Type [i/rloc] : [//loop-animation]
+    | Inherited Attributes
+    | [//x] : float # Offset of the target part parallel to the direction of the weapon.
+    | [//y] : float # Offset of the target part perpendicular to the direction of the weapon.
+    | [//rotation] : float # Rotational offset of the target from the weapon's rotation.
+    | [//slide] : float # Offset of the target part in the direction of its final rotation.
+    | [//duration] : int # The number of frames that this animation will take to complete.
+    | [//delay] : int # The number of frames to wait for before actually starting this animation.
+    | Superclass
+    | [[navigator]] : PartAnimation@class-partanimation
+    | Subclasses
+    | (none)
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/classes/animation.js as [i/View Source (external)]]
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/registries/weapon.js as [i/Examples (external)]]
+    ;
+#

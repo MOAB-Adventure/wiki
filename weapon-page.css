@@ -56,6 +56,7 @@ main .desc span {
   padding: 0;
   margin: 0;
   display: inline;
+  background-color: transparent;
 }
 main .desc a {
   /* font-weight: bold; */
@@ -168,9 +169,89 @@ main .desc .history > ul > li ul {
   font-size: 75%;
 }
 i-n {
-  display: inline;
+  display: inline-block !important;
   margin: 0 !important;
-  padding: 2px !important;
+  padding: 2px 4px !important;
   background-color: transparent !important;
   font-size: 1em !important;
+  text-align: center !important;
+  width: fit-content !important;
+  min-width: 1em !important;
+}
+main .desc .head {
+  padding: 20px;
+  border: 10px double black;
+  background-color: darkgray;
+  font-weight: bold;
+  text-align: center;
+}
+main .desc .head * {
+  background-color: inherit;
+  font-weight: inherit;
+  text-align: inherit;
+}
+main .desc .head u {
+  font-size: 120%;
+}
+
+main .desc .head.ur{
+  background-color: lightgreen;
+  border-color: green;
+}
+main .desc .head.rm{
+  background-color: lightcoral;
+  border-color: red;
+}
+main .desc .head.rc{
+  background-color: rgb(255, 255, 114);
+  border-color: gold;
+}
+main .desc .head.uc{
+  background-color: rgb(224, 114, 255);
+  border-color: purple;
+}
+main .desc .head.ic{
+  background-color: #ffc966;
+  border-color: orange;
+}
+main .desc .head.in{
+  background-color: #ff9466;
+  border-color: rgb(255, 111, 0);
+}
+main .desc .head.cm{
+  background-color: #9ef0ff;
+  border-color: cyan;
+}
+main .desc .head.tc{
+  background-color: rgb(183, 183, 255);
+  border-color: blue;
+}
+
+
+main .desc code{
+  font-size: inherit;
+  font-family: 'Consolas', monospace;
+  border: 2px solid rgba(72, 72, 82, 0.6);
+  margin: 0;
+  border-radius: 0.3em;
+  padding: 1px 6px;
+  background-color: rgba(101, 101, 134, 0.3);
+  font-size: 85%;
+}
+
+main .desc kbd {
+  margin: 0;
+  background-color: #eee;
+  border-radius: 0.3em;
+  border: 1px solid #b4b4b4;
+  box-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.3),
+    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  color: #333;
+  /* display: inline-block; */
+  font-size: 95%;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
 }

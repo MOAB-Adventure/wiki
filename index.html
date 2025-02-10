@@ -9,136 +9,182 @@
   <script src="search.js"></script>
   <script src="elements.js"></script>
   <script src="creator.js"></script>
+  <script src="navigator.js"></script>
 </head>
 
 <body>
   <div class="horiz-align">
     <nav class="sidebar">
-      <a class="nav top" href="home.html" target="main-viewer" title="Return home">
-        <img src="./images/icon/moab-icon.svg" alt="MOAB Adventure logo">
+      <a class="nav top" role="menuitem" tabindex="0" onclick='goto("home")' title="Return home">
+        <img src="./images/icon/moab-icon.svg" alt="Return Home">
         MOAB Adventure Wiki
       </a>
       <div class="vscroll">
         <div class="nav header">
           Weapons
         </div>
-        <details class="nav category" name="category">
+        <details role="menu" class="nav category" name="category">
           <summary>AP1</summary>
-          <a class="nav item" onclick='loadIntoMainIframe("tiny-shooter")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("tiny-shooter")'>
             <span>Tiny Shooter</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("double-shooter")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("double-shooter")'>
             <span>Double Shooter</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("bomb-shooter")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("bomb-shooter")'>
             <span>Bomb Shooter</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("incendiary")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("incendiary")'>
             <span>Incendiary</span>
           </a>
-          <!-- <a class="nav item" onclick='loadIntoMainIframe("missile-launcher")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("missile-launcher")'>
+            <span>Missile Launcher</span>
+          </a>
+          <!-- <a role="menuitem" tabindex="0" class="nav item" onclick='goto("missile-launcher")'>
             <span>Missile Launcher</span>
           </a> -->
         </details>
-        <details class="nav category" name="category">
+        <details role="menu" class="nav category" name="category">
           <summary>AP2</summary>
-          <a class="nav item" onclick='loadIntoMainIframe("tiny-shooter")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("tiny-shooter")'>
             <span>Tiny Shooter</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("double-shooter")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("double-shooter")'>
             <span>Double Shooter</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("heavy-shots")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("heavy-shots")'>
             <span>Heavy Shots</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("kinetic-impactor")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("kinetic-impactor")'>
             <span>Kinetic Impactor</span>
           </a>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("cryo-cannon")'>
+            <span>Cryo Cannon</span>
+          </a>
         </details>
-        <details class="nav category" name="category">
+        <details role="menu" class="nav category" name="category">
           <summary>AP3/4</summary>
-          <a class="nav item" onclick='loadIntoMainIframe("tiny-shooter")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("tiny-shooter")'>
             <span>Tiny Shooter</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("double-shooter")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("double-shooter")'>
             <span>Double Shooter</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("laser-blaster")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("laser-blaster")'>
             <span>Laser Blaster</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("accelerator")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("accelerator")'>
             <span>Accelerator</span>
           </a>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("lancer")'>
+            <span>Lancer</span>
+          </a>
         </details>
-        <details class="nav category" name="category">
+        <details role="menu" class="nav category" name="category">
           <summary>AP5</summary>
-          <a class="nav item" onclick='loadIntoMainIframe("tiny-shooter")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("tiny-shooter")'>
             <span>Tiny Shooter</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("double-shooter")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("double-shooter")'>
             <span>Double Shooter</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("rifle")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("rifle")'>
             <span>Rifle</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("sniper")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("sniper")'>
             <span>Sniper</span>
+          </a>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("shotgun")'>
+            <span>Shotgun</span>
           </a>
         </details>
         <div class="nav header">
           Player
         </div>
-        <details class="nav category" name="category">
+        <details role="menu" class="nav category" name="category">
           <summary>Blimps</summary>
-          <a class="nav item" onclick='loadIntoMainIframe("moab")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("moab")'>
             <span>MOAB</span>
           </a>
         </details>
         <div class="nav header">
           World
         </div>
-        <details class="nav category" name="category">
+        <details role="menu" class="nav category" name="category">
           <summary>Zones</summary>
-          <a class="nav item" onclick='loadIntoMainIframe("ocean-skies")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("ocean-skies")'>
             <span>Ocean Skies</span>
           </a>
         </details>
         <div class="nav header">
           Enemies
         </div>
-        <details class="nav category" name="category">
+        <details role="menu" class="nav category" name="category">
           <summary>Boxes</summary>
-          <a class="nav item" onclick='loadIntoMainIframe("wood-box")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("wood-box")'>
             <span>Wooden Box</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("metal-box")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("metal-box")'>
             <span>Metal Box</span>
           </a>
         </details>
         <div class="nav header">
           Mechanics
         </div>
-        <details class="nav category" name="category">
+        <details role="menu" class="nav category" name="category">
           <summary>Typing</summary>
-          <a class="nav item" onclick='loadIntoMainIframe("damage-types")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("damage-types")'>
             <span>Damage Types</span>
           </a>
-          <a class="nav item" onclick='loadIntoMainIframe("shot-types")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("shot-types")'>
             <span>Shot Types</span>
           </a>
         </details>
-        <details class="nav category" name="category">
+        <details role="menu" class="nav category" name="category">
           <summary>Upgrades</summary>
-          <a class="nav item" onclick='loadIntoMainIframe("currency")'>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("currency")'>
             <span>Currency</span>
           </a>
         </details>
+
+        <div class="nav header" style="font-size: 75%;">
+          The Technical Part
+        </div>
+        <a role="menuitem" tabindex="0" class="nav item" onclick='goto("technical-language")'>
+          <span>&nbsp;&nbsp;&nbsp;Language </span>
+        </a>
+        <details role="menu" class="nav category" name="category">
+          <summary>Classes</summary>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("class-weapon")'>
+            <span>Weapon</span>
+          </a>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("class-part")'>
+            <span>Part</span>
+          </a>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("class-partanimation")'>
+            <span>Part- Animation</span>
+          </a>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("class-recoilanimation")'>
+            <span>Recoil- Animation</span>
+          </a>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("class-bounceanimation")'>
+            <span>Bounce- Animation</span>
+          </a>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("class-infiniteanimation")'>
+            <span>Infinite- Animation</span>
+          </a>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("class-loopanimation")'>
+            <span>Loop- Animation</span>
+          </a>
+        </details>
+
         <div class="nav header">
           <br>
         </div>
       </div>
     </nav>
     <main id="infoviewer">
+      <!-- Not sure how necessary this is anymore -->
       <iframe name="main-viewer" src="home.html" width="100%" height="100%" id="preview"></iframe>
     </main>
   </div>

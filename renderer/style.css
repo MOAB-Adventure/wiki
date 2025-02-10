@@ -1,9 +1,6 @@
 ::selection{
   background-color: inherit;
 }
-*{
-  font-family: "Consolas", monospace;
-}
 html, body{
   overflow: hidden;
   padding: 0;

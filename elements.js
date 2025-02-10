@@ -108,7 +108,7 @@ class InfoComponent extends HTMLElement {
         background-color:  var(--hover-bg-colour);
         border: 2px solid black;
         border-radius: 5px;
-        translate: -75% 90%;
+        translate: -75% 1.1lh;
         padding: 2px;
         z-index: 1;
         max-width: calc(var(--box-width) / 2);
@@ -125,7 +125,8 @@ class InfoComponent extends HTMLElement {
         align-items: center;
         text-decoration: none;
         color: black;
-        width: 13%;
+        min-width: 13%;
+        max-width: 13%;
       }
       .info-container .row.nobg{
         background-color: var(--table-bg-colour);
@@ -278,8 +279,8 @@ class GeneratedInfoComponent extends InfoComponent {
     if (parts.length < 2) {
       this.addGroupTag(main);
     } else {
-      if (main === "[[navigator]]") {
-        let navitems = parts[1].split(" + ");
+      if (main === "[[navigator]]" || main === "[[navigator*]]") {
+        let navitems = (main === "[[navigator*]]"?getComponent(parts[1]):parts[1]).split(" + ");
         let parsed = [];
         for (let item of navitems) {
           let navparts = item.split("@");
@@ -446,6 +447,7 @@ class IconElement extends HTMLElement {
   static icons = {
     shard: "./images/icon/shard.svg|Shards",
     bloonstone: "./images/icon/bloonstone.svg|Bloonstones",
+
     ballistic: "./images/icon/ballistic.svg|Ballistic Damage",
     normal: "./images/icon/normal.svg|Normal Damage",
     fire: "./images/icon/fire.svg|Fire Damage",
@@ -454,6 +456,7 @@ class IconElement extends HTMLElement {
     laser: "./images/icon/laser.svg|Laser Damage",
     collision: "./images/icon/collision.svg|Collision Damage",
     electric: "./images/icon/electric.svg|Electric Damage",
+    ice: "./images/icon/ice.svg|Ice Damage",
 
     projectile: "./images/icon/projectile.svg|Projectile Shot Type",
     point: "./images/icon/point.svg|Point Shot Type",
@@ -471,7 +474,7 @@ class IconElement extends HTMLElement {
     this.attachShadow({ mode: "open" });
     // this.shadowRoot.appendChild(htmlToNode(InfoComponent.styleLink));
     this.shadowRoot.appendChild(
-      htmlToNode(`<style>.icon{height: 1em; translate: 0 0.15em;}</style>`)
+      htmlToNode(`<style>.icon{height: 1em; max-height: 1em; translate: 0 0.15em;}</style>`)
     );
     let image = document.createElement("img");
     let toGrab = this.getAttribute("icon");

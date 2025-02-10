@@ -27,7 +27,10 @@ only if weapon |
     | [[navigator]] : (label)@(pagename)~(imageurl) + (...)
 
 vertical pipe (|) separates components
-[[image]] and [[navigator]] are special component types
+[[image]] and [[navigator]] are special component types:
+  [[image]] inserts an image
+  [[navigator]] inserts a horizontal list of items with links and images
+    use [[navigator*]] to get the navigator from a component
 colon with spaces ( : ) separates property and value
 {{name}} is a special property: it changes the title bar of the box
 
@@ -46,12 +49,18 @@ Valid codes:
 - [s/ ... ] = struck through text
 - [-> ... ] = link to page with specified name
 - [-> ... as ... ] = link to page with specified name showing specified text (second input)
+- [-^ ... ] = link to external page with specified URL
+- [-^ ... as ... ] = link to external page with specified URL, showing the second input as text
 - [c:(colour)/ ... ] = coloured text
+- [h:(colour)/ ... ] = highlighted text
 - [br] = line break
 - [.(class)/ ... ] = <span> with (class) as a class.
 - [img/ ... ] = icon with specified name (not case sensitive)
 - [{ ... }] = insert a reusable component from components.def.
 - [{ ... : a : b : ... }] = insert component, replacing placeholders with `a`, `b`, ...
+
+- [// ... ] = code-formatted text.
+- [k/ ... ] = represents keystroke, like the HTML <kbd> element
 
 b, i, u and s codes are semantically neutral.
 img codes can only display these icons:
@@ -67,6 +76,11 @@ There is an additional field, 'before', which places text outside of any section
 There are additional codes here:
 - [q/ ... ] = Block quote with specified text.
 - [q/ ... -- ...] = Block quote with specified text, citing the specified source.
+
+If none of these codes fufil the requirement, the code
+  [html/ ... ] = html override
+can be used to insert HTML directly.
+
 
 ### components ###
 Defines reusable parts to insert using the special syntax [{ ... }].

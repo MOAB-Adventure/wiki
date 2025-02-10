@@ -39,7 +39,7 @@
         bolts.;
   attacks = Metal boxes still don't directly attack, and damage on player collision.;
   spawning = Metal boxes, due to their difficulty, spawn much more rarely in [->ocean-skies] than any other zone, but become more common later in the
-        game.
+        game.;
   strategy = Metal boxes have a lot of health, and spawn more rarely, so, (in early-game) weapons that deal high
         [b/single-target damage], including [->laser-blaster] will be
         effective against them.[br]If destroying them is not desired, or not possible, 
@@ -63,3 +63,22 @@
       | Spawning Zones
       | [[navigator]] : Ocean Skies@ocean-skies~./images/ss/sky-high.png
       ;
+==monkey-ace;
+  title = Monkey Ace;
+  class = Entity > Boss;
+  overview = The [b/Monkey Ace] is the second boss of [->ocean-skies], coming after the [->gigantic-box].
+          It serves as an introduction to higher-mobility enemies, as well as directional weapons.;
+  appearance = The Monkey Ace takes the appearance of a green biplane with cyan-outlined red circles 
+          on the ends of the wings. The nose of the plane is cyan, and the plane is piloted by a monkey.;
+  attacks = The Monkey Ace has 2 main attacks:[br]
+          - [b/Radial Spray], which fires 8 bullets in a radial pattern around the main plane. These shots will not hit a stationary target, and serve as a restriction to movement.[br]
+          - [b/Machine Gun], which rapidly fires many small bullets directly forwards. This attack always faces the same direction as the plane. The plane rapidly reverses before using this attack.[br]
+          [br]
+          These attacks are used in this order:[br]
+          - Radial Spray[br]
+          - Radial Spray[br]
+          - Radial Spray[br]
+          - Machine Gun;
+  spawning = This boss spawns on the left of the screen, behind the player. It spawns 3 times in total, on levels 2, 5 and 8.[br]
+          It only spawns in Ocean Skies, and will not appear in other zones.;
+#

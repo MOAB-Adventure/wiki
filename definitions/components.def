@@ -1,5 +1,55 @@
-### COMPONENT DEFINITION FILE ###;
-  shards = [->currency as [img/shard]];
-  bloonstones = [->currency as [img/bloonstone]];
-  dt = [->damage-types as [img/{1}]];
-  st = [->shot-types as [img/{1}]]{1};
+### COMPONENT DEFINITION FILE ###
+# currency icons
+  currency = [->currency as [img/{1}]];
+  shards = [{currency:shard}];
+  bloonstones = [{currency:bloonstone}];
+# typing icons
+  linkimg = [->{1} as [img/{2}]];
+  dt = [{linkimg:damage-types:{1}}];
+  st = [{linkimg:shot-types:{1}}]{1};
+# homing types
+  hom.ast = [{st:Assisted}];
+  hom.man = [{st:Manual}];
+  hom.idp = [{st:Independent}];
+# navigators
+  nav.ap1.1 = Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Bomb
+      Shooter@bomb-shooter~./images/weapon/bomb-shooter.png + 
+      Incendiary@incendiary~./images/weapon/incendiary.png;
+      # + Nuke Launcher@nuke-launcher~./images/weapon/nuke-launcher.png;
+  nav.ap1.2 = Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Bomb
+      Shooter@bomb-shooter~./images/weapon/bomb-shooter.png + Missile
+      Launcher@missile-launcher~./images/weapon/missile-launcher.png;
+  nav.ap2.1 = Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots~./images/weapon/heavy-shots.png + Kinetic
+      Impactor@kinetic-impactor~./images/weapon/kinetic-impactor.png;
+  nav.ap2.2 = Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Heavy
+      Shots@heavy-shots~./images/weapon/heavy-shots.png + Cryo 
+      Cannon@cryo-cannon~./images/weapon/cryo-cannon.png;
+  nav.ap3/4.1 = Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster~./images/weapon/laser-blaster.png + Accelerator@accelerator~./images/weapon/accelerator.png;
+  nav.ap3/4.2 = Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Laser
+      Blaster@laser-blaster~./images/weapon/laser-blaster.png + Lancer@lancer~./images/weapon/lancer.png;
+  nav.ap5.1 = Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png + 
+      Sniper@sniper~./images/weapon/sniper.png;
+  nav.ap5.2 = Tiny Shooter@tiny-shooter~./images/weapon/tiny-shooter.png + Double
+      Shooter@double-shooter~./images/weapon/double-shooter.png + Rifle@rifle~./images/weapon/rifle.png
+       + Shotgun@shotgun~./images/weapon/shotgun.png;
+# page headers
+  unreleased = [.head.ur/[u/Unreleased Content][br]This page describes content which has not yet been released, but [i/has been confirmed]. Any details on this page may change at any time.];
+  removed = [.head.rm/[u/Removed Content][br]This page describes content which has been removed from the game, or has been made otherwise unobtainable through legitimate means.];
+  recent = [.head.rc/[u/Recently Released][br]This page describes content which has been introduced in a recent update, and as a result of which, may change in the near future due to balance changes.];
+  unconfirmed = [.head.uc/[u/Unconfirmed Additions][br]This page describes content which has not been confirmed. None of the creators have stated that this will become a feature. There is no requirement that this feature will ever exist in-game. Don't count on the information on this page being correct.];
+  incomplete = [.head.ic/[u/Incomplete Page][br]This page is incomplete. The information presented may not be fully accurate, and there may be data missing.[br]This is not the final version!];
+  community = [.head.cm/[u/Community Creation][br]This page describes content which originates from an unofficial source, for example a mod. This content is not managed by the game's creators, and may require additional action to function.];
+  outdated = [.head.in/[u/Outdated Information][br]This page describes content which has been affected by a recent update, but has not had its relevant pages updated yet. The information on this page may no longer be correct. If unsure, check the changelogs, either in-game or on GitHub.];
+  technical = [.head.tc/[u/Technical Content][br]This page is aimed at more technical players of MOAB Adventure, such as those seeking to add new content. This information is not relevant for normal players, and will not (necessarily) affect gameplay experience.];
+# technical
+  tlang = [i/[->technical-language as {1}]];
+#

@@ -6,29 +6,34 @@ let zones = {};
 let entities = {};
 let others = {};
 let components = {};
-const creator = {
-  weapon: createWeaponPage,
-  blimp: createBlimpPage,
-  entity: createEntityPage,
-  zone: createZonePage,
-  other: createArbitraryPage,
-};
-const error404 = `
-  <header><p><i></i><p>Error 404</p></p><search-bar></search-bar></header>
+function errorPage(
+  num = -1,
+  shortDesc = "Unknown Error",
+  mainBody = `Something's gone wrong internally, and we couldn't categorise it..`,
+  relevantLabel = "bug"
+) {
+  return `
+  <header><p><i></i><p>Error</p></p><search-bar></search-bar></header>
   <main>
     <div class="desc">
       <h1>Oh No!</h1>
-      <p><b>Something's gone wrong.</b></p>
-      <p>The page you are looking for <b>does not exist</b>. If you think this is an error, notify the creator on the <a target="_blank" href="https://github.com/MOAB-Adventure/wiki/issues/new?template=Blank+issue">GitHub Issues page</a>.</p>
+      <p><b>Something's gone wrong.</b><br><i>&nbsp;&nbsp;&nbsp;&nbsp;${num}: ${process(
+    shortDesc
+  )}</i></p>
+      <p>${process(mainBody)}</p>
+      <p>Report this error on the <a target="_blank" href="https://github.com/MOAB-Adventure/wiki/issues/new?template=Blank+issue">GitHub Issues page</a>, using the label <code>${relevantLabel}</code> to get it fixed.</p>
     </div>
   </main>`;
+}
 
+loaded = false;
 importAll().then((x) => start(x));
 
 function start() {
-  console.log("Content lists loaded.");
+  msg("Content lists loaded.");
   loaded = true;
   try {
+    msg("Loading pages...");
     onWeaponLoad();
   } catch (e) {}
 }
@@ -62,13 +67,30 @@ function process(text, quotable = false) {
     //[s/ ... ] struck through text
     if (code.startsWith("s/")) return `<s>${process(code.substring(2))}</s>`;
 
+    //[// ... ] code
+    if (code.startsWith("//"))
+      return `<code>${process(code.substring(2))}</code>`;
+
+    //[k/ ... ] keystroke
+    if (code.startsWith("k/"))
+      return `<kbd>${process(code.substring(2))}</kbd>`;
+
     //[-> ... ] / [-> ... as ... ] link / aliased link
     if (code.startsWith("-&gt;")) {
       let linkParts = code.substring(5).split(" as ");
       let display = linkParts[1]
         ? process(linkParts[1])
         : convertToPageTitle(linkParts[0]);
-      return `<a onclick="load('${linkParts[0]}')" href="#${linkParts[0]}">${display}</a>`;
+      return `<a onclick="moveTo('${linkParts[0]}')" href="#${linkParts[0]}">${display}</a>`;
+    }
+
+    //[-^ ... ] / [-^ ... as ... ] external link / aliased external link
+    if (code.startsWith("-^")) {
+      let linkParts = code.substring(2).split(" as ");
+      let display = linkParts[1]
+        ? process(linkParts[1])
+        : convertToPageTitle(linkParts[0].split("/").at(-1));
+      return `<a href="${linkParts[0]}" target="_blank">${display}</a>`;
     }
 
     //[br] line break
@@ -78,6 +100,14 @@ function process(text, quotable = false) {
     if (code.startsWith("c:")) {
       let colparts = code.substring(2).split("/");
       return `<span style="color:${colparts[0]}">${process(
+        colparts.slice(1).join("/")
+      )}</span>`;
+    }
+
+    //[h: ... / ... ] highlighted text
+    if (code.startsWith("h:")) {
+      let colparts = code.substring(2).split("/");
+      return `<span style="background-color:${colparts[0]}">${process(
         colparts.slice(1).join("/")
       )}</span>`;
     }
@@ -95,9 +125,9 @@ function process(text, quotable = false) {
       return `<i-n icon="${code.substring(4).toLowerCase()}"></i-n>`;
     }
 
-    //[\\ ... ] square brackets
+    //[\ ... ] square brackets
     if (code.startsWith("\\")) {
-      return "[" + code.substring(1) + "]";
+      return "[" + process(code.substring(1)) + "]";
     }
 
     //[q/ ... ] blockquote
@@ -110,9 +140,13 @@ function process(text, quotable = false) {
     if (code.startsWith("{") && code.endsWith("}")) {
       let comp = code.substring(1, code.length - 1);
       let parts = comp.split(":");
-      let component = getComponent(...parts)
+      let component = getComponent(...parts);
       return process(component);
     }
+
+    //[html/ ... ] html override
+    if (code.startsWith("html/"))
+      return "</p>" + makeUNsafe(code.substring(5)) + "<p>";
     return code;
   });
   return text;
@@ -125,6 +159,7 @@ function process(text, quotable = false) {
  * @returns Unprocessed string representation of the component's replaced form. `<?>` if component did not exist.
  */
 function getComponent(componentName, ...placeholders) {
+  msg(componentName + " from", components);
   if (Object.keys(components).includes(componentName)) {
     /** @type {string} */
     let component = components[componentName];
@@ -139,7 +174,7 @@ function getComponent(componentName, ...placeholders) {
   return "<?>";
 }
 
-function secondaryProcess(text) {
+function optionalProcess(text) {
   return text.match(bracketRegex) ? process(text) : text;
 }
 /**
@@ -147,9 +182,15 @@ function secondaryProcess(text) {
  */
 function makeSafe(text) {
   if (!text) return "";
-  return text
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
+  return text.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+}
+
+/**
+ * @param {string} text
+ */
+function makeUNsafe(text) {
+  if (!text) return "";
+  return text.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
 }
 
 function createHistoryList(string) {
@@ -172,8 +213,14 @@ function createHistoryList(string) {
 function changePageContentJSON(
   json,
   doc = document,
-  creatorfn = creator.weapon
+  creatorfn = createArbitraryPage
 ) {
+  msg("Using page " + json.title);
+  if (json.title === "MOAB Adventure Wiki")
+    window.top.document.title = "MOAB Adventure Wiki";
+  else
+    window.top.document.title =
+      (json.title ?? "Unknown") + " - MOAB Adventure Wiki";
   changePageContent(...creatorfn(json), doc, creatorfn);
 }
 
@@ -181,17 +228,42 @@ function changePageContent(
   page,
   infobox,
   doc = document,
-  creatorfn = creator.weapon
+  creatorfn = createArbitraryPage
 ) {
-  doc.body.innerHTML = page;
+  doc.body.innerHTML = page.replaceAll(/<p(?: class='')?>\s*<\/p>/g, "");
   if (!infobox) return;
   infobox = infobox.trim();
   if (infobox.length === 0) return;
   let ib = doc.createElement(
-    creatorfn === creator.weapon ? "weapon-info" : "info-box"
+    creatorfn === createWeaponPage ? "weapon-info" : "info-box"
   );
   doc.querySelector("main").appendChild(ib);
   ib.textContent = infobox;
+}
+/**
+ * Repeatedly tries to load the page, until it works.
+ */
+async function recursiveLoader(win = window) {
+  if (!isLoaded(win)) {
+    msg("{Loader} " + win.document.title + " not loaded yet...");
+    await delay(100);
+    return recursiveLoader(win);
+  }
+  msg("{Loader} " + win.document.title + " finished loading.");
+  return true;
+}
+function getComponents() {
+  return components;
+}
+/**
+ * Tries to guess if the page has loaded or not.
+ * Will only work if > 0 components are defined.
+ */
+function isLoaded(win = window) {
+  return win.getComponents() && Object.keys(win.getComponents()).length > 0;
+}
+async function delay(ms) {
+  return new Promise((resolve, reject) => setTimeout(() => resolve(true), ms));
 }
 /**
  * @param {string} name kebab-case text.
@@ -222,20 +294,32 @@ function load(name, doc = document) {
   if (loaded) {
     //what kind of page is this name?
     let decision = decideWhatTheF_ckThisIs(name);
-    console.log(decision);
+    displayLoadState();
     //If the source isn't empty
     if (Object.keys(decision.source).length > 0)
       changePageContentJSON(decision.source[name], doc, decision.func);
-    else changePageContent(error404, null, doc);
+    else
+      changePageContent(
+        errorPage(
+          404,
+          "File not found",
+          `The page you are looking for [b/does not exist].`,
+          "new page"
+        ),
+        null,
+        doc
+      );
   } else {
     console.warn("Could not load weapon page, JSON not loaded.");
   }
 }
 
-function loadIntoMainIframe(name) {
+async function loadIntoMainIframe(name) {
   /** @type {HTMLIFrameElement} */
   let iframe = document.getElementById("preview");
-  load(name, iframe.contentDocument);
+  iframe.contentWindow.document.title = "IFrame";
+  if (await recursiveLoader(iframe.contentWindow))
+    load(name, iframe.contentDocument);
 }
 /**
  * @param {URL | string} url
@@ -243,7 +327,11 @@ function loadIntoMainIframe(name) {
  */
 async function importer(url) {
   let result = await (await fetch(url)).text();
-  let weapons = result.replaceAll("\r\n", "").split("==").slice(1);
+  let weapons = result
+    .replaceAll(/^\#.*$/gm, "")
+    .replaceAll("\r\n", "")
+    .split("==")
+    .slice(1);
   let obj = {};
   for (let weapondef of weapons) {
     let weapon = {};
@@ -251,11 +339,12 @@ async function importer(url) {
       .split(";")
       .map((x) => x.trim())
       .filter((x) => x.length > 0);
+    setLoadState(lines[0], false);
     for (let line of lines) {
-      if (line[0] === "#") continue;
       let kp = line.split(" = ");
       if (kp.length > 1) weapon[kp[0]] = kp.slice(1).join(" = ");
     }
+    setLoadState(lines[0], true);
     obj[lines[0]] = weapon;
   }
   return obj;
@@ -267,38 +356,42 @@ async function importer(url) {
  */
 async function singleImporter(url) {
   let result = await (await fetch(url)).text();
-  let weapondef = result.replaceAll("\r\n", "");
+  let weapondef = result.replaceAll(/\#.*$/gm, "").replaceAll("\r\n", "");
   let weapon = {};
   let lines = weapondef
     .split(";")
     .map((x) => x.trim())
     .filter((x) => x.length > 0);
   for (let line of lines) {
-    if (line[0] === "#") continue;
     let kp = line.split(" = ");
-    if (kp.length > 1) weapon[kp[0]] = kp.slice(1).join(" = ");
+    if (kp.length > 1) {
+      weapon[kp[0]] = kp.slice(1).join(" = ");
+      setLoadState("[{" + kp[0] + "}]", true);
+    }
   }
   return weapon;
 }
 
 async function importAll() {
+  loaded = false;
   weapons = await importer("definitions/weapons.def");
-  console.log("Weapons loaded.");
+  msg("Weapons loaded.");
   blimps = await importer("definitions/blimps.def");
-  console.log("Blimps loaded.");
+  msg("Blimps loaded.");
   entities = await importer("definitions/entities.def");
-  console.log("Entities loaded.");
+  msg("Entities loaded.");
   zones = await importer("definitions/zones.def");
-  console.log("Zones loaded.");
+  msg("Zones loaded.");
   others = await importer("definitions/others.def");
-  console.log("Others loaded.");
+  msg("Others loaded.");
   components = await singleImporter("definitions/components.def");
-  console.log(components);
-  console.log("Components loaded.");
+  msg("Components loaded.");
+  msg(components);
+  msg("Import completed.");
 }
 
 function createWeaponPage(weaponJSON = {}) {
-  console.log(weaponJSON);
+  msg(weaponJSON);
   return [
     `
   <header>
@@ -339,7 +432,7 @@ function createWeaponPage(weaponJSON = {}) {
 }
 
 function createBlimpPage(blimpJSON = {}) {
-  console.log(blimpJSON);
+  msg(blimpJSON);
   return [
     `
   <header>
@@ -349,6 +442,7 @@ function createBlimpPage(blimpJSON = {}) {
   </header>
   <main>
     <div class="desc">
+      ${process(blimpJSON.before, true)}
       <h2>Overview</h2>
       <p>${process(blimpJSON.overview ?? "[[Overview]]")}</p>
       <h2>Appearance</h2>
@@ -377,7 +471,7 @@ function createBlimpPage(blimpJSON = {}) {
 }
 
 function createZonePage(zoneJSON = {}) {
-  console.log(zoneJSON);
+  msg(zoneJSON);
   return [
     `
   <header>
@@ -387,6 +481,7 @@ function createZonePage(zoneJSON = {}) {
   </header>
   <main>
     <div class="desc">
+      ${process(zoneJSON.before, true)}
       <h2>Overview</h2>
       <p>${process(zoneJSON.overview ?? "[[Overview]]")}</p>
       <h2>Appearance</h2>
@@ -415,7 +510,7 @@ function createZonePage(zoneJSON = {}) {
 }
 
 function createEntityPage(entityJSON = {}) {
-  console.log(entityJSON);
+  msg(entityJSON);
   return [
     `
   <header>
@@ -425,6 +520,7 @@ function createEntityPage(entityJSON = {}) {
   </header>
   <main>
     <div class="desc">
+      ${process(entityJSON.before, true)}
       <h2>Overview</h2>
       <p>${process(entityJSON.overview ?? "[[Overview]]")}</p>
       <h2>Appearance</h2>
@@ -462,7 +558,7 @@ let reservedProperties = [
   "before",
 ];
 function createArbitraryPage(json = {}) {
-  console.log(json);
+  msg(json);
   return [
     `
   <header>
@@ -479,17 +575,29 @@ function createArbitraryPage(json = {}) {
           (section) =>
             (!(section[0].startsWith("(") && section[0].endsWith(")"))
               ? `
-        <h2>${convertToSectionHeader(section[0])}</h2>`
+        <h2>${convertToSectionHeader(
+          section[0].replaceAll(/(?<!\\)[\:\!]|\\/g, "")
+        )}</h2>`
               : "") +
             `
-      <p>${process(
-        section[1] ??
-          "[[" + section[0][0].toUpperCase() + section[0].substring(1) + "]]"
-      )}</p>`
+      <p class='${
+        (section[0].match(/(?<!\\)\!/) ? " warn" : "") +
+        (section[0].match(/(?<!\\)\:/) ? " c" : "")
+      }'>${process(
+              section[1] ??
+                "[[" +
+                  convertToSectionHeader(
+                    section[0].replaceAll(/(?<!\\)[\:\!]|\\/g, "")
+                  ) +
+                  "]]"
+            )}</p>`
         )
         .join("\n")}
       <br><br>
-      <h2>Version History</h2>
+      ${
+        json.versionHistory !== "null"
+          ? `
+        <h2>Version History</h2>
       <div class="container">
         <div class="history">
           <ul>
@@ -498,7 +606,9 @@ function createArbitraryPage(json = {}) {
             ).join("\n")}
           </ul>
         </div>
-      </div>
+      </div>`
+          : ""
+      }
     </div>
     
   </main>`,
@@ -519,27 +629,53 @@ function blockquote(quote, cite = "In-Game Description") {
 }
 
 function decideWhatTheF_ckThisIs(name) {
-  console.log("deciding what the f_ck " + name + " is");
+  msg("deciding what the f_ck '" + name + "' is");
   if (Object.keys(weapons).includes(name)) {
-    console.log(name + " is weapon");
-    return { source: weapons, func: creator.weapon };
+    setLoadState(name, true, "Weapon");
+    msg("'" + name + "' is weapon");
+    return { source: weapons, func: createWeaponPage };
   }
   if (Object.keys(blimps).includes(name)) {
-    console.log(name + " is blimp");
-    return { source: blimps, func: creator.blimp };
+    setLoadState(name, true, "Blimp");
+    msg("'" + name + "' is blimp");
+    return { source: blimps, func: createBlimpPage };
   }
   if (Object.keys(entities).includes(name)) {
-    console.log(name + " is entity");
-    return { source: entities, func: creator.entity };
+    setLoadState(name, true, "Entity");
+    msg("'" + name + "' is entity");
+    return { source: entities, func: createEntityPage };
   }
   if (Object.keys(zones).includes(name)) {
-    console.log(name + " is zone");
-    return { source: zones, func: creator.zone };
+    setLoadState(name, true, "Zone");
+    msg("'" + name + "' is zone");
+    return { source: zones, func: createZonePage };
   }
   if (Object.keys(others).includes(name)) {
-    console.log(name + " is other");
-    return { source: others, func: creator.other };
+    setLoadState(name, true, "Other");
+    msg("'" + name + "' is other");
+    return { source: others, func: createArbitraryPage };
   }
-  console.log(name + " does not exist");
-  return { source: [], func: () => error404 };
+  msg("'" + name + "' does not exist");
+  setLoadState(name, false);
+  return {
+    source: [],
+    func: () =>
+      errorPage(
+        404,
+        "File not found",
+        `The page you are looking for [b/does not exist].`,
+        "new page"
+      ),
+  };
+}
+let state = {};
+function setLoadState(loader = "Test", loaded = false) {
+  state[loader] = { loaded: loaded ? "✔" : "✖" };
+}
+function displayLoadState() {
+  msg("Page loaded state:");
+  console.table(state);
+}
+function msg(...message) {
+  console.log(window.frameElement !== null ? "[IFrame]" : "[Main]", ...message);
 }
