@@ -63,6 +63,13 @@ main .desc a {
   text-decoration: underline;
   color: var(--header-colour);
 }
+.unf, .unf * {
+  /* font-weight: bold; */
+  text-decoration: none !important;
+  color: inherit !important;
+  background-color: inherit !important;
+  font-size: inherit !important;
+}
 main .desc a:hover {
   /* font-weight: bold; */
   text-decoration: underline;

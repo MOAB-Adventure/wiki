@@ -115,16 +115,18 @@
           - [b/[i/Second Specialisation Tier]]: The tier in which weapons differ based on slot choice (i.e. when AP1.1 ≠ AP1.2). For the base game, this is usually tier 4.[br];
   theTechnicalPart = 
           [b/[u/Attributes]][br]
-          - [b/rloc] or [b/[i/Registry Location]]: Used when referring to registry names, e.g. [i/[//weapons] rloc] refers to any registry name defined in the [//weapons] registry.[br]
+          - [b/rloc] or [b/[i/Registry Location]]: Used when referring to [->registry as registry] names, e.g. [i/[//weapons] rloc] refers to any registry name defined in the [//weapons] registry.[br]
           - [b/initonly] or [b/[i/Initialisation Only]]: Refers to an attribute which can only be set on initial creation, or changes its value during initialisation.[br]
           - [b/conobj] or [b/[i/Constructible Object]]: Refers to an object which is not actually an instance of the given type, but instead contains key-value pairs giving initial values for its properties. Should have a [//type] property to define what the object is, which should be of type [//(genericType [i/rloc]) string].;
+# TCP > Classes
 ==class-weapon;
   before = [{technical}];
+  class = [-^https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes as Class unf];
   title = Weapon (Class);
   purpose = The [//Weapon] class is a generic class used for most ordinary weapons, and from which every other Weapon class derives.
           It provides functionality for most types of weapons, and is sufficient for most use cases.;
   infobox = 
-    | {{name}} : class Weapon
+    | {{name}} : class Weapon [{tointegrate}]
     | ([{tlang:What does this mean?}])
     | Type [i/rloc] : [//weapon]
     | Attributes
@@ -162,10 +164,11 @@
     ;
 ==class-part;
   before = [{technical}];
+  class = [-^https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes as Class unf];
   title = Part (Class);
   purpose = The [//Part] class is a generic class used for defining [->class-weapon as [//Weapon]] displays, through their [//parts] properties. A single [//Part] instance is displayed as a rectangle, transformed as defined in its attributes.;
   infobox = 
-    | {{name}} : class Part
+    | {{name}} : class Part [{partintegratable}]
     | ([{tlang:What does this mean?}])
     | Type [i/rloc] : [//part]
     | Attributes
@@ -189,10 +192,11 @@
     ;
 ==class-partanimation;
   before = [{technical}];
+  class = [-^https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes as Class unf];
   title = PartAnimation (Class);
   purpose = The [//PartAnimation] class is a generic class for defining animated transformations of [->class-part as weapon parts]. Multiple [//PartAnimations] can work in parallel, each transforming the part additively.[br]Setting any [//__Offset] property will set the [i/target] offset, but getting them will return the [i/current] offset.;
   infobox = 
-    | {{name}} : class PartAnimation
+    | {{name}} : class PartAnimation [{partintegratable}]
     | ([{tlang:What does this mean?}])
     | Type [i/rloc] : [//animation]
     | Attributes
@@ -211,10 +215,11 @@
     ;
 ==class-recoilanimation;
   before = [{technical}];
+  class = [-^https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes as Class unf];
   title = RecoilAnimation (Class);
   purpose = The [//RecoilAnimation] class is a subclass of [//[->class-partanimation as PartAnimation]] specialised for weapon recoil animations. The animation plays once normally, then plays again in reverse, with a different speed. This reversing is not calculated within the [//duration] attribute, so calculation of this number falls on the user of the class.;
   infobox = 
-    | {{name}} : class RecoilAnimation
+    | {{name}} : class RecoilAnimation [{partintegratable}]
     | ([{tlang:What does this mean?}])
     | Type [i/rloc] : [//recoil-animation]
     | Attributes
@@ -235,10 +240,11 @@
     ;
 ==class-bounceanimation;
   before = [{technical}];
+  class = [-^https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes as Class unf];
   title = BounceAnimation (Class);
   purpose = The [//BounceAnimation] class is a subclass of [//[->class-partanimation as PartAnimation]] specialised for passive animations. An animation instantiated from this class will play normally, then in reverse. It is equivalent to a [//[->class-recoilanimation as RecoilAnimation]] with a [//speedRatio] of 1, so is usually ignored in favour of [//RecoilAnimation].;
   infobox = 
-    | {{name}} : class BounceAnimation
+    | {{name}} : class BounceAnimation [{partintegratable}]
     | ([{tlang:What does this mean?}])
     | Type [i/rloc] : [//bounce-animation]
     | Inherited Attributes
@@ -257,10 +263,11 @@
     ;
 ==class-infiniteanimation;
   before = [{technical}];
+  class = [-^https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes as Class unf];
   title = InfiniteAnimation (Class);
   purpose = The [//InfiniteAnimation] class is a subclass of [//[->class-partanimation as PartAnimation]] specialised for passive animations. An animation instantiated from this class will play forever. It differs from [//[->class-loopanimation as LoopAnimation]] in animation loop mode. [//InfiniteAnimation]s continuously play, never resetting, whereas [//LoopAnimation]s reset every [//duration].;
   infobox = 
-    | {{name}} : class InfiniteAnimation
+    | {{name}} : class InfiniteAnimation [{partintegratable}]
     | ([{tlang:What does this mean?}])
     | Type [i/rloc] : [//infinite-animation]
     | Inherited Attributes
@@ -279,10 +286,11 @@
     ;
 ==class-loopanimation;
   before = [{technical}];
+  class = [-^https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes as Class unf];
   title = LoopAnimation (Class);
   purpose = The [//LoopAnimation] class is a subclass of [//[->class-partanimation as PartAnimation]] specialised for passive animations. An animation instantiated from this class will play normally, then reset once the [//duration] has elapsed.;
   infobox = 
-    | {{name}} : class LoopAnimation
+    | {{name}} : class LoopAnimation [{partintegratable}]
     | ([{tlang:What does this mean?}])
     | Type [i/rloc] : [//loop-animation]
     | Inherited Attributes
@@ -299,4 +307,56 @@
     | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/classes/animation.js as [i/View Source (external)]]
     | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/registries/weapon.js as [i/Examples (external)]]
     ;
+==class-registry;
+  before = [{technical}];
+  class = [-^https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes as Class unf];
+  title = Registry (Class);
+  purpose = The [//Registry] class represents a [i/dynamic data structure] of key-value pairs, where keys are case-insensitive and values may have multiple keys.[br]
+    Integrate does not allow users to add registries by default, so this page is mostly useless.[br]
+    [->registry as More information on registries][br]
+    [-^https://github.com/integrate-ml/integrate as More information on Integrate (external)][br]
+    [->integrate as More information on MOAB Adventure's integrations with Integrate];
+  infobox = 
+    | {{name}} : class Registry [{nonintegratable}]
+    | ([{tlang:What does this mean?}])
+    | Type [i/rloc] : (none) # Not constructible
+    | Attributes
+    | [//size] : (readonly) int # The number of items in the registry.
+    | Superclass
+    | (none)
+    | Subclasses
+    | (none)
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/blob/main/assets/src/core/registry.js as [i/View Source (external)]]
+    | [-^https://github.com/LightningLaser8/MOAB-Adventure/tree/main/assets/src/registries as [i/Examples (external)]]
+    ;
+# TCP > Registry
+==registry;
+  before = [{technical}];
+  title = Registry (Concept);
+  overview = A [b/Registry] is MOAB Adventure's way of storing the game's content in an easy-to-get way.[br]
+    Anything in a Registry has an associated [i/registry name] (see [{tlang:rloc}]), which is used to access it.[br]
+    All names are case-insensitive, and duplicates are not allowed.[br]
+    One item may have several names, such as [//fallout] / [//radiation-zone];
+  listOfAvailableRegistries = 
+            - [//weaponType]: Types for weapons. Only types in this registry can be used for weapons.[br]
+            - [//bulletType]: Types for bullets. Only types in this registry can be used for bullets.[br]
+            - [//genericType]: Types for literally everything else.[br]
+            - [//weapons]: Stores all existing [i/constructible] [->class-weapon as weapons].[br]
+            - [//images]: Stores containers for images to be used in-game.[br]
+            - [//statuses]: Stores status effects. [c:red/Warning: Unlike most registries, this one does [b/not] store [i/constructible] objects, but rather the objects themselves.][br]
+            - [//blimps]: Stores blimps (player characters).[br]
+            - [//entities]: Stores any constructible entity, such as boxes, bosses or even the player base entity.[br]
+            - [//sounds]: Stores containers for sounds to be played in-game.[br]
+            - [//worlds]: Stores constructible worlds for the player to move between.[br]
+==integrate;
+  before = [{unreleased}];
+  title = Integrate;
+  overview = Integrate is a mod loader for JavaScript-based games, designed to work with [->registry as registries].[br]
+    Integrate mods are simple to create, only a directory with JSON files is required. No coding knowledge required, only knowledge of the type's attributes.[br]
+    Integrate has a scripting language, [-^https://github.com/LightningLaser8/ISL as ISL], which allows it to perform actions which are not allowed by the base set of attributes.;
+  soWhat? = MOAB Adventure aims to implement an Integrate interface which would allow players to add anything from blimps to weapons, or even new UI.[br]
+    Any Integrate-compatible class will be marked with [{integratable}], which links back to this page. Additionally, any classes with ISL compatibility will be marked with [{islable}].[br]
+    Classes which don't implement either of these will be marked [{nonintegratable}].[br]
+    Certain classes which aren't directly Integratable but are referenced and constructed from an Integratable class are marked as [{partintegratable}].;
+  Wait, "Unreleased Content"?:! = Integrate compatibility has not yet been implemented into the game, not even in [//experimental].[br]This means that [i/every] class would be [{nonintegratable}], so instead classes [i/intending to] implement Integrate will be marked as [{tointegrate}], and those [i/not intending to] will be marked as [{nonintegratable}].[br][b/DO NOT EXPECT INTEGRATE MODS TO WORK ON MOAB ADVENTURE, THERE IS NO INTERFACE YET.];
 #

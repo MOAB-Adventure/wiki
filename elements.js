@@ -171,7 +171,7 @@ class InfoComponent extends HTMLElement {
     this.shadowRoot.appendChild(htmlToNode(this.constructor.mainContent));
   }
   setName(name = "[[Name]]") {
-    this.head.textContent = name;
+    this.head.innerHTML = process(name);
   }
   addSlotDetails(slot = "[[Slot]]", option = "[[Option]]", tier = "[[Tier]]") {
     this.body.appendChild(
@@ -466,6 +466,12 @@ class IconElement extends HTMLElement {
     independent: "./images/icon/auto-aim.svg|Independent Tracking",
     assisted: "./images/icon/assisted-aim.svg|Assisted Tracking",
     manual: "./images/icon/mouse-aim.svg|Manual Tracking",
+
+    integrate: "./images/icon/integrate.png|Integratable: This type of content can be added directly with Integrate.",
+    "partial-integrate": "./images/icon/partial-integrate.png|Integratable: This type does not directly support Integrate addition, but is constructed as part of an Integratable type.",
+    "not-integrate": "./images/icon/not-integrate.png|Not Integratable: Integrate does not support adding this type of content",
+    "to-integrate": "./images/icon/to-integrate.png|Not Integratable: This content type will support being added by Integrate in the future, but doesn't yet. Avoid using in public mods.",
+    isl: "./images/icon/isl.png|ISL Controllable: This type of content has an ISL interface.",
   };
   constructor() {
     super();

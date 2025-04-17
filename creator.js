@@ -78,19 +78,25 @@ function process(text, quotable = false) {
     //[-> ... ] / [-> ... as ... ] link / aliased link
     if (code.startsWith("-&gt;")) {
       let linkParts = code.substring(5).split(" as ");
-      let display = linkParts[1]
-        ? process(linkParts[1])
-        : convertToPageTitle(linkParts[0]);
-      return `<a onclick="moveTo('${linkParts[0]}')" href="#${linkParts[0]}">${display}</a>`;
+      let unf = linkParts[1].endsWith(" unf");
+      let words = unf ? linkParts[1].replace(/ unf$/, "") : linkParts[1];
+      let display = words ? process(words) : convertToPageTitle(linkParts[0]);
+      return `<a onclick="moveTo('${linkParts[0]}')" href="#${linkParts[0]}" ${
+        unf ? "class='unf'" : ""
+      }>${display}</a>`;
     }
 
     //[-^ ... ] / [-^ ... as ... ] external link / aliased external link
     if (code.startsWith("-^")) {
       let linkParts = code.substring(2).split(" as ");
-      let display = linkParts[1]
-        ? process(linkParts[1])
+      let unf = linkParts[1].endsWith(" unf");
+      let words = unf ? linkParts[1].replace(/ unf$/, "") : linkParts[1];
+      let display = words
+        ? process(words)
         : convertToPageTitle(linkParts[0].split("/").at(-1));
-      return `<a href="${linkParts[0]}" target="_blank">${display}</a>`;
+      return `<a href="${linkParts[0]}" target="_blank" ${
+        unf ? "class='unf'" : ""
+      }'>${display}</a>`;
     }
 
     //[br] line break
@@ -575,9 +581,12 @@ function createArbitraryPage(json = {}) {
           (section) =>
             (!(section[0].startsWith("(") && section[0].endsWith(")"))
               ? `
-        <h2>${convertToSectionHeader(
-          section[0].replaceAll(/(?<!\\)[\:\!]|\\/g, "")
-        )}</h2>`
+        <h2 class='${
+          (section[0].match(/(?<!\\)\!/) ? " warn" : "") +
+          (section[0].match(/(?<!\\)\:/) ? " c" : "")
+        }'>${convertToSectionHeader(
+                  section[0].replaceAll(/(?<!\\)[\:\!]|\\/g, "")
+                )}</h2>`
               : "") +
             `
       <p class='${

@@ -52,4 +52,9 @@
   technical = [.head.tc/[u/Technical Content][br]This page is aimed at more technical players of MOAB Adventure, such as those seeking to add new content. This information is not relevant for normal players, and will not (necessarily) affect gameplay experience.];
 # technical
   tlang = [i/[->technical-language as {1}]];
+  islable = [->integrate as [img/isl]];
+  integratable = [->integrate as [img/integrate]];
+  partintegratable = [->integrate as [img/partial-integrate]];
+  tointegrate = [->integrate as [img/to-integrate]];
+  nonintegratable = [->integrate as [img/not-integrate]];
 #

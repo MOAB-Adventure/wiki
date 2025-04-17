@@ -2,18 +2,18 @@
 
 # (comment)
 ==(name);
-  (property) = (value);
-  (property) = 
+  (header) = (body);
+  (header) = 
     (multiline
-    value);
+    body);
   versionHistory = 
     (Update 1): (change 1), (change 2) + (Update 2): (change 3) + (...);
   infobox = 
     (infobox);
 
 double equals (==) separates pages
-equals with spaces ( = ) separates property and value
-semicolon (;) separates property-value pairs
+equals with spaces ( = ) separates section header and section body
+semicolon (;) separates sections
 
 ###  infobox help:  ###
 
@@ -37,10 +37,13 @@ colon with spaces ( : ) separates property and value
 ###  formatting syntax   ###
 Replacement for html tags in .def
 works in: 
-- normal property names and values
+- page titles (sort of)
+- page section headers (not [.class/ ... ], [c: ... / ... ] or [h: ... / ... ])
+- page section bodies
 - infobox group names
 - infobox property names and values
 - infobox navigator labels
+- infobox titles (with {{name}})
 
 Valid codes:
 - [b/ ... ] = bold text
@@ -48,9 +51,11 @@ Valid codes:
 - [u/ ... ] = underlined text
 - [s/ ... ] = struck through text
 - [-> ... ] = link to page with specified name
-- [-> ... as ... ] = link to page with specified name showing specified text (second input)
+- [-> ... as ... ] = link to page with specified name showing specified text 
+- [-> ... as ... unf] = link to page with specified name showing specified text, inheriting previous formatting
 - [-^ ... ] = link to external page with specified URL
 - [-^ ... as ... ] = link to external page with specified URL, showing the second input as text
+- [-^ ... as ... unf] = link to external page with specified URL, showing the second input as text, inheriting previous formatting
 - [c:(colour)/ ... ] = coloured text
 - [h:(colour)/ ... ] = highlighted text
 - [br] = line break
@@ -63,17 +68,61 @@ Valid codes:
 - [k/ ... ] = represents keystroke, like the HTML <kbd> element
 
 b, i, u and s codes are semantically neutral.
-img codes can only display these icons:
+img codes can display any one of these icons:
 - shard
 - bloonstone
+
+- ballistic
+- normal
+- fire
+- explosion
+- radiation
+- laser
+- collision
+- electric
+- ice
+
+- projectile
+- point
+- beam
+- contact
+
+- independent
+- assisted
+- manual
+
+- integrate
+- isl
+
+Useful [.(class)/ ... ] class names:
+- warn: Makes background and text red, can be applied to sections with (title)! = (body);
+- c: Centers text, can be applied to sections with (title): = (body);
+- unf: Removes formatting, everything is inherited
+- bq: Formats contents as a blockquote
+
+- head: Formats as a header block
+- ur: (For header blocks) Unreleased.
+- rm: (For header blocks) Removed.
+- rc: (For header blocks) Recently released.
+- uc: (For header blocks) Unconfirmed.
+- ic: (For header blocks) Incomplete page.
+- in: (For header blocks) Outdated information.
+- cm: (For header blocks) Community content.
+- tc: (For header blocks) Technical.
+
+- buff: (For history items) This change made the subject of the page better
+- nerf: (For history items) This change made the subject of the page worse
+- neutral: (For history items) This change did not change the viability of the subject of the page
+- undoc: (For history items) This change was undocumented in the changelogs
+
 Codes can be nested up to 3 times. Anything after that will ignore outer tags.
 Invalid codes will display without the square brackets.
 To type square brackets, use [\ ... ]. This still takes up a nesting level.
 
 In others.def, no fields except 'title', 'class' and 'versionHistory' are defined, and even then only 'title' is required.
-Additionally, any property key-value pair creates a new section, unless the key is surrounded with ( ).
+Additionally, any section pair creates a new section, unless the title is surrounded with ( ).
 There is an additional field, 'before', which places text outside of any section.
-There are additional codes here:
+There are additional codes available in 'before':
 - [q/ ... ] = Block quote with specified text.
 - [q/ ... -- ...] = Block quote with specified text, citing the specified source.
 

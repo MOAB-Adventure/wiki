@@ -15,7 +15,7 @@
 <body>
   <div class="horiz-align">
     <nav class="sidebar">
-      <a class="nav top" role="menuitem" tabindex="0" onclick='goto("home")' title="Return home">
+      <a class="nav top" role="menuitem" tabindex="0" onclick='goto("home")' title="Return home" href="#home">
         <img src="./images/icon/moab-icon.svg" alt="Return Home">
         MOAB Adventure Wiki
       </a>
@@ -155,6 +155,9 @@
         </a>
         <details role="menu" class="nav category" name="category">
           <summary>Classes</summary>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("class-registry")'>
+            <span>Registry</span>
+          </a>
           <a role="menuitem" tabindex="0" class="nav item" onclick='goto("class-weapon")'>
             <span>Weapon</span>
           </a>
@@ -177,7 +180,12 @@
             <span>Loop- Animation</span>
           </a>
         </details>
-
+        <details role="menu" class="nav category" name="category">
+          <summary>Interface</summary>
+          <a role="menuitem" tabindex="0" class="nav item" onclick='goto("registry")'>
+            <span>Registries</span>
+          </a>
+        </details>
         <div class="nav header">
           <br>
         </div>
