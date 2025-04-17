@@ -19,7 +19,7 @@
 # Typing
 ==damage-types;
   title = Damage Types;
-  #before = [q/Ow, that hurt! Just kidding, it didn't hurt at all. -- Robo-Monkey];
+  before = [q/*dink* -- Metal Boxes];
   overview = [b/Damage types] are a way of categorising [i/damage instances].
           They specify how entities should react to this damage being taken.
           While this does not have to be a unique value, every individual damage instance has a damage type.;
